@@ -1,0 +1,138 @@
+.navbar {
+  height: var(--navbar-height);
+  background: var(--navbar-bg);
+  position: relative;
+  z-index: 1000;
+  transition: box-shadow var(--navbar-transition);
+}
+
+.navbar--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.navbar--scrolled {
+  box-shadow: var(--navbar-shadow);
+}
+
+.navbar__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navbar-text);
+  text-decoration: none;
+  transition: color var(--navbar-transition);
+}
+
+.navbar__logo:hover {
+  color: var(--navbar-hover);
+}
+
+.navbar__logo svg {
+  color: var(--navbar-hover);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 767px) {
+  .navbar__links {
+    display: none;
+  }
+}
+
+.navbar__link {
+  color: var(--navbar-text);
+  text-decoration: none;
+  padding: 0.5rem;
+  position: relative;
+  transition: color var(--navbar-transition);
+  display: block;
+}
+
+.navbar__link:hover {
+  color: var(--navbar-hover);
+}
+
+.navbar__link--active {
+  color: var(--navbar-hover);
+}
+
+.navbar__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--navbar-hover);
+}
+
+.navbar__mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--navbar-text);
+}
+
+@media (max-width: 767px) {
+  .navbar__mobile-toggle {
+    display: block;
+  }
+}
+
+.navbar__mobile-toggle:hover {
+  color: var(--navbar-hover);
+}
+
+.navbar__mobile-menu {
+  display: none;
+  position: absolute;
+  top: var(--navbar-height);
+  left: 0;
+  right: 0;
+  background: var(--navbar-bg);
+  padding: 1rem;
+  box-shadow: var(--navbar-shadow);
+}
+
+@media (max-width: 767px) {
+  .navbar__mobile-menu {
+    top: var(--navbar-height-mobile);
+  }
+
+  .navbar__mobile-menu--open {
+    display: block;
+  }
+}
+
+.navbar__mobile-menu .navbar__link {
+  display: block;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar__mobile-menu .navbar__link:last-child {
+  border-bottom: none;
+}

@@ -1,0 +1,9 @@
+.main-content {
+  padding-top: var(--navbar-height);
+}
+
+@media (max-width: 767px) {
+  .main-content {
+    padding-top: var(--navbar-height-mobile);
+  }
+}
