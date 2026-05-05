@@ -1,1 +1,67 @@
-<p>navbar works!</p>
+<nav class="navbar" [ngClass]="navbarClasses()" role="navigation" aria-label="Navegación principal">
+  <div class="navbar__container">
+    <!-- Logo -->
+    <a href="/" class="navbar__logo" aria-label="GuideUV - Inicio">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+        <path d="M10 16h12M16 10v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>GuideUV</span>
+    </a>
+
+    <!-- Desktop Links -->
+    <ul class="navbar__links" role="menubar">
+      @for (link of links(); track link.route) {
+        <li role="none">
+          <a
+            [routerLink]="link.route"
+            routerLinkActive="navbar__link--active"
+            class="navbar__link"
+            role="menuitem"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+
+    <!-- Mobile Toggle Button -->
+    <button
+      class="navbar__mobile-toggle"
+      (click)="toggleMobileMenu()"
+      [attr.aria-expanded]="isMobileMenuOpen()"
+      aria-controls="mobile-menu"
+      aria-label="Menú de navegación"
+    >
+      @if (isMobileMenuOpen()) {
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      } @else {
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      }
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="navbar__mobile-menu"
+    [class.navbar__mobile-menu--open]="isMobileMenuOpen()"
+    role="menu"
+  >
+    @for (link of links(); track link.route) {
+      <a
+        [routerLink]="link.route"
+        class="navbar__link"
+        [class.navbar__link--active]="isActive(link.route)"
+        (click)="onLinkClick(link)"
+        role="menuitem"
+      >
+        {{ link.label }}
+      </a>
+    }
+  </div>
+</nav>

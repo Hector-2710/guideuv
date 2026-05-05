@@ -3,9 +3,9 @@
 :root {
   --navbar-height: 64px;
   --navbar-height-mobile: 56px;
-  --navbar-bg: #1a365d;
+  --navbar-bg: #351443;
   --navbar-text: #ffffff;
-  --navbar-hover: #f6ad55;
+  --navbar-hover: #9fea53;
   --navbar-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   --navbar-transition: 0.3s ease;
 }
