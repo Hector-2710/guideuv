@@ -1,5 +1,6 @@
 import { Component, signal, computed, output, input, inject, HostListener, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 export interface NavbarLink {
@@ -7,10 +8,22 @@ export interface NavbarLink {
   route: string;
 }
 
+export interface NavbarExternalLink {
+  label: string;
+  url: string;
+  stars?: number;
+  icon?: string;
+}
+
+export const REPO_LINKS: NavbarExternalLink[] = [
+  { label: 'UV', url: 'https://github.com/uv/uv' },
+  { label: 'GuideUV', url: 'https://github.com/guideline/GuideUV' },
+];
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
@@ -29,12 +42,14 @@ export class Navbar {
 
   // Inputs
   links = input<NavbarLink[]>(this.defaultLinks);
+  externalLinks = input<NavbarExternalLink[]>(REPO_LINKS);
   fixed = input(true);
 
   // Outputs
   linkClick = output<NavbarLink>();
 
   // State signals
+  searchQuery = signal('');
   isMobileMenuOpen = signal(false);
   isScrolled = signal(false);
 
