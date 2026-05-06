@@ -1,0 +1,62 @@
+<section class="home">
+  <!-- Hero Section -->
+  <header class="home__hero" >
+    <div class="home__hero-content" >
+      <h1 class="home__title">{{ data().title }} </h1>
+      <p class="home__subtitle">{{ data().subtitle }}</p>
+    </div>
+    <div class="home__hero-image">
+      <img [src]="data().speedImage" alt="UV Speed Benchmark" width="600" height="400">
+    </div>
+  </header>
+
+  <!-- Description Section -->
+  <section class="home__description">
+    <h2 class="home__section-title">Description</h2>
+    <p class="home__description-text">{{ data().description }}</p>
+  </section>
+
+  <!-- Features Section -->
+  <section class="home__features">
+    <h2 class="home__section-title">Key Features</h2>
+    <ul class="home__features-grid">
+      @for (feature of data().features; track feature.title) {
+        <li class="home__feature-card">
+          <span class="home__feature-icon" aria-hidden="true">{{ feature.icon }}</span>
+          <h3 class="home__feature-title">{{ feature.title }}</h3>
+          <p class="home__feature-description">{{ feature.description }}</p>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <!-- Installation Section -->
+  <section class="home__installation">
+    <h2 class="home__section-title">Installation</h2>
+    <ul class="home__install-commands">
+      @for (cmd of data().installCommands; track cmd.platform) {
+        <li class="home__install-command">
+          <span class="home__install-platform">{{ cmd.platform }}</span>
+          <code class="home__install-code">{{ cmd.command }}</code>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <!-- Start Section -->
+  <section class="home__start">
+    <h2 class="home__section-title">Start</h2>
+    <div class="home__start-code">
+      <code>{{ data().startCode }}</code>
+    </div>
+    <p class="home__start-description">{{ data().startDescription }}</p>
+    <ul class="home__project-files">
+      @for (file of data().projectFiles; track file.name) {
+        <li class="home__project-file">
+          <strong class="home__project-file-name">{{ file.name }}:</strong>
+          <span>{{ file.description }}</span>
+        </li>
+      }
+    </ul>
+  </section>
+</section>
