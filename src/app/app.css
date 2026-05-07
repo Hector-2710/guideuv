@@ -1,6 +1,7 @@
 .main-content {
+  min-height: 100vh;
+  background: var(--color-black);
 }
-
 
 @media (max-width: 767px) {
   .main-content {
