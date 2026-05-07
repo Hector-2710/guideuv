@@ -1,19 +1,128 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==================================================================
+   GuideUV — Global Styles & Design Tokens
+   Purple / Yellow / White / Black palette
+   ================================================================== */
 
-html, body {
+html {
+  color-scheme: dark;
+  touch-action: manipulation;
+}
+
+html,
+body {
   margin: 0;
   min-height: 100%;
-  background: var(--index-bg);
+  background: var(--color-black);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
-  --navbar-height: 64px;
-  --navbar-height-mobile: 56px;
-  --navbar-bg: #351443;
-  --navbar-text: #ffffff;
-  --navbar-hover: #9fea53;
-  --navbar-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  --navbar-transition: 0.3s ease;
+  /* ================================================================
+     LAYOUT TOKENS
+     ================================================================ */
 
-  --index-bg: #250c25;
+  --navbar-height: 56px;
+  --navbar-height-mobile: 48px;
+  --navbar-transition: 0.15s ease;
+
+  /* ================================================================
+     COLOR TOKENS — Core Palette
+     ================================================================ */
+
+  --color-black: #09090b;
+  --color-surface: #131316;
+  --color-surface-hover: #1a1a1e;
+  --color-border: rgba(255, 255, 255, 0.08);
+
+  --color-white: #ffffff;
+  --color-white-muted: #a1a1aa;
+  --color-white-dim: #71717a;
+
+  --color-accent: #e5b830;
+  --color-accent-soft: #f5d060;
+
+  --color-purple: #7c3aed;
+  --color-purple-soft: #a78bfa;
+
+  /* ================================================================
+     SURFACE & CARD TOKENS
+     ================================================================ */
+
+  --color-card-bg: rgba(255, 255, 255, 0.02);
+  --color-card-bg-hover: rgba(255, 255, 255, 0.04);
+  --color-border-hover: rgba(229, 184, 48, 0.3);
+
+  /* ================================================================
+     TYPOGRAPHY TOKENS
+     ================================================================ */
+
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto,
+    sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code',
+    monospace;
+  --font-serif: 'IBM Plex Serif', Georgia, 'Times New Roman', serif;
+
+  /* ================================================================
+     ANIMATION TOKENS — Faster for Zed snappiness
+     ================================================================ */
+
+  --anim-duration-fast: 0.15s;
+  --anim-duration-base: 0.25s;
+  --anim-duration-slow: 0.4s;
+  --anim-easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --anim-stagger-delay: 0.1s;
+
+  /* ================================================================
+     TERMINAL MOCKUP TOKENS
+     ================================================================ */
+
+  --terminal-bg: #0d0d10;
+  --terminal-header-bg: #16161a;
+  --terminal-dot-red: #ff5f57;
+  --terminal-dot-yellow: #febc2e;
+  --terminal-dot-green: #28c840;
+}
+
+/* ==================================================================
+   GLOBAL RESETS & BASE STYLES
+   ================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Focus ring — visible, yellow accent */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Scroll margin for heading anchors (navbar offset) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  scroll-margin-top: var(--navbar-height);
+}
+
+/* Tap highlight for mobile */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Code base style */
+code {
+  font-family: var(--font-mono);
 }
