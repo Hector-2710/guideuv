@@ -1,9 +1,15 @@
+/* ==================================================================
+   NAVBAR — Zed-inspired minimal design
+   Black surface, thin border-bottom, yellow accent
+   ================================================================== */
+
 .navbar {
   height: var(--navbar-height);
-  background: var(--navbar-bg);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
   position: relative;
   z-index: 1000;
-  transition: box-shadow var(--navbar-transition);
+  transition: border-color var(--navbar-transition);
 }
 
 .navbar--fixed {
@@ -14,18 +20,18 @@
 }
 
 .navbar--scrolled {
-  box-shadow: var(--navbar-shadow);
+  border-bottom-color: var(--color-border);
 }
 
 .navbar__container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.0rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   height: 100%;
-  gap: 4.0rem;
+  gap: 3rem;
 }
 
 .navbar__internal-links {
@@ -40,19 +46,19 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--navbar-text);
+  color: var(--color-white);
   text-decoration: none;
   transition: color var(--navbar-transition);
 }
 
 .navbar__logo:hover {
-  color: var(--navbar-hover);
+  color: var(--color-accent);
 }
 
 .navbar__logo svg {
-  color: var(--navbar-hover);
+  color: var(--color-accent);
 }
 
 .navbar__repo-links {
@@ -71,28 +77,30 @@
 .navbar__search-icon {
   position: absolute;
   left: 0.5rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-white-dim);
   pointer-events: none;
 }
 
 .navbar__search-input {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
   padding: 0.375rem 0.75rem;
   padding-left: 2rem;
-  color: var(--navbar-text);
+  color: var(--color-white);
   font-size: 0.875rem;
   outline: none;
-  transition: all var(--navbar-transition);
-  
+  transition:
+    background var(--navbar-transition),
+    border-color var(--navbar-transition);
+
   &::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-white-dim);
   }
-  
+
   &:focus {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: var(--navbar-hover);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--color-accent);
   }
 }
 
@@ -100,19 +108,19 @@
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  color: var(--navbar-text);
+  color: var(--color-white);
   text-decoration: none;
   padding: 0.5rem;
   transition: color var(--navbar-transition);
 }
 
 .navbar__repo-link:hover {
-  color: var(--navbar-hover);
+  color: var(--color-accent);
 }
 
 .navbar__repo-stars {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-white-muted);
   margin-left: 0.25rem;
 }
 
@@ -147,7 +155,7 @@
 }
 
 .navbar__link {
-  color: var(--navbar-text);
+  color: var(--color-white);
   text-decoration: none;
   padding: 0.5rem;
   position: relative;
@@ -156,11 +164,11 @@
 }
 
 .navbar__link:hover {
-  color: var(--navbar-hover);
+  color: var(--color-accent);
 }
 
 .navbar__link--active {
-  color: var(--navbar-hover);
+  color: var(--color-accent);
 }
 
 .navbar__link--active::after {
@@ -170,7 +178,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--navbar-hover);
+  background: var(--color-accent);
 }
 
 .navbar__mobile-toggle {
@@ -179,7 +187,7 @@
   border: none;
   cursor: pointer;
   padding: 0.5rem;
-  color: var(--navbar-text);
+  color: var(--color-white);
 }
 
 @media (max-width: 767px) {
@@ -189,7 +197,7 @@
 }
 
 .navbar__mobile-toggle:hover {
-  color: var(--navbar-hover);
+  color: var(--color-accent);
 }
 
 .navbar__mobile-menu {
@@ -198,9 +206,9 @@
   top: var(--navbar-height);
   left: 0;
   right: 0;
-  background: var(--navbar-bg);
+  background: var(--color-surface);
   padding: 1rem;
-  box-shadow: var(--navbar-shadow);
+  border-bottom: 1px solid var(--color-border);
 }
 
 @media (max-width: 767px) {
@@ -216,7 +224,7 @@
 .navbar__mobile-menu .navbar__link {
   display: block;
   padding: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .navbar__mobile-menu .navbar__link:last-child {
