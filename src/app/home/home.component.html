@@ -1,22 +1,51 @@
 <section class="home">
-  <!-- Hero Section -->
-  <header class="home__hero" >
-    <div class="home__hero-content" >
-      <h1 class="home__title">{{ data().title }} </h1>
+  <!-- ================================================================
+       HERO SECTION — Zed-inspired with terminal mockup
+       ================================================================ -->
+  <header class="home__hero">
+    <div class="home__hero-content">
+      <h1 class="home__title">{{ data().title }}</h1>
       <p class="home__subtitle">{{ data().subtitle }}</p>
+
+      <!-- CTA Button Pair -->
+      <div class="home__cta-group">
+        @for (btn of data().ctaButtons; track btn.label) {
+          <a
+            [href]="btn.url"
+            [class]="'home__cta home__cta--' + btn.variant"
+            [attr.target]="btn.url.startsWith('http') ? '_blank' : null"
+            [attr.rel]="btn.url.startsWith('http') ? 'noopener noreferrer' : null"
+          >
+            {{ btn.label }}
+            @if (btn.url.startsWith('http')) {
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            }
+          </a>
+        }
+      </div>
     </div>
-    <div class="home__hero-image">
-      <img [src]="data().speedImage" alt="UV Speed Benchmark" width="600" height="400">
-    </div>
+
+    <!-- Terminal Mockup -->
+    <app-terminal-mockup
+      class="home__terminal"
+      [lines]="data().terminalLines"
+      title="uv — terminal"
+    />
   </header>
 
-  <!-- Description Section -->
+  <!-- ================================================================
+       DESCRIPTION SECTION
+       ================================================================ -->
   <section class="home__description">
     <h2 class="home__section-title">Description</h2>
     <p class="home__description-text">{{ data().description }}</p>
   </section>
 
-  <!-- Features Section -->
+  <!-- ================================================================
+       FEATURES SECTION — Zed-style bordered cards
+       ================================================================ -->
   <section class="home__features">
     <h2 class="home__section-title">Key Features</h2>
     <ul class="home__features-grid">
@@ -30,31 +59,87 @@
     </ul>
   </section>
 
-  <!-- Installation Section -->
+  <!-- ================================================================
+       INSTALLATION SECTION — Platform tabs + terminal-style code
+       ================================================================ -->
   <section class="home__installation">
     <h2 class="home__section-title">Installation</h2>
-    <ul class="home__install-commands">
-      @for (cmd of data().installCommands; track cmd.platform) {
-        <li class="home__install-command">
-          <span class="home__install-platform">{{ cmd.platform }}</span>
-          <code class="home__install-code">{{ cmd.command }}</code>
-        </li>
-      }
-    </ul>
+
+    <!-- Platform Tabs -->
+    <nav class="home__install-tabs" role="tablist" aria-label="Installation platform">
+      <button
+        class="home__install-tab"
+        role="tab"
+        [class.home__install-tab--active]="activePlatform() === 'linux'"
+        [attr.aria-selected]="activePlatform() === 'linux'"
+        (click)="activePlatform.set('linux')"
+      >
+        Linux / MacOS
+      </button>
+      <button
+        class="home__install-tab"
+        role="tab"
+        [class.home__install-tab--active]="activePlatform() === 'windows'"
+        [attr.aria-selected]="activePlatform() === 'windows'"
+        (click)="activePlatform.set('windows')"
+      >
+        Windows
+      </button>
+    </nav>
+
+    <!-- Code Block -->
+    <div class="home__install-code-block" role="tabpanel">
+      <div class="home__install-code-header">
+        <span class="home__install-code-label">Terminal</span>
+        <button
+          class="home__copy-btn"
+          (click)="copyCommand(getActiveCommand())"
+          [attr.aria-label]="copyFeedback() || 'Copy command to clipboard'"
+        >
+          @if (copyFeedback()) {
+            {{ copyFeedback() }}
+          } @else {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          }
+        </button>
+      </div>
+      <pre class="home__install-code"><code>{{ getActiveCommand() }}</code></pre>
+    </div>
   </section>
 
-  <!-- Start Section -->
+  <!-- ================================================================
+       START SECTION — Code block + project files
+       ================================================================ -->
   <section class="home__start">
     <h2 class="home__section-title">Start</h2>
-    <div class="home__start-code">
-      <code>{{ data().startCode }}</code>
+
+    <div class="home__start-code-block">
+      <div class="home__install-code-header">
+        <span class="home__install-code-label">Terminal</span>
+        <button
+          class="home__copy-btn"
+          (click)="copyCommand(data().startCode)"
+          [attr.aria-label]="'Copy \'' + data().startCode + '\' to clipboard'"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+      </div>
+      <pre class="home__install-code"><code>{{ data().startCode }}</code></pre>
     </div>
+
     <p class="home__start-description">{{ data().startDescription }}</p>
+
     <ul class="home__project-files">
       @for (file of data().projectFiles; track file.name) {
         <li class="home__project-file">
-          <strong class="home__project-file-name">{{ file.name }}:</strong>
-          <span>{{ file.description }}</span>
+          <strong class="home__project-file-name">{{ file.name }}</strong>
+          <span class="home__project-file-desc">{{ file.description }}</span>
         </li>
       }
     </ul>
