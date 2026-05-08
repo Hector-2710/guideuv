@@ -152,7 +152,7 @@
    ================================================================ */
 
 .home__section-title {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 600;
   margin: 0 0 1.5rem;
   padding-bottom: 0.75rem;
@@ -388,18 +388,84 @@
   color: var(--color-white-muted);
 }
 
+/* Project Files Block */
+.home__project-files-block {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-accent);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 2rem;
+  transition:
+    border-color var(--anim-duration-fast) var(--anim-easing-smooth);
+
+  &:hover {
+    border-color: var(--color-border-hover);
+  }
+}
+
+.home__project-files-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 16px 20px;
+  background: var(--terminal-header-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.home__project-files-icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.home__project-files-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  flex: 1;
+}
+
+.home__project-files-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  color: var(--color-white-dim);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    color var(--anim-duration-fast) var(--anim-easing-smooth),
+    border-color var(--anim-duration-fast) var(--anim-easing-smooth);
+  touch-action: manipulation;
+
+  &:hover {
+    color: var(--color-accent);
+    border-color: var(--color-border);
+  }
+
+  &:focus-visible {
+    border-color: var(--color-accent);
+    outline: none;
+  }
+}
+
 /* Project Files List */
 .home__project-files {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 12px 20px 20px;
 }
 
 .home__project-file {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0.875rem 0;
+  gap: 0.75rem;
+  padding: 1rem 0;
   border-bottom: 1px solid var(--color-border);
 
   animation: fadeInUp 0.3s var(--anim-easing-smooth) both;
@@ -416,16 +482,16 @@
 
 .home__project-file-name {
   font-family: var(--font-mono);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   color: var(--color-accent);
-  min-width: 180px;
+  min-width: 200px;
 }
 
 .home__project-file-desc {
   flex: 1;
   color: var(--color-white-muted);
-  font-size: 0.9375rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 /* ==================================================================

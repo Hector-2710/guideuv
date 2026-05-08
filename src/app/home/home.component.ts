@@ -19,14 +19,36 @@ export class HomeComponent {
   /** Tracks which install platform tab is active */
   activePlatform = signal<'linux' | 'windows'>('linux');
 
-  /** Copy button feedback text */
-  copyFeedback = signal('');
+  /** Copy button feedback for installation section */
+  copyInstallFeedback = signal('');
 
-  /** Copies text to clipboard and shows feedback */
-  copyCommand(text: string): void {
+  /** Copy button feedback for start section */
+  copyStartFeedback = signal('');
+
+  /** Copy button feedback for project files block */
+  copyProjectFilesFeedback = signal('');
+
+  /** Copies text to clipboard for installation section */
+  copyInstall(text: string): void {
     navigator.clipboard.writeText(text).then(() => {
-      this.copyFeedback.set('Copied!');
-      setTimeout(() => this.copyFeedback.set(''), 2000);
+      this.copyInstallFeedback.set('Copied!');
+      setTimeout(() => this.copyInstallFeedback.set(''), 2000);
+    });
+  }
+
+  /** Copies text to clipboard for start section */
+  copyStart(text: string): void {
+    navigator.clipboard.writeText(text).then(() => {
+      this.copyStartFeedback.set('Copied!');
+      setTimeout(() => this.copyStartFeedback.set(''), 2000);
+    });
+  }
+
+  /** Copies text to clipboard for project files block */
+  copyProjectFiles(text: string): void {
+    navigator.clipboard.writeText(text).then(() => {
+      this.copyProjectFilesFeedback.set('Copied!');
+      setTimeout(() => this.copyProjectFilesFeedback.set(''), 2000);
     });
   }
 

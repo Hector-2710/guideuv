@@ -93,11 +93,11 @@
         <span class="home__install-code-label">Terminal</span>
         <button
           class="home__copy-btn"
-          (click)="copyCommand(getActiveCommand())"
-          [attr.aria-label]="copyFeedback() || 'Copy command to clipboard'"
+          (click)="copyInstall(getActiveCommand())"
+          [attr.aria-label]="copyInstallFeedback() || 'Copy command to clipboard'"
         >
-          @if (copyFeedback()) {
-            {{ copyFeedback() }}
+          @if (copyInstallFeedback()) {
+            {{ copyInstallFeedback() }}
           } @else {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -121,13 +121,17 @@
         <span class="home__install-code-label">Terminal</span>
         <button
           class="home__copy-btn"
-          (click)="copyCommand(data().startCode)"
-          [attr.aria-label]="'Copy \'' + data().startCode + '\' to clipboard'"
+          (click)="copyStart(data().startCode)"
+          [attr.aria-label]="copyStartFeedback() || 'Copy \'' + data().startCode + '\' to clipboard'"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
-            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2"/>
-          </svg>
+          @if (copyStartFeedback()) {
+            {{ copyStartFeedback() }}
+          } @else {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          }
         </button>
       </div>
       <pre class="home__install-code"><code>{{ data().startCode }}</code></pre>
@@ -135,13 +139,36 @@
 
     <p class="home__start-description">{{ data().startDescription }}</p>
 
-    <ul class="home__project-files">
-      @for (file of data().projectFiles; track file.name) {
-        <li class="home__project-file">
-          <strong class="home__project-file-name">{{ file.name }}</strong>
-          <span class="home__project-file-desc">{{ file.description }}</span>
-        </li>
-      }
-    </ul>
+    <!-- Project Files Block -->
+    <div class="home__project-files-block" role="region" aria-label="Project files">
+      <div class="home__project-files-header">
+        <svg class="home__project-files-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 17l6-6-6-6M12 19h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="home__project-files-label">Project Files</span>
+        <button
+          class="home__project-files-copy"
+          (click)="copyProjectFiles('uv init')"
+          [attr.aria-label]="copyProjectFilesFeedback() || 'Copy uv init to clipboard'"
+        >
+          @if (copyProjectFilesFeedback()) {
+            {{ copyProjectFilesFeedback() }}
+          } @else {
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          }
+        </button>
+      </div>
+      <ul class="home__project-files">
+        @for (file of data().projectFiles; track file.name) {
+          <li class="home__project-file">
+            <strong class="home__project-file-name">{{ file.name }}</strong>
+            <span class="home__project-file-desc">{{ file.description }}</span>
+          </li>
+        }
+      </ul>
+    </div>
   </section>
 </section>
