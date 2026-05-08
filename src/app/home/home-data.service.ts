@@ -46,7 +46,7 @@ export class HomeDataService {
       'An extremely fast Python package and project manager, written in Rust',
     speedImage: '/install-cold.png',
     description:
-      'uv is an all-in-one tool designed by Astral (the creators of Ruff). It is built to be a single, high-performance replacement for the entire Python ecosystem: pip, pip-tools, pipx, poetry, pyenv, twine, and virtualenv.',
+      'uv is an all-in-one tool designed by Astral. It is built to be a single, high-performance replacement for the entire Python ecosystem: pip, pip-tools, pipx, poetry, pyenv, twine, and virtualenv.',
     features: [
       {
         icon: '🚀',
