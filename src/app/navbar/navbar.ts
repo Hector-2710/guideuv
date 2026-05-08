@@ -16,8 +16,8 @@ export interface NavbarExternalLink {
 }
 
 export const REPO_LINKS: NavbarExternalLink[] = [
-  { label: 'UV', url: 'https://github.com/uv/uv' },
-  { label: 'GuideUV', url: 'https://github.com/guideline/GuideUV' },
+  { label: 'UV', url: 'https://github.com/astral-sh/uv' },
+  { label: 'GuideUV', url: 'https://github.com/Hector-2710/guideuv.git' },
 ];
 
 @Component({
