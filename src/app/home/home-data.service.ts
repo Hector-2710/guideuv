@@ -28,6 +28,7 @@ export interface InstallCommand {
 export interface ProjectFile {
   name: string;
   description: string;
+  isDirectory?: boolean;
 }
 
 export interface CtaButton {
@@ -97,28 +98,30 @@ export class HomeDataService {
       'Unlike traditional managers, uv init sets up a modern, standardized Python environment instantly. Here is the generated structure:',
     projectFiles: [
       {
-        name: 'pyproject.toml',
-        description:
-          'The heart of your project. It uses the latest standards (PEP 621) to manage metadata and dependencies.',
-      },
-      {
-        name: '.python-version',
-        description:
-          "A specific file that tells uv exactly which Python version to use for this project (it will even download it for you if it's missing).",
-      },
-      {
-        name: 'hello.py',
-        description:
-          'A boilerplate "Hello World" script so you can test your environment immediately.',
+        name: '.git/',
+        description: 'Git repository data. Tracks all changes to your project.',
+        isDirectory: true,
       },
       {
         name: '.gitignore',
-        description:
-          'Automatically configured to exclude environment folders and cache files from your repository.',
+        description: 'Specifies intentionally untracked files to ignore.',
+      },
+      {
+        name: '.python-version',
+        description: 'Declares the exact Python version required for this project.',
       },
       {
         name: 'README.md',
-        description: 'A basic documentation file ready for your content.',
+        description: 'The front page of your project with basic documentation.',
+      },
+      {
+        name: 'main.py',
+        description: 'The entry point of your application.',
+      },
+      {
+        name: 'pyproject.toml',
+        description:
+          'The heart of your project. Uses PEP 621 standards for metadata and dependencies.',
       },
     ],
     terminalLines: [

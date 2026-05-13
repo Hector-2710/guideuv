@@ -146,29 +146,26 @@
           <path d="M4 17l6-6-6-6M12 19h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <span class="home__project-files-label">Project Files</span>
-        <button
-          class="home__project-files-copy"
-          (click)="copyProjectFiles('uv init')"
-          [attr.aria-label]="copyProjectFilesFeedback() || 'Copy uv init to clipboard'"
-        >
-          @if (copyProjectFilesFeedback()) {
-            {{ copyProjectFilesFeedback() }}
-          } @else {
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
-              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2"/>
-            </svg>
-          }
-        </button>
       </div>
-      <ul class="home__project-files">
-        @for (file of data().projectFiles; track file.name) {
-          <li class="home__project-file">
-            <strong class="home__project-file-name">{{ file.name }}</strong>
-            <span class="home__project-file-desc">{{ file.description }}</span>
-          </li>
-        }
-      </ul>
+      <div class="home__project-files-content">
+        <!-- Tree Structure -->
+        <div class="home__project-files-tree">
+          @for (file of data().projectFiles; track file.name; let last = $last) {
+            <div class="home__project-file-tree-line" [class.home__project-file-tree-line--last]="last">
+              <span class="home__project-file-tree-prefix">{{ last ? '└── ' : '├── ' }}</span>
+              <span class="home__project-file-tree-name" [class.home__project-file-tree-name--dir]="file.isDirectory">{{ file.name }}</span>
+            </div>
+          }
+        </div>
+        <!-- Descriptions -->
+        <ul class="home__project-files-descriptions">
+          @for (file of data().projectFiles; track file.name) {
+            <li class="home__project-file-desc-item">
+              <span class="home__project-file-desc">{{ file.description }}</span>
+            </li>
+          }
+        </ul>
+      </div>
     </div>
   </section>
 </section>

@@ -25,9 +25,6 @@ export class HomeComponent {
   /** Copy button feedback for start section */
   copyStartFeedback = signal('');
 
-  /** Copy button feedback for project files block */
-  copyProjectFilesFeedback = signal('');
-
   /** Copies text to clipboard for installation section */
   copyInstall(text: string): void {
     navigator.clipboard.writeText(text).then(() => {
@@ -41,14 +38,6 @@ export class HomeComponent {
     navigator.clipboard.writeText(text).then(() => {
       this.copyStartFeedback.set('Copied!');
       setTimeout(() => this.copyStartFeedback.set(''), 2000);
-    });
-  }
-
-  /** Copies text to clipboard for project files block */
-  copyProjectFiles(text: string): void {
-    navigator.clipboard.writeText(text).then(() => {
-      this.copyProjectFilesFeedback.set('Copied!');
-      setTimeout(() => this.copyProjectFilesFeedback.set(''), 2000);
     });
   }
 

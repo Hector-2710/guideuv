@@ -454,44 +454,76 @@
   }
 }
 
-/* Project Files List */
-.home__project-files {
-  list-style: none;
-  margin: 0;
-  padding: 12px 20px 20px;
-}
-
-.home__project-file {
+/* Project Files Content Container */
+.home__project-files-content {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--color-border);
+  padding: 24px 24px 28px;
+  gap: 3rem;
 
-  animation: fadeInUp 0.3s var(--anim-easing-smooth) both;
-  &:nth-child(1) { animation-delay: 0.05s; }
-  &:nth-child(2) { animation-delay: 0.10s; }
-  &:nth-child(3) { animation-delay: 0.15s; }
-  &:nth-child(4) { animation-delay: 0.20s; }
-  &:nth-child(5) { animation-delay: 0.25s; }
-
-  &:last-child {
-    border-bottom: none;
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 20px 20px 24px;
   }
 }
 
-.home__project-file-name {
+/* Tree Structure Column */
+.home__project-files-tree {
+  flex-shrink: 0;
   font-family: var(--font-mono);
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
+  line-height: 2.4;
+}
+
+.home__project-file-tree-line {
+  display: flex;
+  align-items: center;
+  animation: fadeInUp 0.3s var(--anim-easing-smooth) both;
+
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{($i - 1) * 0.05}s;
+    }
+  }
+}
+
+.home__project-file-tree-prefix {
+  color: var(--color-white-dim);
+  user-select: none;
+}
+
+.home__project-file-tree-name {
   color: var(--color-accent);
-  min-width: 200px;
+  margin-left: 4px;
+
+  &--dir {
+    color: var(--color-purple);
+  }
+}
+
+/* Descriptions Column */
+.home__project-files-descriptions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.home__project-file-desc-item {
+  padding: 1.3px;
+  animation: fadeInUp 0.3s var(--anim-easing-smooth) both;
+
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{($i - 1) * 0.05}s;
+    }
+  }
 }
 
 .home__project-file-desc {
-  flex: 1;
   color: var(--color-white-muted);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 2.4;
 }
 
 /* ==================================================================
@@ -549,12 +581,19 @@
       transform: translateY(-2px);
     }
 
-    &__project-file {
-      flex-direction: column;
+    &__project-files-content {
+      gap: 1.5rem;
     }
 
-    &__project-file-name {
-      min-width: unset;
+    &__project-files-tree {
+      font-size: 1rem;
+      line-height: 2.2;
+    }
+
+    &__project-file-desc {
+      font-size: 1rem;
+      line-height: 2.2;
+      padding-bottom: 0.75rem;
     }
   }
 }
@@ -574,7 +613,8 @@
     &__installation,
     &__start,
     &__feature-card,
-    &__project-file {
+    &__project-file-tree-line,
+    &__project-file-desc-item {
       animation: none !important;
       opacity: 1 !important;
       transform: none !important;
