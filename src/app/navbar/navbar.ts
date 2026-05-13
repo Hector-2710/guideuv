@@ -11,8 +11,6 @@ export interface NavbarLink {
 export interface NavbarExternalLink {
   label: string;
   url: string;
-  stars?: number;
-  icon?: string;
 }
 
 export const REPO_LINKS: NavbarExternalLink[] = [
@@ -31,29 +29,22 @@ export const REPO_LINKS: NavbarExternalLink[] = [
 export class Navbar {
   private router = inject(Router);
 
-  // Default links
   defaultLinks: NavbarLink[] = [
     { label: 'Home', route: '/' },
-    { label: 'Introduction', route: '/introduction' },
-    { label: 'Features', route: '/features' },
     { label: 'Guides', route: '/guides' },
     { label: 'Contact', route: '/contact' },
   ];
 
-  // Inputs
   links = input<NavbarLink[]>(this.defaultLinks);
   externalLinks = input<NavbarExternalLink[]>(REPO_LINKS);
   fixed = input(true);
 
-  // Outputs
   linkClick = output<NavbarLink>();
 
-  // State signals
   searchQuery = signal('');
   isMobileMenuOpen = signal(false);
   isScrolled = signal(false);
 
-  // Computed
   navbarClasses = computed(() => ({
     'navbar--scrolled': this.isScrolled(),
     'navbar--fixed': this.fixed(),
@@ -73,7 +64,6 @@ export class Navbar {
     this.isMobileMenuOpen.set(false);
   }
 
-  // Track active route for mobile menu
   isActive(route: string): boolean {
     return this.router.url === route;
   }
