@@ -1,0 +1,21 @@
+<aside class="guides-toc" aria-label="Tabla de contenidos">
+  <span class="guides-toc__title">On this page</span>
+  @if (items().length > 0) {
+    <ul class="guides-toc__list">
+      @for (item of items(); track item.id) {
+        <li class="guides-toc__item">
+          <a
+            class="guides-toc__link"
+            [class.guides-toc__link--active]="item.id === activeId()"
+            [class.guides-toc__link--nested]="item.level === 3"
+            [attr.href]="'#' + item.id"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  } @else {
+    <p class="guides-toc__empty">without subtitles.</p>
+  }
+</aside>
