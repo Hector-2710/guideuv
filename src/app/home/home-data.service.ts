@@ -56,17 +56,29 @@ export class HomeDataService {
       {
         icon: '📦',
         title: 'Universal',
-        description: 'Replaces multiple tools with a single binary.',
+        description:
+          'A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more.',
       },
       {
         icon: '🛠️',
-        title: 'Rust-powered',
-        description: 'Focused on reliability and extreme speed.',
+        title: 'pip-compatible',
+        description: 'Includes a pip-compatible interface for a performance boost with a familiar CLI.',
       },
+      {
+        icon: '💻',
+        title: 'Cross-platform',
+        description: 'Supports macOS, Linux, and Windows.',
+      },
+      
       {
         icon: '🐍',
         title: 'Python Management',
         description: 'Installs and manages Python versions automatically.',
+      },
+      {
+        icon: '📜',
+        title: 'Script Runner',
+        description: 'Runs scripts, with support for inline dependency metadata.',
       },
     ],
     installCommands: [
