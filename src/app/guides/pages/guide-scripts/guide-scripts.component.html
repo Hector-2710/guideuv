@@ -1,0 +1,52 @@
+<article class="guide-page">
+  <header class="guide-page__header">
+    <p class="guide-page__eyebrow">Guides</p>
+    <h1 class="guide-page__title">Scripts</h1>
+    <p class="guide-page__lead">
+      A Python script is a file intended for standalone execution, e.g., with python script.py
+      Using uv to execute scripts ensures that script dependencies are managed without manually
+      managing environments
+    </p>
+  </header>
+
+  <section class="guide-page__section">
+    <h2 class="guide-page__subtitle">Run scripts</h2>
+    <p class="guide-page__text">uv run: Run a script</p>
+  </section>
+
+  <section class="guide-page__section">
+    <h2 class="guide-page__subtitle">Run with dependencies</h2>
+    <p class="guide-page__text">
+      When your script requires other packages, uv prefers to create these environments on
+      demand rather than using a virtual environment. This requires explicitly declaring the
+      dependencies needed by the script
+    </p>
+    <p class="guide-page__text">
+      uv run --with fastapi example.py: Run a script with FastAPI dependencies
+    </p>
+  </section>
+
+  <section class="guide-page__section">
+    <h2 class="guide-page__subtitle">Declaring script dependencies</h2>
+    <p class="guide-page__text">
+      The inline metadata format allows the dependencies for a script to be declared in the script itself
+    </p>
+    <pre class="guide-page__code"><code># /// script
+# dependencies = [
+#   "requests",
+#   "rich",
+# ]
+# ///
+
+import requests
+from rich.pretty import pprint
+
+resp = requests.get("https://peps.python.org/api/peps.json")
+data = resp.json()
+pprint([(k, v["title"]) for k, v in data.items()][:10])</code></pre>
+    <ul class="guide-page__list">
+      <li>uv add --script: Add a dependency to a script</li>
+      <li>uv remove --script: Remove a dependency from a script</li>
+    </ul>
+  </section>
+</article>
