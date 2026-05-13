@@ -1,0 +1,40 @@
+<aside class="guides-left-nav" [class.guides-left-nav--open]="isOpen()">
+  <div class="guides-left-nav__header">
+    <span class="guides-left-nav__title">{{ navLabel() }}</span>
+    <button
+      class="guides-left-nav__toggle"
+      type="button"
+      (click)="onToggle()"
+      [attr.aria-label]="toggleLabel()"
+      [attr.aria-expanded]="isOpen()"
+    >
+      <span aria-hidden="true">☰</span>
+    </button>
+  </div>
+
+  @if (hasSections()) {
+    <nav class="guides-left-nav__nav" aria-label="Navegación de guías">
+      @for (section of sections(); track section.label) {
+        <div class="guides-left-nav__section">
+          <span class="guides-left-nav__section-title">{{ section.label }}</span>
+          <ul class="guides-left-nav__list">
+            @for (item of section.items; track item.slug) {
+              <li class="guides-left-nav__item">
+                <a
+                  class="guides-left-nav__link"
+                  [routerLink]="['/guides', item.slug]"
+                  routerLinkActive="guides-left-nav__link--active"
+                  [attr.aria-current]="item.slug === activeSlug() ? 'page' : null"
+                >
+                  {{ item.label }}
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </nav>
+  } @else {
+    <p class="guides-left-nav__empty">No hay guías disponibles.</p>
+  }
+</aside>
