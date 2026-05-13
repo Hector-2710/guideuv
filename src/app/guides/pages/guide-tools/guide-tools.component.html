@@ -1,0 +1,29 @@
+<article class="guide-page">
+  <header class="guide-page__header">
+    <p class="guide-page__eyebrow">Guides</p>
+    <h1 class="guide-page__title">Tools</h1>
+    <p class="guide-page__lead">
+      Running and installing tools published to Python package indexes, e.g., ruff or black
+    </p>
+  </header>
+
+  <section class="guide-page__section">
+    <h2 class="guide-page__subtitle">Run tools on demand</h2>
+    <ul class="guide-page__list">
+      <li>uvx / uv tool run: Run a tool in a temporary environment</li>
+      <li>uvx ruff: The uvx command invokes a tool without installing it</li>
+      <li>uvx --from httpie http: The --from option can be used to invoke a command from a specific package, e.g., http which is provided by httpie</li>
+    </ul>
+  </section>
+
+  <section class="guide-page__section">
+    <h2 class="guide-page__subtitle">Install tools</h2>
+    <ul class="guide-page__list">
+      <li>uv tool install: Install a tool user-wide</li>
+      <li>uv tool uninstall: Uninstall a tool</li>
+      <li>uv tool list: List installed tools</li>
+      <li>uv tool update-shell: Update the shell to include tool executables</li>
+    </ul>
+    <p class="guide-page__text">See the guide on tools to get started</p>
+  </section>
+</article>
