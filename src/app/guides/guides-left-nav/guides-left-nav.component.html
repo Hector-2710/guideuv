@@ -14,9 +14,9 @@
 
   @if (hasSections()) {
     <nav class="guides-left-nav__nav" aria-label="Navegación de guías">
-      @for (section of sections(); track section.label) {
+      @for (section of sections(); track $index) {
         <div class="guides-left-nav__section">
-          <span class="guides-left-nav__section-title">{{ section.label }}</span>
+          <span class="guides-left-nav__section-title">Guía</span>
           <ul class="guides-left-nav__list">
             @for (item of section.items; track item.slug) {
               <li class="guides-left-nav__item">
