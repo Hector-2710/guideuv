@@ -9,15 +9,10 @@
 
 .guides-shell__layout {
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr) 240px;
-  gap: 0;
-  padding-top: var(--navbar-height);
-  background: radial-gradient(
-      circle at top left,
-      rgba(229, 184, 48, 0.08),
-      transparent 45%
-    ),
-    radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.12), transparent 55%);
+  grid-template-columns: 280px 1100px 240px;
+  gap: 0 1.5rem;
+  background: var(--color-surface);
+  justify-content: center;
 }
 
 .guides-shell__content {
@@ -36,6 +31,16 @@
   cursor: pointer;
 }
 
+@media (max-width: 1679px) {
+  .guides-shell__layout {
+    grid-template-columns: 280px 1fr;
+  }
+
+  .guides-shell__toc {
+    display: none;
+  }
+}
+
 @media (max-width: 1023px) {
   .guides-shell__layout {
     grid-template-columns: 1fr;
@@ -48,11 +53,5 @@
   .guides-shell__mobile-trigger {
     display: inline-flex;
     align-items: center;
-  }
-}
-
-@media (max-width: 767px) {
-  .guides-shell__layout {
-    padding-top: var(--navbar-height-mobile);
   }
 }

@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   DestroyRef,
+  afterNextRender,
   computed,
   inject,
   signal
@@ -49,8 +50,14 @@ export class GuidesShellComponent {
         const url = this.router.url;
         const slug = url.split('/').pop() ?? 'first-step';
         this.activeSlug.set(slug);
-        queueMicrotask(() => this.scanHeadings());
+        // Usamos setTimeout para asegurar que el DOM se haya actualizado tras la navegación
+        setTimeout(() => this.scanHeadings(), 0);
       });
+
+    // Manejar la carga inicial
+    afterNextRender(() => {
+      this.scanHeadings();
+    });
   }
 
   toggleNav(): void {
@@ -61,7 +68,7 @@ export class GuidesShellComponent {
     this.isNavOpen.set(false);
   }
 
-  private scanHeadings(): void {
+  scanHeadings(): void {
     const headings = Array.from(
       document.querySelectorAll('.guides-shell__content h2, .guides-shell__content h3')
     );
@@ -69,6 +76,9 @@ export class GuidesShellComponent {
     const items: TocItem[] = headings.map(el => {
       const level = el.tagName === 'H2' ? (2 as const) : (3 as const);
       const id = el.id || this.slugify(el.textContent ?? '');
+      if (!el.id && id) {
+        el.id = id;
+      }
       return { id, label: el.textContent ?? '', level };
     });
 

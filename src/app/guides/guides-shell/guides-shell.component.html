@@ -17,7 +17,7 @@
       >
         Navegación
       </button>
-      <router-outlet></router-outlet>
+      <router-outlet (activate)="scanHeadings()"></router-outlet>
     </div>
 
     <app-guides-toc
