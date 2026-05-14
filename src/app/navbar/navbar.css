@@ -19,14 +19,14 @@
 }
 
 .navbar__container {
-  max-width: 1250px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 rem;
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   height: 100%;
-  gap: 8rem;
+  gap: 2rem;
 }
 
 .navbar__internal-links {
@@ -67,7 +67,6 @@
   display: flex;
   align-items: center;
   position: relative;
-  margin-left: 5rem;
 }
 
 .navbar__search-icon {
