@@ -1,34 +1,81 @@
 <article class="guide-page">
   <header class="guide-page__header">
-    <p class="guide-page__eyebrow">Guides</p>
+    <div class="guide-page__badge">
+      <span class="guide-page__badge-icon">&#x1F4C4;</span>
+      <span>Guide</span>
+    </div>
     <h1 class="guide-page__title">Utility</h1>
     <p class="guide-page__lead">
       Managing and inspecting uv's state, such as the cache, storage directories,
-      or performing a self-update
+      or performing a self-update.
     </p>
   </header>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Cache management</h2>
-    <ul class="guide-page__list">
-      <li>uv cache clean: Remove cache entries</li>
-      <li>uv cache prune: Remove outdated cache entries</li>
-      <li>uv cache dir: Show the uv cache directory path</li>
-    </ul>
-  </section>
+  <div class="guide-page__grid">
+    <section class="guide-page__section">
+      <div class="section-header">
+        <span class="section-icon">&#x1F6AB;</span>
+        <h2 class="guide-page__subtitle">Cache management</h2>
+      </div>
+      <p class="guide-page__text">
+        Manage uv's cache to free up disk space or remove outdated entries.
+      </p>
+      <div class="command-list">
+        <div class="command-item">
+          <span class="command-item__label">Clean</span>
+          <code class="command-item__code">uv cache clean</code>
+          <span class="command-item__desc">Remove cache entries</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Prune</span>
+          <code class="command-item__code">uv cache prune</code>
+          <span class="command-item__desc">Remove outdated cache entries</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Info</span>
+          <code class="command-item__code">uv cache dir</code>
+          <span class="command-item__desc">Show the uv cache directory path</span>
+        </div>
+      </div>
+    </section>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Directory inspection</h2>
-    <ul class="guide-page__list">
-      <li>uv tool dir: Show the uv tool directory path</li>
-      <li>uv python dir: Show the uv installed Python versions path</li>
-    </ul>
-  </section>
+    <section class="guide-page__section">
+      <div class="section-header">
+        <span class="section-icon">&#x1F4C1;</span>
+        <h2 class="guide-page__subtitle">Directory inspection</h2>
+      </div>
+      <p class="guide-page__text">
+        View the directories where uv stores tools and Python versions.
+      </p>
+      <div class="command-list">
+        <div class="command-item">
+          <span class="command-item__label">Info</span>
+          <code class="command-item__code">uv tool dir</code>
+          <span class="command-item__desc">Show the uv tool directory path</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Info</span>
+          <code class="command-item__code">uv python dir</code>
+          <span class="command-item__desc">Show the uv installed Python versions path</span>
+        </div>
+      </div>
+    </section>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Self-update</h2>
-    <ul class="guide-page__list">
-      <li>uv self update: Update uv to the latest version</li>
-    </ul>
-  </section>
+    <section class="guide-page__section">
+      <div class="section-header">
+        <span class="section-icon">&#x1F504;</span>
+        <h2 class="guide-page__subtitle">Self-update</h2>
+      </div>
+      <p class="guide-page__text">
+        Keep uv up to date with the latest features and bug fixes.
+      </p>
+      <div class="command-list">
+        <div class="command-item">
+          <span class="command-item__label">Update</span>
+          <code class="command-item__code">uv self update</code>
+          <span class="command-item__desc">Update uv to the latest version</span>
+        </div>
+      </div>
+    </section>
+  </div>
 </article>

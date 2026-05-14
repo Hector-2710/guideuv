@@ -1,29 +1,66 @@
 <article class="guide-page">
   <header class="guide-page__header">
-    <p class="guide-page__eyebrow">Guides</p>
+    <div class="guide-page__badge">
+      <span class="guide-page__badge-icon">&#x1F4C4;</span>
+      <span>Guide</span>
+    </div>
     <h1 class="guide-page__title">Python version</h1>
     <p class="guide-page__lead">
       If Python is already installed on your system, uv will detect and use it without
       configuration. However, uv can also install and manage Python versions. uv
       automatically installs missing Python versions as needed — you don't need to install
-      Python to get started 
+      Python to get started.
     </p>
   </header>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Install Python</h2>
-    <ul class="guide-page__list">
-      <li>uv python install: Install the latest Python versions</li>
-      <li>uv python install 3.12: Install a specific Python version</li>
-    </ul>
-  </section>
+  <div class="guide-page__grid">
+    <section class="guide-page__section">
+      <div class="section-header">
+        <span class="section-icon">&#x1F50D;</span>
+        <h2 class="guide-page__subtitle">Install Python</h2>
+      </div>
+      <p class="guide-page__text">
+        Install Python versions managed by uv. You don't need Python installed beforehand — uv handles everything.
+      </p>
+      <div class="command-list">
+        <div class="command-item">
+          <span class="command-item__label">Install</span>
+          <code class="command-item__code">uv python install</code>
+          <span class="command-item__desc">Install the latest Python version</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Install</span>
+          <code class="command-item__code">uv python install 3.12</code>
+          <span class="command-item__desc">Install a specific Python version</span>
+        </div>
+      </div>
+    </section>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Manage versions</h2>
-    <ul class="guide-page__list">
-      <li>uv python list: View available Python versions</li>
-      <li>uv python find: Find an installed Python version</li>
-      <li>uv python uninstall: Uninstall a Python version</li>
-    </ul>
-  </section>
+    <section class="guide-page__section">
+      <div class="section-header">
+        <span class="section-icon">&#x2699;</span>
+        <h2 class="guide-page__subtitle">Manage versions</h2>
+      </div>
+      <p class="guide-page__text">
+        View, find, and uninstall Python versions installed by uv.
+      </p>
+      <div class="command-list">
+        <div class="command-item">
+          <span class="command-item__label">List</span>
+          <code class="command-item__code">uv python list</code>
+          <span class="command-item__desc">View available Python versions</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Find</span>
+          <code class="command-item__code">uv python find</code>
+          <span class="command-item__desc">Find an installed Python version</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label command-item__label--remove">Remove</span>
+          <code class="command-item__code">uv python uninstall</code>
+          <span class="command-item__desc">Uninstall a Python version</span>
+        </div>
+      </div>
+    </section>
+  </div>
 </article>

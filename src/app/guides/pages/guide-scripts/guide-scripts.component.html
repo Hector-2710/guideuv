@@ -1,52 +1,89 @@
 <article class="guide-page">
   <header class="guide-page__header">
-    <p class="guide-page__eyebrow">Guides</p>
+    <div class="guide-page__badge">
+      <span class="guide-page__badge-icon">&#x1F4C4;</span>
+      <span>Guide</span>
+    </div>
     <h1 class="guide-page__title">Scripts</h1>
     <p class="guide-page__lead">
-      A Python script is a file intended for standalone execution, e.g., with python script.py
+      A Python script is a file intended for standalone execution, e.g., with <code class="code-inline">python script.py</code>.
       Using uv to execute scripts ensures that script dependencies are managed without manually
-      managing environments
+      managing environments.
     </p>
   </header>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Run scripts</h2>
-    <p class="guide-page__text">uv run: Run a script</p>
-  </section>
+  <div class="guide-page__grid">
+    <section class="guide-page__section">
+      <div class="section-header">
+        <span class="section-icon">&#x25B6;</span>
+        <h2 class="guide-page__subtitle">Run scripts</h2>
+      </div>
+      <p class="guide-page__text">
+        The simplest way to execute a Python script with uv:
+      </p>
+      <div class="command-block">
+        <span class="command-prefix">$</span>
+        <code>uv run script.py</code>
+      </div>
+    </section>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Run with dependencies</h2>
-    <p class="guide-page__text">
-      When your script requires other packages, uv prefers to create these environments on
-      demand rather than using a virtual environment. This requires explicitly declaring the
-      dependencies needed by the script
-    </p>
-    <p class="guide-page__text">
-      uv run --with fastapi example.py: Run a script with FastAPI dependencies
-    </p>
-  </section>
+    <section class="guide-page__section">
+      <div class="section-header">
+        <span class="section-icon">&#x1F4E6;</span>
+        <h2 class="guide-page__subtitle">Run with dependencies</h2>
+      </div>
+      <p class="guide-page__text">
+        When your script requires other packages, uv creates these environments on
+        demand rather than using a virtual environment. This requires explicitly declaring the
+        dependencies needed by the script.
+      </p>
+      <div class="command-block">
+        <span class="command-prefix">$</span>
+        <code>uv run --with fastapi example.py</code>
+      </div>
+      <p class="guide-page__text guide-page__text--secondary">
+        This installs FastAPI in a temporary environment and runs your script.
+      </p>
+    </section>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Declaring script dependencies</h2>
-    <p class="guide-page__text">
-      The inline metadata format allows the dependencies for a script to be declared in the script itself
-    </p>
-    <pre class="guide-page__code"><code># /// script
-# dependencies = [
-#   "requests",
-#   "rich",
-# ]
-# ///
+    <section class="guide-page__section guide-page__section--wide">
+      <div class="section-header">
+        <span class="section-icon">&#x1F4DD;</span>
+        <h2 class="guide-page__subtitle">Declaring script dependencies</h2>
+      </div>
+      <p class="guide-page__text">
+        The inline metadata format allows the dependencies for a script to be declared directly in the script itself:
+      </p>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__lang">Python</span>
+        </div>
+        <pre class="code-block__content"><code><span class="code-comment"># /// script</span>
+<span class="code-comment"># dependencies = [</span>
+<span class="code-comment">#   "requests",</span>
+<span class="code-comment">#   "rich",</span>
+<span class="code-comment"># ]</span>
+<span class="code-comment"># ///</span>
 
-import requests
-from rich.pretty import pprint
+<span class="code-keyword">import</span> requests
+<span class="code-keyword">from</span> rich.pretty <span class="code-keyword">import</span> pprint
 
-resp = requests.get("https://peps.python.org/api/peps.json")
+resp = requests.get(<span class="code-string">"https://peps.python.org/api/peps.json"</span>)
 data = resp.json()
-pprint([(k, v["title"]) for k, v in data.items()][:10])</code></pre>
-    <ul class="guide-page__list">
-      <li>uv add --script: Add a dependency to a script</li>
-      <li>uv remove --script: Remove a dependency from a script</li>
-    </ul>
-  </section>
+pprint([(k, v[<span class="code-string">"title"</span>]) <span class="code-keyword">for</span> k, v <span class="code-keyword">in</span> data.items()][:10])</code></pre>
+      </div>
+      <div class="command-list">
+        <div class="command-item">
+          <span class="command-item__label">Add</span>
+          <code class="command-item__code">uv add --script</code>
+          <span class="command-item__desc">Add a dependency to a script</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label command-item__label--remove">Remove</span>
+          <code class="command-item__code">uv remove --script</code>
+          <span class="command-item__desc">Remove a dependency from a script</span>
+        </div>
+      </div>
+    </section>
+  </div>
 </article>

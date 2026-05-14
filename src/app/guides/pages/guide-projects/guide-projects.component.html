@@ -1,33 +1,86 @@
 <article class="guide-page">
   <header class="guide-page__header">
-    <p class="guide-page__eyebrow">Guides</p>
+    <div class="guide-page__badge">
+      <span class="guide-page__badge-icon">&#x1F4C4;</span>
+      <span>Guide</span>
+    </div>
     <h1 class="guide-page__title">Projects</h1>
     <p class="guide-page__lead">
-      Creating and working on Python projects, i.e., with a pyproject.toml
+      Creating and working on Python projects, i.e., with a <code class="code-inline">pyproject.toml</code>.
     </p>
   </header>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Create a new project</h2>
-    <p class="guide-page__text">uv init: Create a new Python project</p>
-    <pre class="guide-page__code"><code>├── .git/
-├── .gitignore
-├── .python-version
-├── README.md
-├── main.py
-└── pyproject.toml</code></pre>
-  </section>
+  <div class="guide-page__content">
+    <section class="guide-section">
+      <div class="guide-section__header">
+        <span class="guide-section__icon">&#x2795;</span>
+        <h2 class="guide-section__title">Create a new project</h2>
+      </div>
+      <p class="guide-section__text">
+        Initialize a new Python project with <code class="code-inline">uv init</code>. This creates a standard project structure.
+      </p>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv init my-project</span>
+      </div>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__label">Project Structure</span>
+        </div>
+        <pre class="code-block__content"><code><span class="code-dir">├──</span> .git/<span class="code-break">
+</span><span class="code-dir">├──</span> .gitignore<span class="code-break">
+</span><span class="code-dir">├──</span> .python-version<span class="code-break">
+</span><span class="code-dir">├──</span> README.md<span class="code-break">
+</span><span class="code-dir">├──</span> main.py<span class="code-break">
+</span><span class="code-dir">└──</span> pyproject.toml</code></pre>
+      </div>
+    </section>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Project commands</h2>
-    <ul class="guide-page__list">
-      <li>uv add: Add a dependency to the project</li>
-      <li>uv remove: Remove a dependency from the project</li>
-      <li>uv sync: Sync the project's dependencies with the environment</li>
-      <li>uv run: Run a command in the project environment</li>
-      <li>uv tree: View the dependency tree for the project</li>
-      <li>uv build: Build the project into distribution archives</li>
-      <li>uv publish: Publish the project to a package index</li>
-    </ul>
-  </section>
+    <section class="guide-section">
+      <div class="guide-section__header">
+        <span class="guide-section__icon">&#x1F4BB;</span>
+        <h2 class="guide-section__title">Project commands</h2>
+      </div>
+      <p class="guide-section__text">
+        Manage your Python project with these essential commands.
+      </p>
+      <div class="commands-grid">
+        <div class="command-card">
+          <span class="command-card__label">Add</span>
+          <code class="command-card__code">uv add</code>
+          <span class="command-card__desc">Add a dependency to the project</span>
+        </div>
+        <div class="command-card">
+          <span class="command-card__label command-card__label--remove">Remove</span>
+          <code class="command-card__code">uv remove</code>
+          <span class="command-card__desc">Remove a dependency from the project</span>
+        </div>
+        <div class="command-card">
+          <span class="command-card__label">Sync</span>
+          <code class="command-card__code">uv sync</code>
+          <span class="command-card__desc">Sync project's dependencies with the environment</span>
+        </div>
+        <div class="command-card">
+          <span class="command-card__label">Run</span>
+          <code class="command-card__code">uv run</code>
+          <span class="command-card__desc">Run a command in the project environment</span>
+        </div>
+        <div class="command-card">
+          <span class="command-card__label">Tree</span>
+          <code class="command-card__code">uv tree</code>
+          <span class="command-card__desc">View the dependency tree for the project</span>
+        </div>
+        <div class="command-card">
+          <span class="command-card__label">Build</span>
+          <code class="command-card__code">uv build</code>
+          <span class="command-card__desc">Build the project into distribution archives</span>
+        </div>
+        <div class="command-card">
+          <span class="command-card__label">Publish</span>
+          <code class="command-card__code">uv publish</code>
+          <span class="command-card__desc">Publish the project to a package index</span>
+        </div>
+      </div>
+    </section>
+  </div>
 </article>

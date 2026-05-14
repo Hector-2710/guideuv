@@ -1,43 +1,107 @@
 <article class="guide-page">
   <header class="guide-page__header">
-    <p class="guide-page__eyebrow">Guides</p>
+    <div class="guide-page__badge">
+      <span class="guide-page__badge-icon">&#x1F4C4;</span>
+      <span>Guide</span>
+    </div>
     <h1 class="guide-page__title">The pip interface</h1>
     <p class="guide-page__lead">
       Manually managing environments and packages — intended to be used in legacy workflows
-      or cases where the high-level commands do not provide enough control
+      or cases where the high-level commands do not provide enough control.
     </p>
   </header>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Creating virtual environments</h2>
-    <p class="guide-page__text">Replacing venv and virtualenv:</p>
-    <ul class="guide-page__list">
-      <li>uv venv: Create a new virtual environment</li>
-    </ul>
-    <p class="guide-page__text">See the documentation on using environments for details.</p>
-  </section>
+  <div class="guide-page__grid">
+    <section class="guide-page__section">
+      <div class="section-header">
+        <span class="section-icon">&#x1F3E2;</span>
+        <h2 class="guide-page__subtitle">Creating virtual environments</h2>
+      </div>
+      <p class="guide-page__text">
+        Replacing <code class="code-inline">venv</code> and <code class="code-inline">virtualenv</code>:
+      </p>
+      <div class="command-list">
+        <div class="command-item">
+          <span class="command-item__label">Create</span>
+          <code class="command-item__code">uv venv</code>
+          <span class="command-item__desc">Create a new virtual environment</span>
+        </div>
+      </div>
+      <p class="guide-page__text guide-page__text--secondary">
+        See the documentation on using environments for details.
+      </p>
+    </section>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Managing packages in an environment</h2>
-    <p class="guide-page__text">Replacing pip and pipdeptree:</p>
-    <ul class="guide-page__list">
-      <li>uv pip install: Install packages into the current environment</li>
-      <li>uv pip show: Show details about an installed package</li>
-      <li>uv pip freeze: List installed packages and their versions</li>
-      <li>uv pip check: Check that the current environment has compatible packages</li>
-      <li>uv pip list: List installed packages</li>
-      <li>uv pip uninstall: Uninstall packages</li>
-      <li>uv pip tree: View the dependency tree for the environment</li>
-    </ul>
-    <p class="guide-page__text">See the documentation on managing packages for details.</p>
-  </section>
+    <section class="guide-page__section guide-page__section--wide">
+      <div class="section-header">
+        <span class="section-icon">&#x1F4E6;</span>
+        <h2 class="guide-page__subtitle">Managing packages in an environment</h2>
+      </div>
+      <p class="guide-page__text">
+        Replacing <code class="code-inline">pip</code> and <code class="code-inline">pipdeptree</code>:
+      </p>
+      <div class="command-list">
+        <div class="command-item">
+          <span class="command-item__label">Install</span>
+          <code class="command-item__code">uv pip install</code>
+          <span class="command-item__desc">Install packages into the current environment</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Info</span>
+          <code class="command-item__code">uv pip show</code>
+          <span class="command-item__desc">Show details about an installed package</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">List</span>
+          <code class="command-item__code">uv pip freeze</code>
+          <span class="command-item__desc">List installed packages and their versions</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Check</span>
+          <code class="command-item__code">uv pip check</code>
+          <span class="command-item__desc">Check that the current environment has compatible packages</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">List</span>
+          <code class="command-item__code">uv pip list</code>
+          <span class="command-item__desc">List installed packages</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label command-item__label--remove">Remove</span>
+          <code class="command-item__code">uv pip uninstall</code>
+          <span class="command-item__desc">Uninstall packages</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Tree</span>
+          <code class="command-item__code">uv pip tree</code>
+          <span class="command-item__desc">View the dependency tree for the environment</span>
+        </div>
+      </div>
+      <p class="guide-page__text guide-page__text--secondary">
+        See the documentation on managing packages for details.
+      </p>
+    </section>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Locking packages in an environment</h2>
-    <p class="guide-page__text">Replacing pip-tools:</p>
-    <ul class="guide-page__list">
-      <li>uv pip compile: Compile requirements into a lockfile</li>
-      <li>uv pip sync: Sync an environment with a lockfile</li>
-    </ul>
-  </section>
+    <section class="guide-page__section">
+      <div class="section-header">
+        <span class="section-icon">&#x1F512;</span>
+        <h2 class="guide-page__subtitle">Locking packages in an environment</h2>
+      </div>
+      <p class="guide-page__text">
+        Replacing <code class="code-inline">pip-tools</code>:
+      </p>
+      <div class="command-list">
+        <div class="command-item">
+          <span class="command-item__label">Compile</span>
+          <code class="command-item__code">uv pip compile</code>
+          <span class="command-item__desc">Compile requirements into a lockfile</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Sync</span>
+          <code class="command-item__code">uv pip sync</code>
+          <span class="command-item__desc">Sync an environment with a lockfile</span>
+        </div>
+      </div>
+    </section>
+  </div>
 </article>

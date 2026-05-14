@@ -1,19 +1,42 @@
 <article class="guide-page">
   <header class="guide-page__header">
-    <p class="guide-page__eyebrow">Guides</p>
+    <div class="guide-page__badge">
+      <span class="guide-page__badge-icon">&#x1F4C4;</span>
+      <span>Guide</span>
+    </div>
     <h1 class="guide-page__title">Package</h1>
     <p class="guide-page__lead">
-      uv supports building Python packages into source and binary distributions via uv build
-      and uploading them to a registry with uv publish
+      uv supports building Python packages into source and binary distributions via <code class="code-inline">uv build</code>
+      and uploading them to a registry with <code class="code-inline">uv publish</code>.
     </p>
   </header>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Build & publish</h2>
-    <ul class="guide-page__list">
-      <li>uv build: Build the project in the current directory and place the artifacts in a dist/ subdirectory.</li>
-      <li>uv publish: Upload packages to a registry</li>
-      <li>uv version 1.0.0: Provides conveniences for updating the project version</li>
-    </ul>
-  </section>
+  <div class="guide-page__grid">
+    <section class="guide-page__section guide-page__section--wide">
+      <div class="section-header">
+        <span class="section-icon">&#x1F4B0;</span>
+        <h2 class="guide-page__subtitle">Build & publish</h2>
+      </div>
+      <p class="guide-page__text">
+        Build your Python project and publish it to a registry for distribution.
+      </p>
+      <div class="command-list">
+        <div class="command-item">
+          <span class="command-item__label">Build</span>
+          <code class="command-item__code">uv build</code>
+          <span class="command-item__desc">Build the project and place artifacts in dist/</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Publish</span>
+          <code class="command-item__code">uv publish</code>
+          <span class="command-item__desc">Upload packages to a registry</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Version</span>
+          <code class="command-item__code">uv version 1.0.0</code>
+          <span class="command-item__desc">Update the project version</span>
+        </div>
+      </div>
+    </section>
+  </div>
 </article>

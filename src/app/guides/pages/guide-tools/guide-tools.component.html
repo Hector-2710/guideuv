@@ -1,29 +1,76 @@
 <article class="guide-page">
   <header class="guide-page__header">
-    <p class="guide-page__eyebrow">Guides</p>
+    <div class="guide-page__badge">
+      <span class="guide-page__badge-icon">&#x1F4C4;</span>
+      <span>Guide</span>
+    </div>
     <h1 class="guide-page__title">Tools</h1>
     <p class="guide-page__lead">
-      Running and installing tools published to Python package indexes, e.g., ruff or black
+      Running and installing tools published to Python package indexes, e.g., <code class="code-inline">ruff</code> or <code class="code-inline">black</code>.
     </p>
   </header>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Run tools on demand</h2>
-    <ul class="guide-page__list">
-      <li>uvx / uv tool run: Run a tool in a temporary environment</li>
-      <li>uvx ruff: The uvx command invokes a tool without installing it</li>
-      <li>uvx --from httpie http: The --from option can be used to invoke a command from a specific package, e.g., http which is provided by httpie</li>
-    </ul>
-  </section>
+  <div class="guide-page__grid">
+    <section class="guide-page__section">
+      <div class="section-header">
+        <span class="section-icon">&#x25B6;</span>
+        <h2 class="guide-page__subtitle">Run tools on demand</h2>
+      </div>
+      <p class="guide-page__text">
+        Use <code class="code-inline">uvx</code> or <code class="code-inline">uv tool run</code> to run a tool in a temporary environment without installing it.
+      </p>
+      <div class="command-list">
+        <div class="command-item">
+          <span class="command-item__label">Run</span>
+          <code class="command-item__code">uvx ruff</code>
+          <span class="command-item__desc">The uvx command invokes a tool without installing it</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Run</span>
+          <code class="command-item__code">uvx --from httpie http</code>
+          <span class="command-item__desc">Invoke a command from a specific package</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Run</span>
+          <code class="command-item__code">uv tool run ruff</code>
+          <span class="command-item__desc">Run a tool in a temporary environment</span>
+        </div>
+      </div>
+    </section>
 
-  <section class="guide-page__section">
-    <h2 class="guide-page__subtitle">Install tools</h2>
-    <ul class="guide-page__list">
-      <li>uv tool install: Install a tool user-wide</li>
-      <li>uv tool uninstall: Uninstall a tool</li>
-      <li>uv tool list: List installed tools</li>
-      <li>uv tool update-shell: Update the shell to include tool executables</li>
-    </ul>
-    <p class="guide-page__text">See the guide on tools to get started</p>
-  </section>
+    <section class="guide-page__section">
+      <div class="section-header">
+        <span class="section-icon">&#x1F4E6;</span>
+        <h2 class="guide-page__subtitle">Install tools</h2>
+      </div>
+      <p class="guide-page__text">
+        Install tools user-wide for persistent access across your system.
+      </p>
+      <div class="command-list">
+        <div class="command-item">
+          <span class="command-item__label">Install</span>
+          <code class="command-item__code">uv tool install</code>
+          <span class="command-item__desc">Install a tool user-wide</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label command-item__label--remove">Remove</span>
+          <code class="command-item__code">uv tool uninstall</code>
+          <span class="command-item__desc">Uninstall a tool</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">List</span>
+          <code class="command-item__code">uv tool list</code>
+          <span class="command-item__desc">List installed tools</span>
+        </div>
+        <div class="command-item">
+          <span class="command-item__label">Setup</span>
+          <code class="command-item__code">uv tool update-shell</code>
+          <span class="command-item__desc">Update the shell to include tool executables</span>
+        </div>
+      </div>
+      <p class="guide-page__text guide-page__text--secondary">
+        See the guide on tools to get started.
+      </p>
+    </section>
+  </div>
 </article>
