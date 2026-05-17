@@ -94,10 +94,11 @@
 }
 
 .guide-section__title {
-  margin: 0;
-  font-size: 1.125rem;
-  font-weight: 600;
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--color-white);
+  letter-spacing: -0.02em;
 }
 
 .guide-section__text {
@@ -193,6 +194,12 @@
   }
 }
 
+.command-card__icon {
+  font-size: 1rem;
+  width: 24px;
+  text-align: center;
+}
+
 .command-card__label {
   display: inline-flex;
   align-items: center;
@@ -222,4 +229,60 @@
   color: var(--color-white-dim);
   line-height: 1.4;
   margin-left: auto;
+}
+
+.terminal-example {
+  background: var(--color-black);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.terminal-example__header {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.terminal-example__title {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-white-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.terminal-example__content {
+  padding: 1rem;
+  overflow-x: auto;
+
+  pre {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  code {
+    display: block;
+    color: var(--color-white);
+  }
+}
+
+.terminal-prompt {
+  color: var(--color-purple-soft);
+  margin-right: 0.5rem;
+}
+
+.terminal-command {
+  color: var(--color-accent);
+}
+
+.terminal-output {
+  color: var(--color-white-dim);
+  display: block;
+  margin-top: 0.25rem;
 }
