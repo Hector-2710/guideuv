@@ -32,7 +32,7 @@ export class Navbar {
   defaultLinks: NavbarLink[] = [
     { label: 'Home', route: '/' },
     { label: 'Guides', route: '/guides' },
-    { label: 'Contact', route: '/contact' },
+    { label: 'About Us', route: '/about' },
   ];
 
   links = input<NavbarLink[]>(this.defaultLinks);

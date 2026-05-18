@@ -1,0 +1,319 @@
+.about {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+// Hero Section
+.about__hero {
+  text-align: center;
+  padding: 2rem 0;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.about__avatar {
+  margin-bottom: 1.5rem;
+}
+
+.about__avatar-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-accent) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.3);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  span {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-white);
+    font-family: var(--font-sans);
+  }
+}
+
+.about__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.about__tagline {
+  font-size: 1.125rem;
+  color: var(--color-white-muted);
+  margin: 0;
+}
+
+// Sections
+.about__section {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+
+  &:nth-child(2) { animation-delay: 0.1s; }
+  &:nth-child(3) { animation-delay: 0.2s; }
+  &:nth-child(4) { animation-delay: 0.3s; }
+}
+
+.about__section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin: 0 0 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: '';
+    width: 4px;
+    height: 1.25rem;
+    background: var(--color-accent);
+    border-radius: 2px;
+  }
+}
+
+// Card
+.about__card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color var(--anim-duration-base), background var(--anim-duration-base);
+
+  &:hover {
+    border-color: var(--color-border-hover);
+    background: var(--color-card-bg-hover);
+  }
+}
+
+.about__text {
+  color: var(--color-white-muted);
+  line-height: 1.7;
+  margin: 0 0 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+}
+
+// Social Grid
+.about__social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.about__social-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all var(--anim-duration-base);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--color-accent);
+    opacity: 0;
+    transition: opacity var(--anim-duration-base);
+  }
+
+  &:hover {
+    border-color: var(--color-border-hover);
+    background: var(--color-card-bg-hover);
+    transform: translateY(-2px);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .about__social-arrow {
+      transform: translate(2px, -2px);
+      color: var(--color-accent);
+    }
+  }
+}
+
+.about__social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(229, 184, 48, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-accent);
+  }
+}
+
+.about__social-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.about__social-name {
+  font-weight: 600;
+  color: var(--color-white);
+  font-size: 0.9375rem;
+}
+
+.about__social-username {
+  font-size: 0.8125rem;
+  color: var(--color-white-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.about__social-arrow {
+  color: var(--color-white-dim);
+  transition: all var(--anim-duration-base);
+  flex-shrink: 0;
+}
+
+// Ideas Grid
+.about__ideas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.about__idea-card {
+  padding: 1.5rem;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: all var(--anim-duration-base);
+
+  &:hover {
+    border-color: var(--color-purple-soft);
+    background: rgba(124, 58, 237, 0.05);
+  }
+}
+
+.about__idea-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-purple-soft) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-white);
+  }
+}
+
+.about__idea-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin: 0 0 0.5rem;
+}
+
+.about__idea-description {
+  font-size: 0.9375rem;
+  color: var(--color-white-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+// Footer
+.about__footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: auto;
+  animation: fadeInUp 0.6s ease-out;
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+
+  p {
+    font-size: 1.25rem;
+    color: var(--color-white);
+    margin: 0;
+    font-weight: 500;
+  }
+}
+
+.about__footer-sub {
+  font-size: 0.9375rem !important;
+  color: var(--color-white-dim) !important;
+  margin-top: 0.5rem !important;
+  font-weight: 400 !important;
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive
+@media (max-width: 640px) {
+  .about {
+    padding: 2rem 1rem;
+  }
+
+  .about__title {
+    font-size: 1.75rem;
+  }
+
+  .about__tagline {
+    font-size: 1rem;
+  }
+
+  .about__social-grid,
+  .about__ideas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about__section-title {
+    font-size: 1.25rem;
+  }
+}
