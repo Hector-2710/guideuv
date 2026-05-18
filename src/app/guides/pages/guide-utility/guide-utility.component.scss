@@ -153,3 +153,110 @@
   font-size: 0.8125rem;
   color: var(--color-white-dim);
 }
+
+.guide-page__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.guide-section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.guide-section__title {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: -0.02em;
+}
+
+.guide-section__text {
+  color: var(--color-white-muted);
+  margin: 0 0 1.25rem;
+  line-height: 1.6;
+}
+
+.command-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--color-black);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.command-block__prefix {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.command-block__code {
+  color: var(--color-white);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.terminal-example {
+  background: var(--color-black);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.terminal-example__header {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.terminal-example__title {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-white-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.terminal-example__content {
+  padding: 1rem;
+  overflow-x: auto;
+
+  pre {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  code {
+    display: block;
+    color: var(--color-white);
+  }
+}
+
+.terminal-prompt {
+  color: var(--color-purple-soft);
+  margin-right: 0.5rem;
+}
+
+.terminal-command {
+  color: var(--color-accent);
+}
+
+.terminal-output {
+  color: var(--color-white-dim);
+  display: block;
+  margin-top: 0.25rem;
+}

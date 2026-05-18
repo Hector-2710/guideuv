@@ -13,52 +13,106 @@
     </p>
   </header>
 
-  <div class="guide-page__grid">
-    <section class="guide-page__section">
-      <div class="section-header">
-        <span class="section-icon">&#x1F50D;</span>
-        <h2 class="guide-page__subtitle">Install Python</h2>
-      </div>
-      <p class="guide-page__text">
+  <div class="guide-page__content">
+    <!-- uv python install -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Install Python</h1>
+      <p class="guide-section__text">
         Install Python versions managed by uv. You don't need Python installed beforehand — uv handles everything.
       </p>
-      <div class="command-list">
-        <div class="command-item">
-          <span class="command-item__label">Install</span>
-          <code class="command-item__code">uv python install</code>
-          <span class="command-item__desc">Install the latest Python version</span>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv python install</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
         </div>
-        <div class="command-item">
-          <span class="command-item__label">Install</span>
-          <code class="command-item__code">uv python install 3.12</code>
-          <span class="command-item__desc">Install a specific Python version</span>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python install</span>
+<span class="terminal-output">Installed Python 3.13.1 in 4.2s</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv python install 3.12</span>
+<span class="terminal-output">Installed Python 3.12.8 in 3.8s</span></code></pre>
         </div>
       </div>
     </section>
 
-    <section class="guide-page__section">
-      <div class="section-header">
-        <span class="section-icon">&#x2699;</span>
-        <h2 class="guide-page__subtitle">Manage versions</h2>
-      </div>
-      <p class="guide-page__text">
-        View, find, and uninstall Python versions installed by uv.
+    <!-- uv python list -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">List Python versions</h1>
+      <p class="guide-section__text">
+        View available Python versions installed by uv and those available for installation.
       </p>
-      <div class="command-list">
-        <div class="command-item">
-          <span class="command-item__label">List</span>
-          <code class="command-item__code">uv python list</code>
-          <span class="command-item__desc">View available Python versions</span>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv python list</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
         </div>
-        <div class="command-item">
-          <span class="command-item__label">Find</span>
-          <code class="command-item__code">uv python find</code>
-          <span class="command-item__desc">Find an installed Python version</span>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python list</span>
+<span class="terminal-output">Installed Python versions:
+  3.13.1
+  3.12.8
+  3.11.9
+
+Available Python versions:
+  3.14.0a1
+  3.14.0a2
+  3.13.1
+  3.12.8
+  3.11.9
+  3.10.15</span></code></pre>
         </div>
-        <div class="command-item">
-          <span class="command-item__label command-item__label--remove">Remove</span>
-          <code class="command-item__code">uv python uninstall</code>
-          <span class="command-item__desc">Uninstall a Python version</span>
+      </div>
+    </section>
+
+    <!-- uv python find -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Find Python version</h1>
+      <p class="guide-section__text">
+        Find an installed Python version matching a specific requirement.
+      </p>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv python find</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python find 3.12</span>
+<span class="terminal-output">Found Python 3.12.8 at /home/user/.local/share/uv/python/x86_64-unknown-linux-gnu/cpython-3.12.8-linux-x86_64-gnu</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv python find 3.11</span>
+<span class="terminal-output">Found Python 3.11.9 at /home/user/.local/share/uv/python/x86_64-unknown-linux-gnu/cpython-3.11.9-linux-x86_64-gnu</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- uv python uninstall -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Uninstall Python version</h1>
+      <p class="guide-section__text">
+        Uninstall a Python version that was installed by uv.
+      </p>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv python uninstall</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python uninstall 3.11.9</span>
+<span class="terminal-output">Uninstalled Python 3.11.9</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv python list</span>
+<span class="terminal-output">Installed Python versions:
+  3.13.1
+  3.12.8</span></code></pre>
         </div>
       </div>
     </section>

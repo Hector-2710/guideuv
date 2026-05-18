@@ -11,30 +11,87 @@
     </p>
   </header>
 
-  <div class="guide-page__grid">
-    <section class="guide-page__section guide-page__section--wide">
-      <div class="section-header">
-        <span class="section-icon">&#x1F4B0;</span>
-        <h2 class="guide-page__subtitle">Build & publish</h2>
-      </div>
-      <p class="guide-page__text">
-        Build your Python project and publish it to a registry for distribution.
+  <div class="guide-page__content">
+    <!-- uv build -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Build package</h1>
+      <p class="guide-section__text">
+        Build your Python project and create distribution artifacts in the <code class="code-inline">dist/</code> directory.
       </p>
-      <div class="command-list">
-        <div class="command-item">
-          <span class="command-item__label">Build</span>
-          <code class="command-item__code">uv build</code>
-          <span class="command-item__desc">Build the project and place artifacts in dist/</span>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv build</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
         </div>
-        <div class="command-item">
-          <span class="command-item__label">Publish</span>
-          <code class="command-item__code">uv publish</code>
-          <span class="command-item__desc">Upload packages to a registry</span>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv build</span>
+<span class="terminal-output">Building wheel for my-package (1.0.0)
+  - Building: my_package/__init__.py
+  - Building: my_package/core.py
+  - Building: pyproject.toml
+  - Adding: README.md
+  - Adding: LICENSE
+Finished building
+  - my_package-1.0.0-py3-none-any.whl (15.2 KB)
+  - my_package-1.0.0.tar.gz (10.1 KB)</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">ls dist/</span>
+<span class="terminal-output">my_package-1.0.0-py3-none-any.whl
+my_package-1.0.0.tar.gz</span></code></pre>
         </div>
-        <div class="command-item">
-          <span class="command-item__label">Version</span>
-          <code class="command-item__code">uv version 1.0.0</code>
-          <span class="command-item__desc">Update the project version</span>
+      </div>
+    </section>
+
+    <!-- uv publish -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Publish package</h1>
+      <p class="guide-section__text">
+        Upload your built packages to a registry (PyPI by default or a custom index).
+      </p>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv publish</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv publish</span>
+<span class="terminal-output">Publishing my-package (1.0.0) to https://upload.pypi.org/legacy/
+  - Uploading my_package-1.0.0-py3-none-any.whl
+  - Uploading my_package-1.0.0.tar.gz
+Successfully published my-package 1.0.0</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv publish --token pypi-***</span>
+<span class="terminal-output">Publishing my-package (1.0.0) to https://upload.pypi.org/legacy/
+Successfully published my-package 1.0.0</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- uv version -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Update version</h1>
+      <p class="guide-section__text">
+        Update the version of your project in <code class="code-inline">pyproject.toml</code>.
+      </p>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv version</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv version 1.0.0</span>
+<span class="terminal-output">Updated version from 0.1.0 to 1.0.0</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv version --bump patch</span>
+<span class="terminal-output">Updated version from 1.0.0 to 1.0.1</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv version --bump minor</span>
+<span class="terminal-output">Updated version from 1.0.1 to 1.1.0</span></code></pre>
         </div>
       </div>
     </section>

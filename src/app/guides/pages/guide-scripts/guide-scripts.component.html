@@ -12,77 +12,123 @@
     </p>
   </header>
 
-  <div class="guide-page__grid">
-    <section class="guide-page__section">
-      <div class="section-header">
-        <span class="section-icon">&#x25B6;</span>
-        <h2 class="guide-page__subtitle">Run scripts</h2>
-      </div>
-      <p class="guide-page__text">
-        The simplest way to execute a Python script with uv:
+  <div class="guide-page__content">
+    <!-- uv run -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Run a script</h1>
+      <p class="guide-section__text">
+        Execute a Python script with uv. Dependencies are automatically managed in a temporary environment.
       </p>
       <div class="command-block">
-        <span class="command-prefix">$</span>
-        <code>uv run script.py</code>
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv run</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv run script.py</span>
+<span class="terminal-output">Hello, World!</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv run --with fastapi script.py</span>
+<span class="terminal-output">Starting FastAPI server...
+INFO: Uvicorn running on http://127.0.0.1:8000</span></code></pre>
+        </div>
+      </div>
+      <div class="command-card">
+        <span class="command-card__icon">&#x25B6;</span>
+        <span class="command-card__label">Run</span>
+        <code class="command-card__code">uv run</code>
+        <span class="command-card__desc">Execute Python script</span>
       </div>
     </section>
 
-    <section class="guide-page__section">
-      <div class="section-header">
-        <span class="section-icon">&#x1F4E6;</span>
-        <h2 class="guide-page__subtitle">Run with dependencies</h2>
-      </div>
-      <p class="guide-page__text">
-        When your script requires other packages, uv creates these environments on
-        demand rather than using a virtual environment. This requires explicitly declaring the
-        dependencies needed by the script.
+    <!-- uv run --with -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Run with dependencies</h1>
+      <p class="guide-section__text">
+        Run a script with additional packages installed in a temporary environment.
       </p>
       <div class="command-block">
-        <span class="command-prefix">$</span>
-        <code>uv run --with fastapi example.py</code>
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv run --with</span>
       </div>
-      <p class="guide-page__text guide-page__text--secondary">
-        This installs FastAPI in a temporary environment and runs your script.
-      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv run --with requests script.py</span>
+<span class="terminal-output">Fetching data from API...
+Status: 200 OK</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv run --with pandas --with matplotlib analysis.py</span>
+<span class="terminal-output">Generating chart...
+Chart saved to output.png</span></code></pre>
+        </div>
+      </div>
+      <div class="command-card">
+        <span class="command-card__icon">&#x2795;</span>
+        <span class="command-card__label">With</span>
+        <code class="command-card__code">uv run --with</code>
+        <span class="command-card__desc">Run with temp dependencies</span>
+      </div>
     </section>
 
-    <section class="guide-page__section guide-page__section--wide">
-      <div class="section-header">
-        <span class="section-icon">&#x1F4DD;</span>
-        <h2 class="guide-page__subtitle">Declaring script dependencies</h2>
-      </div>
-      <p class="guide-page__text">
-        The inline metadata format allows the dependencies for a script to be declared directly in the script itself:
+    <!-- uv add --script -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Add script dependency</h1>
+      <p class="guide-section__text">
+        Add a dependency to a script that uses inline metadata. Updates the script's dependency declarations.
       </p>
-      <div class="code-block">
-        <div class="code-block__header">
-          <span class="code-block__lang">Python</span>
-        </div>
-        <pre class="code-block__content"><code><span class="code-comment"># /// script</span>
-<span class="code-comment"># dependencies = [</span>
-<span class="code-comment">#   "requests",</span>
-<span class="code-comment">#   "rich",</span>
-<span class="code-comment"># ]</span>
-<span class="code-comment"># ///</span>
-
-<span class="code-keyword">import</span> requests
-<span class="code-keyword">from</span> rich.pretty <span class="code-keyword">import</span> pprint
-
-resp = requests.get(<span class="code-string">"https://peps.python.org/api/peps.json"</span>)
-data = resp.json()
-pprint([(k, v[<span class="code-string">"title"</span>]) <span class="code-keyword">for</span> k, v <span class="code-keyword">in</span> data.items()][:10])</code></pre>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv add --script</span>
       </div>
-      <div class="command-list">
-        <div class="command-item">
-          <span class="command-item__label">Add</span>
-          <code class="command-item__code">uv add --script</code>
-          <span class="command-item__desc">Add a dependency to a script</span>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
         </div>
-        <div class="command-item">
-          <span class="command-item__label command-item__label--remove">Remove</span>
-          <code class="command-item__code">uv remove --script</code>
-          <span class="command-item__desc">Remove a dependency from a script</span>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv add --script requests script.py</span>
+<span class="terminal-output">Updated script.py with dependency: requests</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv add --script rich --script script.py</span>
+<span class="terminal-output">Updated script.py with dependency: rich</span></code></pre>
         </div>
+      </div>
+      <div class="command-card">
+        <span class="command-card__icon">&#x2795;</span>
+        <span class="command-card__label">Add</span>
+        <code class="command-card__code">uv add --script</code>
+        <span class="command-card__desc">Add dependency to script</span>
+      </div>
+    </section>
+
+    <!-- uv remove --script -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Remove script dependency</h1>
+      <p class="guide-section__text">
+        Remove a dependency from a script that uses inline metadata.
+      </p>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv remove --script</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv remove --script requests script.py</span>
+<span class="terminal-output">Removed dependency: requests from script.py</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv remove --script rich --script script.py</span>
+<span class="terminal-output">Removed dependency: rich from script.py</span></code></pre>
+        </div>
+      </div>
+      <div class="command-card">
+        <span class="command-card__icon">&#x1F5D1;</span>
+        <span class="command-card__label command-card__label--remove">Remove</span>
+        <code class="command-card__code">uv remove --script</code>
+        <span class="command-card__desc">Remove dependency from script</span>
       </div>
     </section>
   </div>

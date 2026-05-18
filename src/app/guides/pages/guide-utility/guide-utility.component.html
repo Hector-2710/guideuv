@@ -11,69 +11,143 @@
     </p>
   </header>
 
-  <div class="guide-page__grid">
-    <section class="guide-page__section">
-      <div class="section-header">
-        <span class="section-icon">&#x1F6AB;</span>
-        <h2 class="guide-page__subtitle">Cache management</h2>
-      </div>
-      <p class="guide-page__text">
-        Manage uv's cache to free up disk space or remove outdated entries.
+  <div class="guide-page__content">
+    <!-- uv cache clean -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Clean cache</h1>
+      <p class="guide-section__text">
+        Remove cache entries to free up disk space.
       </p>
-      <div class="command-list">
-        <div class="command-item">
-          <span class="command-item__label">Clean</span>
-          <code class="command-item__code">uv cache clean</code>
-          <span class="command-item__desc">Remove cache entries</span>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv cache clean</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
         </div>
-        <div class="command-item">
-          <span class="command-item__label">Prune</span>
-          <code class="command-item__code">uv cache prune</code>
-          <span class="command-item__desc">Remove outdated cache entries</span>
-        </div>
-        <div class="command-item">
-          <span class="command-item__label">Info</span>
-          <code class="command-item__code">uv cache dir</code>
-          <span class="command-item__desc">Show the uv cache directory path</span>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv cache clean</span>
+<span class="terminal-output">Removed 125 cache entries (45.2 MB)</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv cache clean --older 30d</span>
+<span class="terminal-output">Removed 45 cache entries older than 30 days (12.3 MB)</span></code></pre>
         </div>
       </div>
     </section>
 
-    <section class="guide-page__section">
-      <div class="section-header">
-        <span class="section-icon">&#x1F4C1;</span>
-        <h2 class="guide-page__subtitle">Directory inspection</h2>
-      </div>
-      <p class="guide-page__text">
-        View the directories where uv stores tools and Python versions.
+    <!-- uv cache prune -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Prune cache</h1>
+      <p class="guide-section__text">
+        Remove outdated cache entries that are no longer needed.
       </p>
-      <div class="command-list">
-        <div class="command-item">
-          <span class="command-item__label">Info</span>
-          <code class="command-item__code">uv tool dir</code>
-          <span class="command-item__desc">Show the uv tool directory path</span>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv cache prune</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
         </div>
-        <div class="command-item">
-          <span class="command-item__label">Info</span>
-          <code class="command-item__code">uv python dir</code>
-          <span class="command-item__desc">Show the uv installed Python versions path</span>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv cache prune</span>
+<span class="terminal-output">Pruned 32 outdated cache entries (8.5 MB)</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv cache prune --dry-run</span>
+<span class="terminal-output">Would prune 32 entries (8.5 MB). Run without --dry-run to remove.</span></code></pre>
         </div>
       </div>
     </section>
 
-    <section class="guide-page__section">
-      <div class="section-header">
-        <span class="section-icon">&#x1F504;</span>
-        <h2 class="guide-page__subtitle">Self-update</h2>
-      </div>
-      <p class="guide-page__text">
-        Keep uv up to date with the latest features and bug fixes.
+    <!-- uv cache dir -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Cache directory</h1>
+      <p class="guide-section__text">
+        Show the path to uv's cache directory.
       </p>
-      <div class="command-list">
-        <div class="command-item">
-          <span class="command-item__label">Update</span>
-          <code class="command-item__code">uv self update</code>
-          <span class="command-item__desc">Update uv to the latest version</span>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv cache dir</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv cache dir</span>
+<span class="terminal-output">/home/user/.cache/uv</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">du -sh $(uv cache dir)</span>
+<span class="terminal-output">1.2G</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- uv tool dir -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Tool directory</h1>
+      <p class="guide-section__text">
+        Show the path to uv's tool directory where installed tools are stored.
+      </p>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv tool dir</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tool dir</span>
+<span class="terminal-output">/home/user/.local/share/uv/tools</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">ls $(uv tool dir)</span>
+<span class="terminal-output">black  ruff  mypy</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- uv python dir -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Python directory</h1>
+      <p class="guide-section__text">
+        Show the path to uv's Python versions directory.
+      </p>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv python dir</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python dir</span>
+<span class="terminal-output">/home/user/.local/share/uv/python</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">ls $(uv python dir)</span>
+<span class="terminal-output">x86_64-unknown-linux-gnu</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- uv self update -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Self-update</h1>
+      <p class="guide-section__text">
+        Update uv to the latest version to get new features and bug fixes.
+      </p>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv self update</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv self update</span>
+<span class="terminal-output">Updating uv from 0.4.0 to 0.4.1
+Downloading uv 0.4.1...
+Installed uv 0.4.1</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv --version</span>
+<span class="terminal-output">uv 0.4.1</span></code></pre>
         </div>
       </div>
     </section>

@@ -10,67 +10,187 @@
     </p>
   </header>
 
-  <div class="guide-page__grid">
-    <section class="guide-page__section">
-      <div class="section-header">
-        <span class="section-icon">&#x25B6;</span>
-        <h2 class="guide-page__subtitle">Run tools on demand</h2>
-      </div>
-      <p class="guide-page__text">
-        Use <code class="code-inline">uvx</code> or <code class="code-inline">uv tool run</code> to run a tool in a temporary environment without installing it.
+  <div class="guide-page__content">
+    <!-- uvx -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Run tool on demand</h1>
+      <p class="guide-section__text">
+        Use <code class="code-inline">uvx</code> to run a tool in a temporary environment without installing it. Perfect for one-off commands.
       </p>
-      <div class="command-list">
-        <div class="command-item">
-          <span class="command-item__label">Run</span>
-          <code class="command-item__code">uvx ruff</code>
-          <span class="command-item__desc">The uvx command invokes a tool without installing it</span>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uvx</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
         </div>
-        <div class="command-item">
-          <span class="command-item__label">Run</span>
-          <code class="command-item__code">uvx --from httpie http</code>
-          <span class="command-item__desc">Invoke a command from a specific package</span>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uvx ruff check .</span>
+<span class="terminal-output">Checking files...
+All files passed</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uvx --from httpie http https://example.com</span>
+<span class="terminal-output">HTTP/1.1 200 OK
+Content-Type: text/html...</span></code></pre>
         </div>
-        <div class="command-item">
-          <span class="command-item__label">Run</span>
-          <code class="command-item__code">uv tool run ruff</code>
-          <span class="command-item__desc">Run a tool in a temporary environment</span>
-        </div>
+      </div>
+      <div class="command-card">
+        <span class="command-card__icon">&#x25B6;</span>
+        <span class="command-card__label">Run</span>
+        <code class="command-card__code">uvx</code>
+        <span class="command-card__desc">Run tool without installing</span>
       </div>
     </section>
 
-    <section class="guide-page__section">
-      <div class="section-header">
-        <span class="section-icon">&#x1F4E6;</span>
-        <h2 class="guide-page__subtitle">Install tools</h2>
-      </div>
-      <p class="guide-page__text">
-        Install tools user-wide for persistent access across your system.
+    <!-- uv tool run -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Run installed tool</h1>
+      <p class="guide-section__text">
+        Run a tool that has been installed with <code class="code-inline">uv tool install</code>.
       </p>
-      <div class="command-list">
-        <div class="command-item">
-          <span class="command-item__label">Install</span>
-          <code class="command-item__code">uv tool install</code>
-          <span class="command-item__desc">Install a tool user-wide</span>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv tool run</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
         </div>
-        <div class="command-item">
-          <span class="command-item__label command-item__label--remove">Remove</span>
-          <code class="command-item__code">uv tool uninstall</code>
-          <span class="command-item__desc">Uninstall a tool</span>
-        </div>
-        <div class="command-item">
-          <span class="command-item__label">List</span>
-          <code class="command-item__code">uv tool list</code>
-          <span class="command-item__desc">List installed tools</span>
-        </div>
-        <div class="command-item">
-          <span class="command-item__label">Setup</span>
-          <code class="command-item__code">uv tool update-shell</code>
-          <span class="command-item__desc">Update the shell to include tool executables</span>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tool run ruff check .</span>
+<span class="terminal-output">Checking files...
+All files passed</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv tool run black format .</span>
+<span class="terminal-output">reformatted 3 files</span></code></pre>
         </div>
       </div>
-      <p class="guide-page__text guide-page__text--secondary">
-        See the guide on tools to get started.
+      <div class="command-card">
+        <span class="command-card__icon">&#x25B6;</span>
+        <span class="command-card__label">Run</span>
+        <code class="command-card__code">uv tool run</code>
+        <span class="command-card__desc">Run installed tool</span>
+      </div>
+    </section>
+
+    <!-- uv tool install -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Install tool</h1>
+      <p class="guide-section__text">
+        Install a tool user-wide for persistent access across your system.
       </p>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv tool install</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tool install ruff</span>
+<span class="terminal-output">Installed tool: ruff</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv tool install black</span>
+<span class="terminal-output">Installed tool: black</span></code></pre>
+        </div>
+      </div>
+      <div class="command-card">
+        <span class="command-card__icon">&#x1F4E6;</span>
+        <span class="command-card__label">Install</span>
+        <code class="command-card__code">uv tool install</code>
+        <span class="command-card__desc">Install tool user-wide</span>
+      </div>
+    </section>
+
+    <!-- uv tool uninstall -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Uninstall tool</h1>
+      <p class="guide-section__text">
+        Uninstall a tool that was installed with <code class="code-inline">uv tool install</code>.
+      </p>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv tool uninstall</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tool uninstall ruff</span>
+<span class="terminal-output">Uninstalled tool: ruff</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv tool list</span>
+<span class="terminal-output">Installed tools:
+  black</span></code></pre>
+        </div>
+      </div>
+      <div class="command-card">
+        <span class="command-card__icon">&#x1F5D1;</span>
+        <span class="command-card__label command-card__label--remove">Remove</span>
+        <code class="command-card__code">uv tool uninstall</code>
+        <span class="command-card__desc">Uninstall installed tool</span>
+      </div>
+    </section>
+
+    <!-- uv tool list -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">List tools</h1>
+      <p class="guide-section__text">
+        List all tools installed user-wide.
+      </p>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv tool list</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tool list</span>
+<span class="terminal-output">Installed tools:
+  black [23.12.0]
+    - black
+  ruff [0.1.6]
+    - ruff
+    - ruff-format</span></code></pre>
+        </div>
+      </div>
+      <div class="command-card">
+        <span class="command-card__icon">&#x1F4CB;</span>
+        <span class="command-card__label">List</span>
+        <code class="command-card__code">uv tool list</code>
+        <span class="command-card__desc">List installed tools</span>
+      </div>
+    </section>
+
+    <!-- uv tool update-shell -->
+    <section class="guide-section">
+      <h1 class="guide-section__title">Update shell</h1>
+      <p class="guide-section__text">
+        Update the shell to include tool executables in your PATH. Run this after installing tools.
+      </p>
+      <div class="command-block">
+        <span class="command-block__prefix">$</span>
+        <span class="command-block__code">uv tool update-shell</span>
+      </div>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tool update-shell</span>
+<span class="terminal-output">Updated PATH in /home/user/.bashrc
+Restart your shell or run: source /home/user/.bashrc</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">source ~/.bashrc && which ruff</span>
+<span class="terminal-output">/home/user/.local/bin/ruff</span></code></pre>
+        </div>
+      </div>
+      <div class="command-card">
+        <span class="command-card__icon">&#x1F4BB;</span>
+        <span class="command-card__label">Setup</span>
+        <code class="command-card__code">uv tool update-shell</code>
+        <span class="command-card__desc">Update shell PATH</span>
+      </div>
     </section>
   </div>
 </article>
