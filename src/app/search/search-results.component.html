@@ -1,0 +1,75 @@
+<div
+  class="search-modal__overlay"
+  (click)="onOverlayClick($event)"
+  (keydown)="onKeyDown($event)"
+  tabindex="0"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Resultados de búsqueda"
+>
+  <div class="search-modal">
+    <div class="search-modal__header">
+      <h2 class="search-modal__title">
+        Resultados para: <span class="search-modal__query">"{{ query() }}"</span>
+      </h2>
+      <button
+        class="search-modal__close"
+        (click)="onClose()"
+        aria-label="Cerrar"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="search-modal__body">
+      @if (results().length === 0) {
+        <div class="search-modal__empty">
+          <p>No se encontraron resultados para tu búsqueda.</p>
+          <p class="search-modal__hint">Intenta con otras palabras clave.</p>
+        </div>
+      } @else {
+        <ul class="search-modal__results">
+          @for (result of paginatedResults(); track result.route) {
+            <li class="search-result">
+              <button
+                class="search-result__button"
+                (click)="onResultClick(result)"
+              >
+                <span class="search-result__title">{{ result.title }}</span>
+                <span class="search-result__route">{{ result.route }}</span>
+                <span class="search-result__snippet">{{ result.snippet }}</span>
+              </button>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+
+    @if (totalPages() > 1) {
+      <div class="search-modal__footer">
+        <span class="search-modal__info">
+          Página {{ currentPage() }} de {{ totalPages() }}
+          ({{ results().length }} resultados)
+        </span>
+        <div class="search-modal__pagination">
+          <button
+            class="search-modal__page-btn"
+            [disabled]="!hasPrevPage()"
+            (click)="prevPage()"
+          >
+            Anterior
+          </button>
+          <button
+            class="search-modal__page-btn"
+            [disabled]="!hasNextPage()"
+            (click)="nextPage()"
+          >
+            Siguiente
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</div>
