@@ -2,6 +2,8 @@ import { Component, signal, computed, output, input, inject, HostListener, Chang
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { SearchService, SearchResult } from '../search/search.service';
+import { SearchResultsComponent } from '../search/search-results.component';
 
 export interface NavbarLink {
   label: string;
@@ -21,13 +23,16 @@ export const REPO_LINKS: NavbarExternalLink[] = [
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive, SearchResultsComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
 export class Navbar {
   private router = inject(Router);
+  private searchService = inject(SearchService);
+
+  private searchDebounceTimer: ReturnType<typeof setTimeout> | null = null;
 
   defaultLinks: NavbarLink[] = [
     { label: 'Home', route: '/' },
@@ -42,6 +47,9 @@ export class Navbar {
   linkClick = output<NavbarLink>();
 
   searchQuery = signal('');
+  searchResults = signal<SearchResult[]>([]);
+  isSearchDropdownOpen = signal(false);
+  isSearchModalOpen = signal(false);
   isMobileMenuOpen = signal(false);
   isScrolled = signal(false);
 
@@ -66,5 +74,53 @@ export class Navbar {
 
   isActive(route: string): boolean {
     return this.router.url === route;
+  }
+
+  onSearchInput(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.searchQuery.set(value);
+
+    if (value.trim().length > 0) {
+      // Debounce de 300ms
+      if (this.searchDebounceTimer) {
+        clearTimeout(this.searchDebounceTimer);
+      }
+
+      this.searchDebounceTimer = setTimeout(() => {
+        const results = this.searchService.search(value);
+        this.searchResults.set(results);
+        this.isSearchDropdownOpen.set(true);
+      }, 300);
+    } else {
+      this.searchResults.set([]);
+      this.isSearchDropdownOpen.set(false);
+    }
+  }
+
+  onSearchEnter(): void {
+    // Buscar con la query actual y abrir el modal
+    const query = this.searchQuery();
+    if (query.trim().length > 0) {
+      const results = this.searchService.search(query);
+      this.searchResults.set(results);
+      this.isSearchDropdownOpen.set(false);
+      this.isSearchModalOpen.set(true);
+    }
+  }
+
+  closeSearchDropdown(): void {
+    this.isSearchDropdownOpen.set(false);
+  }
+
+  closeSearchModal(): void {
+    this.isSearchModalOpen.set(false);
+  }
+
+  navigateToResult(result: SearchResult): void {
+    this.router.navigate([result.route]);
+    this.isSearchModalOpen.set(false);
+    this.isSearchDropdownOpen.set(false);
+    this.searchQuery.set('');
+    this.searchResults.set([]);
   }
 }

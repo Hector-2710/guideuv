@@ -32,9 +32,33 @@
         class="navbar__search-input"
         placeholder="Buscar..."
         [value]="searchQuery()"
-        (input)="searchQuery.set($any($event.target).value)"
+        (input)="onSearchInput($event)"
+        (keydown.enter)="onSearchEnter()"
+        (blur)="closeSearchDropdown()"
         aria-label="Buscar en la guía"
+        autocomplete="off"
       >
+
+      <!-- Search Dropdown (Tiempo Real) -->
+      @if (isSearchDropdownOpen() && searchResults().length > 0) {
+        <div class="navbar__search-dropdown">
+          @for (result of searchResults(); track result.route) {
+            <button
+              class="navbar__search-dropdown-item"
+              (mousedown)="navigateToResult(result)"
+            >
+              <span class="navbar__search-dropdown-title">{{ result.title }}</span>
+              <span class="navbar__search-dropdown-snippet">{{ result.snippet }}</span>
+            </button>
+          }
+          <button
+            class="navbar__search-dropdown-more"
+            (mousedown)="onSearchEnter()"
+          >
+            Ver todos los resultados ({{ searchResults().length }})
+          </button>
+        </div>
+      }
     </div>
 
     <!-- External Repo Links (Right) -->
@@ -106,4 +130,14 @@
       </a>
     }
   </div>
+
+  <!-- Search Results Modal -->
+  @if (isSearchModalOpen()) {
+    <app-search-results
+      [results]="searchResults()"
+      [query]="searchQuery()"
+      (closeModal)="closeSearchModal()"
+      (navigateTo)="navigateToResult($event)"
+    />
+  }
 </nav>
