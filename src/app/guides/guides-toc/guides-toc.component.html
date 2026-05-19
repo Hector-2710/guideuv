@@ -4,14 +4,13 @@
     <ul class="guides-toc__list">
       @for (item of items(); track item.id) {
         <li class="guides-toc__item">
-          <a
+          <span
             class="guides-toc__link"
             [class.guides-toc__link--active]="item.id === activeId()"
             [class.guides-toc__link--nested]="item.level === 3"
-            [attr.href]="'#' + item.id"
           >
             {{ item.label }}
-          </a>
+          </span>
         </li>
       }
     </ul>
