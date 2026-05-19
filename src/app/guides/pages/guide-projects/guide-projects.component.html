@@ -14,14 +14,10 @@
   <div class="guide-page__content">
     <!-- Step 1: uv init -->
     <section class="guide-section">
-      <h2 class="guide-section__title">1. Initialize a new project</h2>
+      <h2 class="guide-section__title">Initialize a new project</h2>
       <p class="guide-section__text">
         Creates the basic structure of a Python project with <code class="code-inline">uv init</code>. Automatically generates essential files: <code class="code-inline">pyproject.toml</code>, <code class="code-inline">main.py</code>, and Git configuration.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv init</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -37,14 +33,10 @@
 
     <!-- Step 2: uv add -->
     <section class="guide-section">
-      <h2 class="guide-section__title">2. Add dependencies</h2>
+      <h2 class="guide-section__title">Add dependencies</h2>
       <p class="guide-section__text">
         Installs and registers packages in your project with <code class="code-inline">uv add</code>. Automatically adds dependencies to <code class="code-inline">pyproject.toml</code> and installs them in the virtual environment.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv add</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -52,22 +44,17 @@
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv add requests flask</span>
 <span class="terminal-output">Added 2 packages: requests (2.31.0), flask (3.0.0)</span>
-<span class="terminal-prompt">$</span> <span class="terminal-command">uv add pytest --dev</span>
-<span class="terminal-output">Added 1 package: pytest (7.4.0) (dev)</span></code></pre>
+</code></pre>
         </div>
       </div>
     </section>
 
     <!-- Step 3: uv remove -->
     <section class="guide-section">
-      <h2 class="guide-section__title">3. Remove dependencies</h2>
+      <h2 class="guide-section__title">Remove dependencies</h2>
       <p class="guide-section__text">
         Uninstalls and removes packages from your project with <code class="code-inline">uv remove</code>. Cleans both the virtual environment and the references in <code class="code-inline">pyproject.toml</code>.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv remove</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -75,22 +62,17 @@
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv remove requests</span>
 <span class="terminal-output">Removed 1 package: requests</span>
-<span class="terminal-prompt">$</span> <span class="terminal-command">uv remove pytest --dev</span>
-<span class="terminal-output">Removed 1 package: pytest</span></code></pre>
+</code></pre>
         </div>
       </div>
     </section>
 
     <!-- Step 4: uv sync -->
     <section class="guide-section">
-      <h2 class="guide-section__title">4. Sync environment</h2>
+      <h2 class="guide-section__title">Sync environment</h2>
       <p class="guide-section__text">
         Synchronizes project dependencies with the virtual environment using <code class="code-inline">uv sync</code>. Ensures the environment exactly matches what's defined in <code class="code-inline">pyproject.toml</code>.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv sync</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -99,23 +81,17 @@
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv sync</span>
 <span class="terminal-output">Resolved 12 packages in 2.3s
 Installed 12 packages in 1.5s</span>
-<span class="terminal-prompt">$</span> <span class="terminal-command">uv sync --all-extras</span>
-<span class="terminal-output">Resolved 18 packages in 2.8s
-Installed 18 packages in 2.1s</span></code></pre>
+</code></pre>
         </div>
       </div>
     </section>
 
     <!-- Step 5: uv run -->
     <section class="guide-section">
-      <h2 class="guide-section__title">5. Run commands</h2>
-      <p class="guide-section__text">
+      <h2 class="guide-section__title">Run commands</h2>
+      <p class="guide-section__text"> 
         Executes scripts or commands within the project virtual environment with <code class="code-inline">uv run</code>. Automatically activates the environment and runs the command without manual activation.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv run</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -123,26 +99,17 @@ Installed 18 packages in 2.1s</span></code></pre>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv run python main.py</span>
 <span class="terminal-output">Hello, World!</span>
-<span class="terminal-prompt">$</span> <span class="terminal-command">uv run pytest</span>
-<span class="terminal-output">======================== test session starts =========================
-collected 15 items
-tests/test_main.py::test_hello PASSED                           [  6%]
-...
-======================== 15 passed in 0.32s ========================</span></code></pre>
+</code></pre>
         </div>
       </div>
     </section>
 
     <!-- Step 6: uv tree -->
     <section class="guide-section">
-      <h2 class="guide-section__title">6. View dependency tree</h2>
+      <h2 class="guide-section__title">View dependency tree</h2>
       <p class="guide-section__text">
         Shows the complete dependency tree with <code class="code-inline">uv tree</code>. Displays all direct and indirect dependencies, useful for resolving version conflicts.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv tree</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -170,63 +137,39 @@ tests/test_main.py::test_hello PASSED                           [  6%]
       </div>
     </section>
 
-    <!-- Step 7: uv build -->
-    <section class="guide-section">
-      <h2 class="guide-section__title">7. Build package</h2>
-      <p class="guide-section__text">
-        Compiles and packages your project for distribution with <code class="code-inline">uv build</code>. Generates wheel and source files in the <code class="code-inline">dist/</code> folder ready for publishing.
-      </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv build</span>
-      </div>
-      <div class="terminal-example">
-        <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
-        </div>
-        <div class="terminal-example__content">
-          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv build</span>
-<span class="terminal-output">Building wheel for my-project (1.0.0)
-  - Building: my_project/__init__.py
-  - Building: my_project/main.py
-  - Building: pyproject.toml
-  - Adding: README.md
-  - Adding: LICENSE
-Finished building
-  - my_project-1.0.0-py3-none-any.whl (12.3 KB)
-  - my_project-1.0.0.tar.gz (8.7 KB)</span>
-<span class="terminal-prompt">$</span> <span class="terminal-command">ls dist/</span>
-<span class="terminal-output">my_project-1.0.0-py3-none-any.whl
-my_project-1.0.0.tar.gz</span></code></pre>
-        </div>
+    <!-- Summary -->
+    <section class="guide-section guide-section--summary">
+      <h2 class="guide-section__title">Summary</h2>
+      <div class="summary-content">
+        <p class="summary-text">
+          This guide covers the essential commands for managing Python projects with <strong>uv</strong>. With these tools, you can initialize projects, install and remove dependencies, synchronize environments, run scripts, and visualize dependency trees.
+        </p>
+        <h3 class="summary-subtitle">What this guide helps you with</h3>
+        <ul class="summary-list">
+          <li>Create and configure new Python projects from scratch</li>
+          <li>Add and remove packages while keeping <code class="code-inline">pyproject.toml</code> in sync</li>
+          <li>Ensure your development environment matches production dependencies</li>
+          <li>Run Python scripts without manually activating virtual environments</li>
+          <li>Debug dependency conflicts by inspecting the complete dependency tree</li>
+        </ul>
+        <h3 class="summary-subtitle">How to use these commands</h3>
+        <ul class="summary-list">
+          <li>Start every new project with <code class="code-inline">uv init</code> to set up the proper structure</li>
+          <li>Use <code class="code-inline">uv add</code> whenever you need a new package — it handles both installation and registration</li>
+          <li>Run <code class="code-inline">uv sync</code> after pulling changes from git to ensure your environment is up to date</li>
+          <li>Prefer <code class="code-inline">uv run</code> over activating the environment manually — it's faster and safer</li>
+          <li>Use <code class="code-inline">uv tree</code> when you encounter version conflicts or want to audit your dependencies</li>
+        </ul>
+        <h3 class="summary-subtitle">Learn more</h3>
+        <p class="summary-text">
+          To explore more commands and advanced options, check out the official uv documentation:
+        </p>
+        <ul class="summary-list">
+          <li><code class="code-inline">uv --help</code> — Shows all available commands</li>
+          <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener noreferrer" class="summary-link">Official Documentation</a> — Complete reference and guides</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Step 8: uv publish -->
-    <section class="guide-section">
-      <h2 class="guide-section__title">8. Publish package</h2>
-      <p class="guide-section__text">
-        Publishes your package to a Python index (PyPI or other) with <code class="code-inline">uv publish</code>. Uploads the files generated by <code class="code-inline">uv build</code> to the configured repository.
-      </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv publish</span>
-      </div>
-      <div class="terminal-example">
-        <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
-        </div>
-        <div class="terminal-example__content">
-          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv publish</span>
-<span class="terminal-output">Publishing my-project (1.0.0) to https://upload.pypi.org/legacy/
-  - Uploading my_project-1.0.0-py3-none-any.whl
-  - Uploading my_project-1.0.0.tar.gz
-Successfully published my-project 1.0.0</span>
-<span class="terminal-prompt">$</span> <span class="terminal-command">uv publish --token pypi-***</span>
-<span class="terminal-output">Publishing my-project (1.0.0) to https://upload.pypi.org/legacy/
-Successfully published my-project 1.0.0</span></code></pre>
-        </div>
-      </div>
-    </section>
   </div>
 </article>
