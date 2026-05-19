@@ -95,5 +95,39 @@ Successfully published my-package 1.0.0</span></code></pre>
         </div>
       </div>
     </section>
+
+    <!-- Summary -->
+    <section class="guide-section guide-section--summary">
+      <h2 class="guide-section__title">Summary</h2>
+      <div class="summary-content">
+        <p class="summary-text">
+          This guide covers the package building and publishing commands for <strong>uv</strong>. You can build your Python project into distribution artifacts and publish them to PyPI or a custom registry.
+        </p>
+        <h3 class="summary-subtitle">What this guide helps you with</h3>
+        <ul class="summary-list">
+          <li>Build Python packages into wheel and source distributions</li>
+          <li>Publish packages to PyPI or a custom registry</li>
+          <li>Manage project versions directly from the command line</li>
+          <li>Bump versions using semantic versioning (major, minor, patch)</li>
+        </ul>
+        <h3 class="summary-subtitle">How to use these commands</h3>
+        <ul class="summary-list">
+          <li>Run <code class="code-inline">uv build</code> to create distribution artifacts in the <code class="code-inline">dist/</code> directory</li>
+          <li>Run <code class="code-inline">uv publish</code> to upload your packages to PyPI</li>
+          <li>Use <code class="code-inline">uv version 1.0.0</code> to set a specific version</li>
+          <li>Use <code class="code-inline">uv version --bump patch</code> to increment the patch version</li>
+          <li>Use <code class="code-inline">uv version --bump minor</code> or <code class="code-inline">--bump major</code> for larger bumps</li>
+        </ul>
+        <h3 class="summary-subtitle">Learn more</h3>
+        <p class="summary-text">
+          To explore more options, check out the official uv documentation:
+        </p>
+        <ul class="summary-list">
+          <li><code class="code-inline">uv build --help</code> — Shows all build options</li>
+          <li><code class="code-inline">uv publish --help</code> — Shows all publish options</li>
+          <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener noreferrer" class="summary-link">Official Documentation</a> — Complete reference and guides</li>
+        </ul>
+      </div>
+    </section>
   </div>
 </article>

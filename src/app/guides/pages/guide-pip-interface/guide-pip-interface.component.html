@@ -332,5 +332,39 @@ Installed 18 packages</span></code></pre>
         <span class="command-card__desc">Sync with lockfile</span>
       </div>
     </section>
+
+    <!-- Summary -->
+    <section class="guide-section guide-section--summary">
+      <h2 class="guide-section__title">Summary</h2>
+      <div class="summary-content">
+        <p class="summary-text">
+          This guide covers the low-level pip-like interface for <strong>uv</strong>. These commands give you fine-grained control over virtual environments and package management, useful for legacy workflows or when you need more control than the high-level commands provide.
+        </p>
+        <h3 class="summary-subtitle">What this guide helps you with</h3>
+        <ul class="summary-list">
+          <li>Create and manage virtual environments manually</li>
+          <li>Install, list, and uninstall packages in a specific environment</li>
+          <li>View package details and dependency trees</li>
+          <li>Generate lockfiles and sync environments from them</li>
+          <li>Check for package conflicts and compatibility issues</li>
+        </ul>
+        <h3 class="summary-subtitle">How to use these commands</h3>
+        <ul class="summary-list">
+          <li>Start with <code class="code-inline">uv venv</code> to create a virtual environment</li>
+          <li>Use <code class="code-inline">uv pip install</code> to add packages to that environment</li>
+          <li>Use <code class="code-inline">uv pip compile</code> to generate a lockfile from requirements</li>
+          <li>Use <code class="code-inline">uv pip sync</code> to ensure your environment matches the lockfile</li>
+          <li>Use <code class="code-inline">uv pip check</code> to verify there are no conflicts</li>
+        </ul>
+        <h3 class="summary-subtitle">Learn more</h3>
+        <p class="summary-text">
+          To explore more options, check out the official uv documentation:
+        </p>
+        <ul class="summary-list">
+          <li><code class="code-inline">uv pip --help</code> — Shows all pip-related commands</li>
+          <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener noreferrer" class="summary-link">Official Documentation</a> — Complete reference and guides</li>
+        </ul>
+      </div>
+    </section>
   </div>
 </article>
