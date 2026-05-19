@@ -18,10 +18,6 @@
       <p class="guide-section__text">
         Create a new virtual environment. Replaces <code class="code-inline">venv</code> and <code class="code-inline">virtualenv</code>.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv venv</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -33,12 +29,6 @@
 <span class="terminal-output">Created virtual environment at .venv with Python 3.12.8</span></code></pre>
         </div>
       </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x1F4C2;</span>
-        <span class="command-card__label">Create</span>
-        <code class="command-card__code">uv venv</code>
-        <span class="command-card__desc">Create virtual environment</span>
-      </div>
     </section>
 
     <!-- uv pip install -->
@@ -47,10 +37,6 @@
       <p class="guide-section__text">
         Install packages into the current environment. Replaces <code class="code-inline">pip install</code>.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv pip install</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -64,12 +50,6 @@ Installed 2 packages: requests (2.31.0), flask (3.0.0)</span>
 Installed 15 packages</span></code></pre>
         </div>
       </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x2795;</span>
-        <span class="command-card__label">Install</span>
-        <code class="command-card__code">uv pip install</code>
-        <span class="command-card__desc">Install packages</span>
-      </div>
     </section>
 
     <!-- uv pip show -->
@@ -78,10 +58,6 @@ Installed 15 packages</span></code></pre>
       <p class="guide-section__text">
         Show details about an installed package. Replaces <code class="code-inline">pip show</code>.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv pip show</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -97,12 +73,6 @@ License: Apache 2.0
 Requires: certifi, charset-normalizer, idna, urllib3</span></code></pre>
         </div>
       </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x1F6C8;</span>
-        <span class="command-card__label">Info</span>
-        <code class="command-card__code">uv pip show</code>
-        <span class="command-card__desc">Show package details</span>
-      </div>
     </section>
 
     <!-- uv pip list -->
@@ -111,10 +81,6 @@ Requires: certifi, charset-normalizer, idna, urllib3</span></code></pre>
       <p class="guide-section__text">
         List all installed packages in the current environment. Replaces <code class="code-inline">pip list</code>.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv pip list</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -132,12 +98,6 @@ urllib3    2.1.0
 werkzeug   3.0.1</span></code></pre>
         </div>
       </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x1F4CB;</span>
-        <span class="command-card__label">List</span>
-        <code class="command-card__code">uv pip list</code>
-        <span class="command-card__desc">List installed packages</span>
-      </div>
     </section>
 
     <!-- uv pip freeze -->
@@ -146,10 +106,6 @@ werkzeug   3.0.1</span></code></pre>
       <p class="guide-section__text">
         List installed packages and their versions in a format suitable for requirements files.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv pip freeze</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -167,12 +123,6 @@ werkzeug==3.0.1</span>
 <span class="terminal-output">Saved to requirements.txt</span></code></pre>
         </div>
       </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x1F4C4;</span>
-        <span class="command-card__label">Freeze</span>
-        <code class="command-card__code">uv pip freeze</code>
-        <span class="command-card__desc">Export packages to requirements</span>
-      </div>
     </section>
 
     <!-- uv pip check -->
@@ -181,10 +131,6 @@ werkzeug==3.0.1</span>
       <p class="guide-section__text">
         Check that the current environment has compatible packages and no conflicts.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv pip check</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -196,12 +142,6 @@ werkzeug==3.0.1</span>
 <span class="terminal-output">requests 2.31.0 requires charset-normalizer>=2,<3 but 3.3.2 is installed</span></code></pre>
         </div>
       </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x2705;</span>
-        <span class="command-card__label">Check</span>
-        <code class="command-card__code">uv pip check</code>
-        <span class="command-card__desc">Verify package compatibility</span>
-      </div>
     </section>
 
     <!-- uv pip uninstall -->
@@ -210,10 +150,6 @@ werkzeug==3.0.1</span>
       <p class="guide-section__text">
         Uninstall packages from the current environment. Replaces <code class="code-inline">pip uninstall</code>.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv pip uninstall</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -225,12 +161,6 @@ werkzeug==3.0.1</span>
 <span class="terminal-output">Uninstalled 2 packages: flask, werkzeug</span></code></pre>
         </div>
       </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x1F5D1;</span>
-        <span class="command-card__label command-card__label--remove">Remove</span>
-        <code class="command-card__code">uv pip uninstall</code>
-        <span class="command-card__desc">Uninstall packages</span>
-      </div>
     </section>
 
     <!-- uv pip tree -->
@@ -239,10 +169,6 @@ werkzeug==3.0.1</span>
       <p class="guide-section__text">
         View the dependency tree for the current environment. Replaces <code class="code-inline">pipdeptree</code>.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv pip tree</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -263,12 +189,6 @@ requests [2.31.0]
 └── urllib3 [2.1.0]</span></code></pre>
         </div>
       </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x1F333;</span>
-        <span class="command-card__label">Tree</span>
-        <code class="command-card__code">uv pip tree</code>
-        <span class="command-card__desc">View dependency tree</span>
-      </div>
     </section>
 
     <!-- uv pip compile -->
@@ -277,10 +197,6 @@ requests [2.31.0]
       <p class="guide-section__text">
         Compile requirements into a lockfile. Replaces <code class="code-inline">pip-compile</code>.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv pip compile</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -293,13 +209,7 @@ Compiled 15 packages to requirements.txt</span>
 <span class="terminal-output">Resolved 18 packages in 3.8s
 Compiled 18 packages to lock.txt</span></code></pre>
         </div>
-      </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x1F4DD;</span>
-        <span class="command-card__label">Compile</span>
-        <code class="command-card__code">uv pip compile</code>
-        <span class="command-card__desc">Generate lockfile</span>
-      </div>
+      </div>  
     </section>
 
     <!-- uv pip sync -->
@@ -308,10 +218,6 @@ Compiled 18 packages to lock.txt</span></code></pre>
       <p class="guide-section__text">
         Sync an environment with a lockfile. Replaces <code class="code-inline">pip-sync</code>.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv pip sync</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -324,12 +230,6 @@ Installed 15 packages</span>
 <span class="terminal-output">Resolved 18 packages in 1.8s
 Installed 18 packages</span></code></pre>
         </div>
-      </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x1F504;</span>
-        <span class="command-card__label">Sync</span>
-        <code class="command-card__code">uv pip sync</code>
-        <span class="command-card__desc">Sync with lockfile</span>
       </div>
     </section>
 

@@ -19,10 +19,6 @@
       <p class="guide-section__text">
         Execute a Python script with uv. Dependencies are automatically managed in a temporary environment.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv run</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -35,12 +31,6 @@
 INFO: Uvicorn running on http://127.0.0.1:8000</span></code></pre>
         </div>
       </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x25B6;</span>
-        <span class="command-card__label">Run</span>
-        <code class="command-card__code">uv run</code>
-        <span class="command-card__desc">Execute Python script</span>
-      </div>
     </section>
 
     <!-- uv run --with -->
@@ -49,10 +39,6 @@ INFO: Uvicorn running on http://127.0.0.1:8000</span></code></pre>
       <p class="guide-section__text">
         Run a script with additional packages installed in a temporary environment.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv run --with</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -66,12 +52,6 @@ Status: 200 OK</span>
 Chart saved to output.png</span></code></pre>
         </div>
       </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x2795;</span>
-        <span class="command-card__label">With</span>
-        <code class="command-card__code">uv run --with</code>
-        <span class="command-card__desc">Run with temp dependencies</span>
-      </div>
     </section>
 
     <!-- uv add --script -->
@@ -80,10 +60,6 @@ Chart saved to output.png</span></code></pre>
       <p class="guide-section__text">
         Add a dependency to a script that uses inline metadata. Updates the script's dependency declarations.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv add --script</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -95,12 +71,6 @@ Chart saved to output.png</span></code></pre>
 <span class="terminal-output">Updated script.py with dependency: rich</span></code></pre>
         </div>
       </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x2795;</span>
-        <span class="command-card__label">Add</span>
-        <code class="command-card__code">uv add --script</code>
-        <span class="command-card__desc">Add dependency to script</span>
-      </div>
     </section>
 
     <!-- uv remove --script -->
@@ -109,10 +79,6 @@ Chart saved to output.png</span></code></pre>
       <p class="guide-section__text">
         Remove a dependency from a script that uses inline metadata.
       </p>
-      <div class="command-block">
-        <span class="command-block__prefix">$</span>
-        <span class="command-block__code">uv remove --script</span>
-      </div>
       <div class="terminal-example">
         <div class="terminal-example__header">
           <span class="terminal-example__title">Example</span>
@@ -123,12 +89,6 @@ Chart saved to output.png</span></code></pre>
 <span class="terminal-prompt">$</span> <span class="terminal-command">uv remove --script rich --script script.py</span>
 <span class="terminal-output">Removed dependency: rich from script.py</span></code></pre>
         </div>
-      </div>
-      <div class="command-card">
-        <span class="command-card__icon">&#x1F5D1;</span>
-        <span class="command-card__label command-card__label--remove">Remove</span>
-        <code class="command-card__code">uv remove --script</code>
-        <span class="command-card__desc">Remove dependency from script</span>
       </div>
     </section>
 
