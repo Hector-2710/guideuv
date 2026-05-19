@@ -13,8 +13,8 @@ export const GUIDES_SECTIONS: GuidesSection[] = [
     items: [
       {
         label: 'Introduction',
-        slug: 'introduction',
-        route: '/guides/introduction'
+        slug: 'first-step',
+        route: '/guides/first-step'
       },
       {
         label: 'Projects',
