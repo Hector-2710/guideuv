@@ -25,8 +25,8 @@ interface FooterSocialLink {
 export class Footer {
   protected readonly navLinks: FooterNavLink[] = [
     { label: 'Home', route: '/' },
-    { label: 'Guides', route: '/guides' },
-    { label: 'Contact', route: '/contact' },
+    { label: 'Guides', route: '/guides/introduction' },
+    { label: 'About Us', route: '/about' },
   ];
 
   protected readonly socialLinks: FooterSocialLink[] = [
