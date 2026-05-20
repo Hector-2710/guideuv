@@ -7,7 +7,7 @@
 
 **GuideUV** is an interactive, educational landing page that teaches developers how to use [**uv**](https://docs.astral.sh/uv/) — the blazing-fast Python package and project manager written in Rust. Through a clean, visual interface with terminal mockups, copy-pasteable code snippets, and structured guides, GuideUV makes learning `uv` intuitive and enjoyable.
 
-**Live demo:** [guideuv.dev](https://guideuv.dev)
+**Live demo:** [guideuv.dev](https://guideuv.vercel.app/)
 
 ---
 
