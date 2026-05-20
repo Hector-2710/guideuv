@@ -1,9 +1,5 @@
 # GuideUV — Your Interactive Guide to uv, the Python Package Manager
 
-<p align="center">
-  <strong>Aprende <code>uv</code> de forma visual e interactiva</strong><br>
-  <sub>Built with Angular 21 · TypeScript Strict · Dark Theme</sub>
-</p>
 
 ---
 
