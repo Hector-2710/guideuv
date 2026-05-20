@@ -14,8 +14,8 @@ export const GUIDES_ROUTES: Routes = [
     path: '',
     component: GuidesShellComponent,
     children: [
-      { path: '', redirectTo: 'first-step', pathMatch: 'full' },
-      { path: 'first-step', component: GuideIntroductionComponent },
+      { path: '', redirectTo: 'introduction', pathMatch: 'full' },
+      { path: 'introduction', component: GuideIntroductionComponent },
       { path: 'projects', component: GuideProjectsComponent },
       { path: 'python-version', component: GuidePythonVersionComponent },
       { path: 'package', component: GuidePackageComponent },
@@ -23,7 +23,7 @@ export const GUIDES_ROUTES: Routes = [
       { path: 'tools', component: GuideToolsComponent },
       { path: 'pip-interface', component: GuidePipInterfaceComponent },
       { path: 'utility', component: GuideUtilityComponent },
-      { path: '**', redirectTo: 'first-step' }
+      { path: '**', redirectTo: 'introduction' }
     ]
   }
 ];
