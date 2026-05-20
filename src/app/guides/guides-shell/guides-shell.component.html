@@ -1,0 +1,29 @@
+<section class="guides-shell">
+  <div class="guides-shell__layout">
+    <app-guides-left-nav
+      class="guides-shell__left"
+      [sections]="sections()"
+      [activeSlug]="activeSlug()"
+      [isOpen]="isNavOpen()"
+      (toggle)="toggleNav()"
+    />
+
+    <div class="guides-shell__content">
+      <button
+        type="button"
+        class="guides-shell__mobile-trigger"
+        (click)="toggleNav()"
+        [attr.aria-label]="navStateLabel()"
+      >
+        Navegación
+      </button>
+      <router-outlet (activate)="scanHeadings()"></router-outlet>
+    </div>
+
+    <app-guides-toc
+      class="guides-shell__toc"
+      [items]="tocItems()"
+      [activeId]="activeHeadingId()"
+    />
+  </div>
+</section>

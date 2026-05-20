@@ -1,0 +1,137 @@
+:host {
+  display: block;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ==================================================================
+   TERMINAL WINDOW
+   ================================================================== */
+
+.terminal {
+  background: var(--terminal-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ==================================================================
+   HEADER — macOS dots + tab
+   ================================================================== */
+
+.terminal__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--terminal-header-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.terminal__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &--red {
+    background: var(--terminal-dot-red);
+  }
+
+  &--yellow {
+    background: var(--terminal-dot-yellow);
+  }
+
+  &--green {
+    background: var(--terminal-dot-green);
+  }
+}
+
+.terminal__tab {
+  margin-left: 12px;
+  font-size: 0.8125rem;
+  font-family: var(--font-sans);
+  color: var(--color-white-muted);
+  background: var(--terminal-bg);
+  padding: 4px 12px;
+  border-radius: 6px 6px 0 0;
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+}
+
+/* ==================================================================
+   BODY — terminal output lines
+   ================================================================== */
+
+.terminal__body {
+  padding: 16px 18px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.terminal__line {
+  margin: 0;
+  padding: 0;
+
+  &--prompt {
+    color: var(--color-accent);
+    margin-top: 4px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &--output {
+    color: var(--color-white-muted);
+  }
+
+  &--package {
+    color: var(--color-purple-soft);
+  }
+
+  &--info {
+    color: var(--color-white-dim);
+  }
+}
+
+.terminal__prompt-symbol {
+  color: var(--color-accent);
+  margin-right: 8px;
+  user-select: none;
+}
+
+/* ==================================================================
+   RESPONSIVE
+   ================================================================== */
+
+@media (max-width: 767px) {
+  .terminal__body {
+    font-size: 0.75rem;
+    padding: 12px 14px;
+  }
+
+  .terminal__header {
+    padding: 8px 10px;
+  }
+
+  .terminal__dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* ==================================================================
+   ACCESSIBILITY: Reduced Motion
+   ================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :host {
+    animation: none !important;
+  }
+}

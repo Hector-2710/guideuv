@@ -1,0 +1,175 @@
+<article class="guide-page">
+  <header class="guide-page__header">
+    <div class="guide-page__badge">
+      <span class="guide-page__badge-icon">&#x1F4C4;</span>
+      <span>Guide</span>
+    </div>
+    <h2 class="guide-page__title">Projects</h2>
+    <p class="guide-page__lead">
+      uv simplifies Python project management by centralizing everything in the standard <code class="code-inline">pyproject.toml</code> file. Forget about manually setting up virtual environments or dealing with outdated requirements files; uv 
+      automatically keeps everything synchronized.
+    </p>
+  </header>
+
+  <div class="guide-page__content">
+    <!-- Step 1: uv init -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Initialize a new project</h2>
+      <p class="guide-section__text">
+        Creates the basic structure of a Python project with <code class="code-inline">uv init</code>. Automatically generates essential files: <code class="code-inline">pyproject.toml</code>, <code class="code-inline">main.py</code>, and Git configuration.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv init my-project</span>
+<span class="terminal-output">Created project `my-project` at `/path/to/my-project`</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">cd my-project && ls -la</span>
+<span class="terminal-output">.git/  .gitignore  .python-version  README.md  main.py  pyproject.toml</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 2: uv add -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Add dependencies</h2>
+      <p class="guide-section__text">
+        Installs and registers packages in your project with <code class="code-inline">uv add</code>. Automatically adds dependencies to <code class="code-inline">pyproject.toml</code> and installs them in the virtual environment.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv add requests flask</span>
+<span class="terminal-output">Added 2 packages: requests (2.31.0), flask (3.0.0)</span>
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 3: uv remove -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Remove dependencies</h2>
+      <p class="guide-section__text">
+        Uninstalls and removes packages from your project with <code class="code-inline">uv remove</code>. Cleans both the virtual environment and the references in <code class="code-inline">pyproject.toml</code>.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv remove requests</span>
+<span class="terminal-output">Removed 1 package: requests</span>
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 4: uv sync -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Sync environment</h2>
+      <p class="guide-section__text">
+        Synchronizes project dependencies with the virtual environment using <code class="code-inline">uv sync</code>. Ensures the environment exactly matches what's defined in <code class="code-inline">pyproject.toml</code>.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv sync</span>
+<span class="terminal-output">Resolved 12 packages in 2.3s
+Installed 12 packages in 1.5s</span>
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 5: uv run -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Run commands</h2>
+      <p class="guide-section__text"> 
+        Executes scripts or commands within the project virtual environment with <code class="code-inline">uv run</code>. Automatically activates the environment and runs the command without manual activation.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv run python main.py</span>
+<span class="terminal-output">Hello, World!</span>
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 6: uv tree -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">View dependency tree</h2>
+      <p class="guide-section__text">
+        Shows the complete dependency tree with <code class="code-inline">uv tree</code>. Displays all direct and indirect dependencies, useful for resolving version conflicts.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tree</span>
+<span class="terminal-output">my-project
+├── flask [3.0.0]
+│   ├── blinker [1.7.0]
+│   ├── click [8.1.7]
+│   ├── itsdangerous [2.1.2]
+│   ├── jinja2 [3.1.2]
+│   │   └── markupsafe [2.1.3]
+│   └── werkzeug [3.0.1]
+├── requests [2.31.0]
+│   ├── certifi [2023.11.17]
+│   ├── charset-normalizer [3.3.2]
+│   ├── idna [3.6]
+│   └── urllib3 [2.1.0]
+└── pytest [7.4.0]
+    ├── iniconfig [2.0.0]
+    ├── packaging [23.2]
+    └── pluggy [1.3.0]</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="guide-section guide-section--summary">
+      <h2 class="guide-section__title">Summary</h2>
+      <div class="summary-content">
+        <p class="summary-text">
+          This guide covers the essential commands for managing Python projects with <strong>uv</strong>. With these tools, you can initialize projects, install and remove dependencies, synchronize environments, run scripts, and visualize dependency trees.
+        </p>
+        <h3 class="summary-subtitle">What this guide helps you with</h3>
+        <ul class="summary-list">
+          <li>Create and configure new Python projects from scratch</li>
+          <li>Add and remove packages while keeping <code class="code-inline">pyproject.toml</code> in sync</li>
+          <li>Ensure your development environment matches production dependencies</li>
+          <li>Run Python scripts without manually activating virtual environments</li>
+          <li>Debug dependency conflicts by inspecting the complete dependency tree</li>
+        </ul>
+        <h3 class="summary-subtitle">How to use these commands</h3>
+        <ul class="summary-list">
+          <li>Start every new project with <code class="code-inline">uv init</code> to set up the proper structure</li>
+          <li>Use <code class="code-inline">uv add</code> whenever you need a new package — it handles both installation and registration</li>
+          <li>Run <code class="code-inline">uv sync</code> after pulling changes from git to ensure your environment is up to date</li>
+          <li>Prefer <code class="code-inline">uv run</code> over activating the environment manually — it's faster and safer</li>
+          <li>Use <code class="code-inline">uv tree</code> when you encounter version conflicts or want to audit your dependencies</li>
+        </ul>
+        <h3 class="summary-subtitle">Learn more</h3>
+        <p class="summary-text">
+          To explore more commands and advanced options, check out the official uv documentation:
+        </p>
+        <ul class="summary-list">
+          <li><code class="code-inline">uv --help</code> — Shows all available commands</li>
+          <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener noreferrer" class="summary-link">Official Documentation</a> — Complete reference and guides</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+</article>

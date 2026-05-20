@@ -1,0 +1,165 @@
+<article class="guide-page">
+  <header class="guide-page__header">
+    <div class="guide-page__badge">
+      <span class="guide-page__badge-icon">&#x1F4C4;</span>
+      <span>Guide</span>
+    </div>
+    <h2 class="guide-page__title">Utility</h2>
+    <p class="guide-page__lead">
+      Managing and inspecting uv's state, such as the cache, storage directories,
+      or performing a self-update.
+    </p>
+  </header>
+
+  <div class="guide-page__content">
+    <!-- uv cache clean -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Clean cache</h2>
+      <p class="guide-section__text">
+        Remove cache entries to free up disk space.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv cache clean</span>
+<span class="terminal-output">Removed 125 cache entries (45.2 MB)</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv cache clean --older 30d</span>
+<span class="terminal-output">Removed 45 cache entries older than 30 days (12.3 MB)</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- uv cache prune -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Prune cache</h2>
+      <p class="guide-section__text">
+        Remove outdated cache entries that are no longer needed.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv cache prune</span>
+<span class="terminal-output">Pruned 32 outdated cache entries (8.5 MB)</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv cache prune --dry-run</span>
+<span class="terminal-output">Would prune 32 entries (8.5 MB). Run without --dry-run to remove.</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- uv cache dir -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Cache directory</h2>
+      <p class="guide-section__text">
+        Show the path to uv's cache directory.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv cache dir</span>
+<span class="terminal-output">/home/user/.cache/uv</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">du -sh $(uv cache dir)</span>
+<span class="terminal-output">1.2G</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- uv tool dir -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Tool directory</h2>
+      <p class="guide-section__text">
+        Show the path to uv's tool directory where installed tools are stored.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tool dir</span>
+<span class="terminal-output">/home/user/.local/share/uv/tools</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">ls $(uv tool dir)</span>
+<span class="terminal-output">black  ruff  mypy</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- uv python dir -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Python directory</h2>
+      <p class="guide-section__text">
+        Show the path to uv's Python versions directory.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python dir</span>
+<span class="terminal-output">/home/user/.local/share/uv/python</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">ls $(uv python dir)</span>
+<span class="terminal-output">x86_64-unknown-linux-gnu</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- uv self update -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Self-update</h2>
+      <p class="guide-section__text">
+        Update uv to the latest version to get new features and bug fixes.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv self update</span>
+<span class="terminal-output">Updating uv from 0.4.0 to 0.4.1
+Downloading uv 0.4.1...
+Installed uv 0.4.1</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv --version</span>
+<span class="terminal-output">uv 0.4.1</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="guide-section guide-section--summary">
+      <h2 class="guide-section__title">Summary</h2>
+      <div class="summary-content">
+        <p class="summary-text">
+          This guide covers the utility commands for <strong>uv</strong>. These commands help you manage uv's internal state, clean up disk space, and keep uv itself up to date.
+        </p>
+        <h3 class="summary-subtitle">What this guide helps you with</h3>
+        <ul class="summary-list">
+          <li>Clean up cache to free up disk space</li>
+          <li>Prune outdated cache entries automatically</li>
+          <li>Find the paths to uv's storage directories</li>
+          <li>Update uv to the latest version</li>
+        </ul>
+        <h3 class="summary-subtitle">How to use these commands</h3>
+        <ul class="summary-list">
+          <li>Use <code class="code-inline">uv cache clean</code> to remove all cache entries</li>
+          <li>Use <code class="code-inline">uv cache clean --older 30d</code> to remove old entries</li>
+          <li>Use <code class="code-inline">uv cache prune</code> to remove outdated entries automatically</li>
+          <li>Use <code class="code-inline">uv self update</code> to get the latest uv version</li>
+          <li>Use <code class="code-inline">uv cache dir</code>, <code class="code-inline">uv tool dir</code>, and <code class="code-inline">uv python dir</code> to find storage locations</li>
+        </ul>
+        <h3 class="summary-subtitle">Learn more</h3>
+        <p class="summary-text">
+          To explore more options, check out the official uv documentation:
+        </p>
+        <ul class="summary-list">
+          <li><code class="code-inline">uv cache --help</code> — Shows all cache commands</li>
+          <li><code class="code-inline">uv self --help</code> — Shows self-update options</li>
+          <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener noreferrer" class="summary-link">Official Documentation</a> — Complete reference and guides</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</article>

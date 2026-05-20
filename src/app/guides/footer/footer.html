@@ -1,0 +1,69 @@
+<footer class="footer" role="contentinfo">
+  <div class="footer__container">
+    <!-- Brand Section -->
+    <div class="footer__brand">
+      <a routerLink="/" class="footer__logo" aria-label="GuideUV — Home">
+        <img src="uvlogo.png" alt="" width="40" height="40" aria-hidden="true">
+        <span>GuideUV</span>
+      </a>
+      <p class="footer__description">
+        GuideUV — The modern guide for uv, the fast Python package manager.
+      </p>
+    </div>
+
+    <!-- Quick Navigation -->
+    <nav class="footer__nav" aria-label="Footer navigation">
+      <h3 class="footer__heading">Quick Links</h3>
+      <ul class="footer__nav-list">
+        @for (link of navLinks; track link.route) {
+          <li>
+            <a
+              [routerLink]="link.route"
+              routerLinkActive="footer__link--active"
+              [routerLinkActiveOptions]="{ exact: link.route === '/' }"
+              class="footer__link"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <!-- Social + Contact -->
+    <div class="footer__social-contact">
+      <h3 class="footer__heading">Connect</h3>
+      <div class="footer__social-icons">
+        @for (social of socialLinks; track social.url) {
+          <a
+            [href]="social.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer__social-link"
+            [attr.aria-label]="social.label"
+          >
+            <svg
+              [attr.viewBox]="social.viewBox"
+              width="20" height="20"
+              fill="currentColor"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path [attr.d]="social.iconPath" />
+            </svg>
+          </a>
+        }
+      </div>
+      <a href="mailto:h.rosales01@ufromail.cl" class="footer__email">
+        h.rosales01&#64;ufromail.cl
+      </a>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer__bottom">
+    <p class="footer__copyright">
+      &copy; {{ currentYear() }} GuideUV. All rights reserved.
+    </p>
+  </div>
+</footer>

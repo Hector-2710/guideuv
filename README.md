@@ -1,67 +1,166 @@
-# GuideUV - Landing Page Interactiva para Aprender uv
+# GuideUV — Your Interactive Guide to uv, the Python Package Manager
 
-**GuideUV** es un proyecto diseñado para explicar de manera sencilla y visual cómo funciona **uv**, el gestor de paquetes de Python escrito en Rust. Esta landing page interactiva está construida con **Angular 21** y sirve como proyecto de aprendizaje para dominar las últimas tecnologías del ecosistema Angular.
-
-## Propósito del Proyecto
-
-El objetivo principal de este proyecto es crear una experiencia educativa atractiva que permita a los desarrolladores comprender los conceptos fundamentales de uv sin necesidad de leer documentación extensa. A través de una interfaz interactiva y navegación intuitiva, los usuarios pueden explorar las características principales de uv de manera práctica.
-
-## Características Principales
-
-La landing page ofrece una serie de características pensadas para facilitar el aprendizaje. La navegación interactiva permite moverte entre diferentes secciones que explican cada aspecto de uv de forma progresiva. El contenido visual utiliza diagramas y ejemplos de código que facilitan la comprensión de conceptos complejos. Además, el diseño responsivo garantiza una experiencia óptima en cualquier dispositivo, ya sea escritorio, tablet o móvil.
-
-## Tecnologías Utilizadas
-
-Este proyecto utiliza un conjunto de tecnologías modernas que representan las mejores prácticas del desarrollo web actual. Angular 21 proporciona el framework base con su arquitectura de componentes standalone, eliminando la necesidad de módulos tradicionales. Los signals de Angular permiten una gestión reactiva del estado de manera eficiente y declarativa. El sistema de routing incorporado facilita la navegación entre las diferentes secciones de contenido. Finalmente, SCSS con BEM proporciona un sistema de estilos escalable y mantenible.
-
-## Estructura del Proyecto
-
-El proyecto sigue una arquitectura organizada que facilita el desarrollo y mantenimiento. La estructura principal se divide en carpetas que agrupan componentes, servicios y recursos compartidos.
-
-En la carpeta `src/app/` se encuentran los componentes principales de la aplicación. El componente `app/` contiene la raíz de la aplicación y define las rutas principales. La carpeta `navbar/` incluye el componente de navegación que aparece en todas las páginas. Dentro de `features/` se organizan los componentes específicos de cada sección de la landing page, mientras que `shared/` contiene componentes reutilizables como botones, tarjetas y elementos de diseño. Los servicios en `core/services/` gestionan la lógica de negocio y el estado compartido de la aplicación.
-
-## Requisitos Previos
-
-Antes de comenzar a desarrollar en este proyecto, necesitas tener instalado Node.js en tu sistema. Se recomienda utilizar la versión LTS más reciente para garantizar compatibilidad. También necesitas npm o algún gestor de paquetes compatible. Aunque no es estrictamente necesario, tener familiaridad con conceptos básicos de Angular te ayudará a entender mejor la estructura del proyecto.
-
-## Instalación y Configuración
-
-Para comenzar a trabajar con el proyecto, primero debes clonar el repositorio en tu máquina local. Luego, instala las dependencias necesarias utilizando el gestor de paquetes de tu preferencia. Una vez completada la instalación, puedes iniciar el servidor de desarrollo para ver la aplicación en acción.
-
-El primer paso consiste en instalar las dependencias del proyecto. Ejecuta el siguiente comando en la terminal desde la raíz del proyecto:
-
-```bash
-npm install
-```
-
-Este comando descargará e instalará todas las dependencias necesarias definidas en el archivo `package.json`, incluyendo Angular CLI y las bibliotecas del framework.
-
-## Comandos de Desarrollo
-
-El proyecto proporciona varios comandos útiles para el desarrollo diario. Cada comando está diseñado para выполнять una tarea específica y facilitar el flujo de trabajo.
-
-Para iniciar el servidor de desarrollo y ver la aplicación en tiempo real, utiliza el comando `npm start` o `ng serve`. Este comando compila la aplicación y levanta un servidor local en `http://localhost:4200`. La aplicación se recargará automáticamente cada vez que modifiques los archivos fuente, permitiéndote ver los cambios de forma inmediata.
-
-Si necesitas construir la aplicación para producción, ejecuta `npm run build`. Este comando genera una versión optimizada de la aplicación en la carpeta `dist/`, lista para ser desplegada en un servidor web. El proceso de construcción incluye minificación y optimización de los archivos para mejorar el rendimiento.
-
-Para ejecutar las pruebas unitarias, utiliza `npm test`. Este comando ejecuta Vitest, el runner de pruebas configurado en el proyecto, y muestra los resultados de los tests en la terminal.
-
-## Aprendiendo con Este Proyecto
-
-Este proyecto está diseñado como un ejercicio de aprendizaje para practicar las siguientes habilidades de Angular. Los componentes standalone eliminan la necesidad de NgModules, permitiendo una arquitectura más simple y declarativa. Los signals proporcionan una forma moderna de gestionar el estado reactivo, reemplazando gradualmente el uso de RxJS para casos simples. El routing lazy loading mejora el rendimiento inicial de la aplicación al cargar las rutas bajo demanda. Finalmente, el sistema de control de flujo `@if` y `@for` ofrece una sintaxis más limpia que las directivas estructurales tradicionales.
-
-## Contribución
-
-Si deseas contribuir al proyecto, puedes hacerlo de varias maneras. Si encuentras un error, por favor abre un issue en el repositorio describiendo el problema y cómo reproducirlo. Si tienes una mejora o característica nueva, puedes hacer un fork del repositorio, crear una rama con tus cambios y enviar un pull request. También puedes mejorar la documentación existente o traducir el contenido a otros idiomas.
-
-## Recursos Adicionales
-
-Para profundizar en las tecnologías utilizadas en este proyecto, existen diversos recursos disponibles. La documentación oficial de Angular proporciona información detallada sobre todos los conceptos y APIs del framework. El sitio de uv ofrece información completa sobre el gestor de paquetes de Python. Angular Signals explica en detalle el sistema de señales reactivas. Finalmente, las guías de estilo de Angular proporcionan mejores prácticas para escribir código limpio y mantenible.
-
-## Licencia
-
-Este proyecto está disponible bajo la licencia MIT. Esto significa que puedes usarlo, modificarlo y distribuirlo libremente, incluso para propósitos comerciales, siempre que incluyas la licencia original en tus distribuciones.
+<p align="center">
+  <strong>Aprende <code>uv</code> de forma visual e interactiva</strong><br>
+  <sub>Built with Angular 21 · TypeScript Strict · Dark Theme</sub>
+</p>
 
 ---
 
-*Este proyecto fue creado con Angular CLI versión 21.2.9.*
+## What is GuideUV?
+
+**GuideUV** is an interactive, educational landing page that teaches developers how to use [**uv**](https://docs.astral.sh/uv/) — the blazing-fast Python package and project manager written in Rust. Through a clean, visual interface with terminal mockups, copy-pasteable code snippets, and structured guides, GuideUV makes learning `uv` intuitive and enjoyable.
+
+**Live demo:** [guideuv.dev](https://guideuv.dev)
+
+---
+
+## Why GuideUV?
+
+`uv` is powerful, but its documentation can be dense for newcomers. GuideUV bridges that gap with:
+
+- **Visual terminal mockups** that show real commands in context
+- **Step-by-step guides** covering every aspect of `uv` — from project setup to advanced tooling
+- **Copy-paste ready commands** — click any command to copy it to your clipboard
+- **Built-in search** with real-time results across all guides
+- **Responsive design** — looks great on desktop, tablet, and mobile
+
+---
+
+## Features
+
+### Landing Page
+- Platform toggle (Linux / Windows) for install commands
+- One-click copy for every command block
+- Interactive terminal window with macOS-style chrome
+- Feature cards highlighting `uv` capabilities
+
+### Guides Section (8 pages, lazy-loaded)
+| Guide | What you'll learn |
+|-------|-------------------|
+| **Introduction** | Overview of `uv`'s capabilities and philosophy |
+| **Projects** | `uv init`, `add`, `remove`, `sync`, `run`, `tree`, `build`, `publish` |
+| **Python Versions** | Managing Python installations: `install`, `list`, `find`, `uninstall` |
+| **Package** | Building and publishing Python packages |
+| **Scripts** | Running standalone scripts with inline dependencies |
+| **Tools** | Installing and running CLI tools with `uv tool` and `uvx` |
+| **Pip Interface** | The pip-compatible API: `venv`, pip install, list, freeze, compile, sync |
+| **Utility** | Cache management, self-updates, and state directories |
+
+### Navigation & UX
+- Persistent left sidebar with active section highlighting
+- Dynamic table of contents that syncs with scroll position
+- Full-text search with paginated results modal
+- Mobile-responsive with collapsible navigation
+
+---
+
+## Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| [**Angular 21**](https://angular.dev) | Framework — standalone components, signals |
+| [**TypeScript 5.9**](https://www.typescriptlang.org) | Strict mode, no `any` |
+| [**Vitest**](https://vitest.dev) | Unit testing (no Karma/Jasmine) |
+| **SCSS with BEM** | Scalable, maintainable styles |
+| **CSS Custom Properties** | Design token system for theming |
+
+### Architecture Highlights
+- **Zero NgModules** — every component is `standalone: true`
+- **Signals everywhere** — `signal()`, `computed()`, `input()`, `output()` (no RxJS for state)
+- **`inject()` over constructor DI**
+- **`ChangeDetectionStrategy.OnPush`** on all components
+- **Lazy loading** for the entire `/guides` feature
+- **Dynamic TOC generation** via `IntersectionObserver`
+
+---
+
+## Quick Start
+
+```bash
+# Clone the repo
+git clone https://github.com/Hector-2710/guideuv.git
+cd guideuv
+
+# Install dependencies
+npm install
+
+# Start the dev server
+npm start
+```
+
+Open [http://localhost:4200](http://localhost:4200) in your browser. The app hot-reloads on every change.
+
+---
+
+## Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start dev server with hot reload |
+| `npm run build` | Production build to `dist/` (enforces strict templates) |
+| `npm test` | Run Vitest test suite |
+| `npm run watch` | Build in development mode with file watching |
+
+---
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── app.ts                      # Root component
+│   ├── app.routes.ts               # Top-level routes (/, /about, /guides)
+│   ├── app.config.ts               # Provider configuration
+│   ├── navbar/                     # Navigation bar with integrated search
+│   ├── home/                       # Landing page
+│   │   ├── home.component.*
+│   │   ├── home-data.service.ts    # Static content provider
+│   │   └── components/
+│   │       └── terminal-mockup/    # Reusable terminal window
+│   ├── about/                      # About page
+│   ├── guides/                     # Guides feature (lazy-loaded)
+│   │   ├── guides.routes.ts        # Child routes
+│   │   ├── guides-data.ts          # Navigation config
+│   │   ├── guides-state.service.ts # Scoped state management
+│   │   ├── guides-shell/           # Layout: left nav + content + TOC
+│   │   ├── guides-left-nav/        # Section navigation sidebar
+│   │   ├── guides-toc/             # Dynamic table of contents
+│   │   ├── pages/                  # 8 guide content pages
+│   │   └── footer/                 # Site-wide footer
+│   └── search/                     # Search service + results modal
+├── styles.css                      # Design tokens & global styles
+└── index.html
+```
+
+---
+
+## Design System
+
+GuideUV uses a **Zed-inspired dark theme** with a bold yellow accent. All design tokens are defined as CSS custom properties in `src/styles.css`.
+
+| Role | Color |
+|------|-------|
+| Background | `#09090b` |
+| Surface | `#131316` |
+| Text | `#ffffff` |
+| Accent | `#e5b830` |
+| Secondary | `#7c3aed` |
+
+Full design documentation: [DESIGN.md](DESIGN.md)
+
+---
+
+## Contributing
+
+Contributions are welcome! Whether you want to fix a typo, add a new guide page, or improve the search, please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines, commit conventions, and the pull request process.
+
+## License
+
+This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for details. You are free to use, modify, and distribute this project for any purpose.
+
+---
+
+<p align="center">
+  <sub>Built with ❤️ using Angular 21 • <code>npm@11.12.1</code></sub>
+</p>

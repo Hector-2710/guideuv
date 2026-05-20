@@ -1,0 +1,25 @@
+<div class="terminal" role="img" aria-label="Terminal mockup showing UV commands">
+  <!-- macOS-style window controls -->
+  <div class="terminal__header" aria-hidden="true">
+    <span class="terminal__dot terminal__dot--red"></span>
+    <span class="terminal__dot terminal__dot--yellow"></span>
+    <span class="terminal__dot terminal__dot--green"></span>
+    <span class="terminal__tab">{{ title() }}</span>
+  </div>
+
+  <!-- Terminal body — code output -->
+  <div class="terminal__body">
+    @for (line of lines(); track $index) {
+      @if (isPromptLine(line)) {
+        <div class="terminal__line terminal__line--prompt">
+          <span class="terminal__prompt-symbol" aria-hidden="true">❯</span>
+          <span>{{ stripPrompt(line) }}</span>
+        </div>
+      } @else if (isPackageLine(line)) {
+        <div class="terminal__line terminal__line--package">{{ line }}</div>
+      } @else {
+        <div class="terminal__line terminal__line--output">{{ line }}</div>
+      }
+    }
+  </div>
+</div>

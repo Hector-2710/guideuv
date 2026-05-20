@@ -45,3 +45,6 @@ Thumbs.db
 
 # OpenCode
 .opencode/
+design.md
+AGENTS.md
+agents_result/

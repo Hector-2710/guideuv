@@ -1,0 +1,114 @@
+:host {
+  display: block;
+}
+
+.guides-left-nav {
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  padding: 1.5rem 1rem;
+  height: calc(100vh - var(--navbar-height));
+  position: sticky;
+  top: var(--navbar-height);
+  overflow-y: auto;
+  transition: transform var(--anim-duration-base) var(--anim-easing-smooth);
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.guides-left-nav__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.guides-left-nav__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.guides-left-nav__toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-white);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  display: none;
+  cursor: pointer;
+}
+
+.guides-left-nav__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.guides-left-nav__section-title {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-white-dim);
+  margin-bottom: 0.75rem;
+}
+
+.guides-left-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.guides-left-nav__link {
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 0.4rem 0.5rem;
+  border-radius: 4px;
+  display: block;
+  transition: background var(--anim-duration-fast) var(--anim-easing-smooth);
+  border: 1px solid transparent;
+}
+
+.guides-left-nav__link:hover {
+  background: var(--color-surface-hover);
+}
+
+.guides-left-nav__link--active {
+  color: var(--color-accent);
+  background: rgba(229, 184, 48, 0.1);
+  border-color: rgba(229, 184, 48, 0.3);
+}
+
+.guides-left-nav__empty {
+  color: var(--color-white-muted);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 1023px) {
+  .guides-left-nav {
+    position: fixed;
+    left: 0;
+    top: var(--navbar-height);
+    width: 280px;
+    transform: translateX(-100%);
+    z-index: 20;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .guides-left-nav--open {
+    transform: translateX(0);
+  }
+
+  .guides-left-nav__toggle {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 767px) {
+  .guides-left-nav {
+    top: var(--navbar-height-mobile);
+    height: calc(100vh - var(--navbar-height-mobile));
+  }
+}

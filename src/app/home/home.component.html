@@ -1,0 +1,171 @@
+<section class="home">
+  <!-- ================================================================
+       HERO SECTION — Zed-inspired with terminal mockup
+       ================================================================ -->
+  <header class="home__hero">
+    <div class="home__hero-content">
+      <h1 class="home__title">{{ data().title }}</h1>
+      <p class="home__subtitle">{{ data().subtitle }}</p>
+
+      <!-- CTA Button Pair -->
+      <div class="home__cta-group">
+        @for (btn of data().ctaButtons; track btn.label) {
+          <a
+            [href]="btn.url"
+            [class]="'home__cta home__cta--' + btn.variant"
+            [attr.target]="btn.url.startsWith('http') ? '_blank' : null"
+            [attr.rel]="btn.url.startsWith('http') ? 'noopener noreferrer' : null"
+          >
+            {{ btn.label }}
+            @if (btn.url.startsWith('http')) {
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            }
+          </a>
+        }
+      </div>
+    </div>
+
+    <!-- Terminal Mockup -->
+    <app-terminal-mockup
+      class="home__terminal"
+      [lines]="data().terminalLines"
+      title="uv — terminal"
+    />
+  </header>
+
+  <!-- ================================================================
+       DESCRIPTION SECTION
+       ================================================================ -->
+  <section class="home__description">
+    <h2 class="home__section-title">Description</h2>
+    <p class="home__description-text">{{ data().description }}</p>
+  </section>
+
+  <!-- ================================================================
+       FEATURES SECTION — Zed-style bordered cards
+       ================================================================ -->
+  <section class="home__features">
+    <h2 class="home__section-title">Key Features</h2>
+    <ul class="home__features-grid">
+      @for (feature of data().features; track feature.title) {
+        <li class="home__feature-card">
+          <span class="home__feature-icon" aria-hidden="true">{{ feature.icon }}</span>
+          <h3 class="home__feature-title">{{ feature.title }}</h3>
+          <p class="home__feature-description">{{ feature.description }}</p>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <!-- ================================================================
+       INSTALLATION SECTION — Platform tabs + terminal-style code
+       ================================================================ -->
+  <section class="home__installation">
+    <h2 class="home__section-title">Installation</h2>
+
+    <!-- Platform Tabs -->
+    <nav class="home__install-tabs" role="tablist" aria-label="Installation platform">
+      <button
+        class="home__install-tab"
+        role="tab"
+        [class.home__install-tab--active]="activePlatform() === 'linux'"
+        [attr.aria-selected]="activePlatform() === 'linux'"
+        (click)="activePlatform.set('linux')"
+      >
+        Linux / MacOS
+      </button>
+      <button
+        class="home__install-tab"
+        role="tab"
+        [class.home__install-tab--active]="activePlatform() === 'windows'"
+        [attr.aria-selected]="activePlatform() === 'windows'"
+        (click)="activePlatform.set('windows')"
+      >
+        Windows
+      </button>
+    </nav>
+
+    <!-- Code Block -->
+    <div class="home__install-code-block" role="tabpanel">
+      <div class="home__install-code-header">
+        <span class="home__install-code-label">Terminal</span>
+        <button
+          class="home__copy-btn"
+          (click)="copyInstall(getActiveCommand())"
+          [attr.aria-label]="copyInstallFeedback() || 'Copy command to clipboard'"
+        >
+          @if (copyInstallFeedback()) {
+            {{ copyInstallFeedback() }}
+          } @else {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          }
+        </button>
+      </div>
+      <pre class="home__install-code"><code>{{ getActiveCommand() }}</code></pre>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       START SECTION — Code block + project files
+       ================================================================ -->
+  <section class="home__start">
+    <h2 class="home__section-title">Start</h2>
+
+    <div class="home__start-code-block">
+      <div class="home__install-code-header">
+        <span class="home__install-code-label">Terminal</span>
+        <button
+          class="home__copy-btn"
+          (click)="copyStart(data().startCode)"
+          [attr.aria-label]="copyStartFeedback() || 'Copy \'' + data().startCode + '\' to clipboard'"
+        >
+          @if (copyStartFeedback()) {
+            {{ copyStartFeedback() }}
+          } @else {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          }
+        </button>
+      </div>
+      <pre class="home__install-code"><code>{{ data().startCode }}</code></pre>
+    </div>
+
+    <p class="home__start-description">{{ data().startDescription }}</p>
+
+    <!-- Project Files Block -->
+    <div class="home__project-files-block" role="region" aria-label="Project files">
+      <div class="home__project-files-header">
+        <svg class="home__project-files-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 17l6-6-6-6M12 19h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="home__project-files-label">Project Files</span>
+      </div>
+      <div class="home__project-files-content">
+        <!-- Tree Structure -->
+        <div class="home__project-files-tree">
+          @for (file of data().projectFiles; track file.name; let last = $last) {
+            <div class="home__project-file-tree-line" [class.home__project-file-tree-line--last]="last">
+              <span class="home__project-file-tree-prefix">{{ last ? '└── ' : '├── ' }}</span>
+              <span class="home__project-file-tree-name" [class.home__project-file-tree-name--dir]="file.isDirectory">{{ file.name }}</span>
+            </div>
+          }
+        </div>
+        <!-- Descriptions -->
+        <ul class="home__project-files-descriptions">
+          @for (file of data().projectFiles; track file.name) {
+            <li class="home__project-file-desc-item">
+              <span class="home__project-file-desc">{{ file.description }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+</section>

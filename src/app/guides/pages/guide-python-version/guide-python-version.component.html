@@ -1,0 +1,136 @@
+<article class="guide-page">
+  <header class="guide-page__header">
+    <div class="guide-page__badge">
+      <span class="guide-page__badge-icon">&#x1F4C4;</span>
+      <span>Guide</span>
+    </div>
+    <h2 class="guide-page__title">Python version</h2>
+    <p class="guide-page__lead">
+      If Python is already installed on your system, uv will detect and use it without
+      configuration. However, uv can also install and manage Python versions. uv
+      automatically installs missing Python versions as needed — you don't need to install
+      Python to get started.
+    </p>
+  </header>
+
+  <div class="guide-page__content">
+    <!-- uv python install -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Install Python</h2>
+      <p class="guide-section__text">
+        Install Python versions managed by uv. You don't need Python installed beforehand — uv handles everything.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python install</span>
+<span class="terminal-output">Installed Python 3.13.1 in 4.2s</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv python install 3.12</span>
+<span class="terminal-output">Installed Python 3.12.8 in 3.8s</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- uv python list -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">List Python versions</h2>
+      <p class="guide-section__text">
+        View available Python versions installed by uv and those available for installation.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python list</span>
+<span class="terminal-output">Installed Python versions:
+  3.13.1
+  3.12.8
+  3.11.9
+
+Available Python versions:
+  3.14.0a1
+  3.14.0a2
+  3.13.1
+  3.12.8
+  3.11.9
+  3.10.15</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- uv python find -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Find Python version</h2>
+      <p class="guide-section__text">
+        Find an installed Python version matching a specific requirement.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python find 3.12</span>
+<span class="terminal-output">Found Python 3.12.8 at /home/user/.local/share/uv/python/x86_64-unknown-linux-gnu/cpython-3.12.8-linux-x86_64-gnu</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv python find 3.11</span>
+<span class="terminal-output">Found Python 3.11.9 at /home/user/.local/share/uv/python/x86_64-unknown-linux-gnu/cpython-3.11.9-linux-x86_64-gnu</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- uv python uninstall -->
+    <section class="guide-section">
+      <h2 class="guide-section__title">Uninstall Python version</h2>
+      <p class="guide-section__text">
+        Uninstall a Python version that was installed by uv.
+      </p>
+      <div class="terminal-example">
+        <div class="terminal-example__header">
+          <span class="terminal-example__title">Example</span>
+        </div>
+        <div class="terminal-example__content">
+          <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python uninstall 3.11.9</span>
+<span class="terminal-output">Uninstalled Python 3.11.9</span>
+<span class="terminal-prompt">$</span> <span class="terminal-command">uv python list</span>
+<span class="terminal-output">Installed Python versions:
+  3.13.1
+  3.12.8</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="guide-section guide-section--summary">
+      <h2 class="guide-section__title">Summary</h2>
+      <div class="summary-content">
+        <p class="summary-text">
+          This guide covers the commands for managing Python versions with <strong>uv</strong>. You can install multiple Python versions, switch between them, and clean up versions you no longer need.
+        </p>
+        <h3 class="summary-subtitle">What this guide helps you with</h3>
+        <ul class="summary-list">
+          <li>Install Python versions without needing Python pre-installed</li>
+          <li>List all installed and available Python versions</li>
+          <li>Find the path to a specific Python version</li>
+          <li>Uninstall Python versions that are no longer needed</li>
+        </ul>
+        <h3 class="summary-subtitle">How to use these commands</h3>
+        <ul class="summary-list">
+          <li>Run <code class="code-inline">uv python install</code> without arguments to install the latest version</li>
+          <li>Specify a version like <code class="code-inline">uv python install 3.12</code> for a specific release</li>
+          <li>Use <code class="code-inline">uv python find</code> to locate a specific version for your projects</li>
+          <li>Check <code class="code-inline">uv python list</code> regularly to see what versions you have available</li>
+        </ul>
+        <h3 class="summary-subtitle">Learn more</h3>
+        <p class="summary-text">
+          To explore more options, check out the official uv documentation:
+        </p>
+        <ul class="summary-list">
+          <li><code class="code-inline">uv python --help</code> — Shows all Python-related commands</li>
+          <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener noreferrer" class="summary-link">Official Documentation</a> — Complete reference and guides</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</article>
