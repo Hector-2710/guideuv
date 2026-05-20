@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, output, signal, computed } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output, signal, computed, HostListener, ElementRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchResult } from './search.service';
 
@@ -32,6 +32,8 @@ export class SearchResultsComponent {
   hasNextPage = computed(() => this.currentPage() < this.totalPages());
   hasPrevPage = computed(() => this.currentPage() > 1);
 
+  private readonly elementRef = inject(ElementRef);
+
   onClose(): void {
     this.closeModal.emit();
   }
@@ -61,6 +63,26 @@ export class SearchResultsComponent {
   onKeyDown(event: KeyboardEvent): void {
     if (event.key === 'Escape') {
       this.onClose();
+      return;
+    }
+
+    // Focus trap: keep Tab navigation inside the modal
+    if (event.key === 'Tab') {
+      const focusableElements = Array.from(
+        this.elementRef.nativeElement.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+      ) as HTMLElement[];
+      const firstEl = focusableElements[0];
+      const lastEl = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstEl) {
+        event.preventDefault();
+        lastEl?.focus();
+      } else if (!event.shiftKey && document.activeElement === lastEl) {
+        event.preventDefault();
+        firstEl?.focus();
+      }
     }
   }
 }

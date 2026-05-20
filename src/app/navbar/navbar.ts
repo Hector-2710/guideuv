@@ -1,6 +1,5 @@
-import { Component, signal, computed, output, input, inject, HostListener, ChangeDetectionStrategy } from '@angular/core';
+import { Component, signal, computed, input, inject, afterNextRender, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SearchService, SearchResult } from '../search/search.service';
 import { SearchResultsComponent } from '../search/search-results.component';
@@ -23,7 +22,7 @@ export const REPO_LINKS: NavbarExternalLink[] = [
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive, SearchResultsComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive, SearchResultsComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
@@ -44,8 +43,6 @@ export class Navbar {
   externalLinks = input<NavbarExternalLink[]>(REPO_LINKS);
   fixed = input(true);
 
-  linkClick = output<NavbarLink>();
-
   searchQuery = signal('');
   searchResults = signal<SearchResult[]>([]);
   isSearchDropdownOpen = signal(false);
@@ -58,22 +55,21 @@ export class Navbar {
     'navbar--fixed': this.fixed(),
   }));
 
-  @HostListener('window:scroll')
-  onScroll(): void {
-    this.isScrolled.set(window.scrollY > 10);
+  constructor() {
+    afterNextRender(() => {
+      const onScroll = (): void => {
+        this.isScrolled.set(window.scrollY > 10);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+    });
   }
 
   toggleMobileMenu(): void {
     this.isMobileMenuOpen.update(v => !v);
   }
 
-  onLinkClick(link: NavbarLink): void {
-    this.linkClick.emit(link);
+  onLinkClick(): void {
     this.isMobileMenuOpen.set(false);
-  }
-
-  isActive(route: string): boolean {
-    return this.router.url === route;
   }
 
   onSearchInput(event: Event): void {

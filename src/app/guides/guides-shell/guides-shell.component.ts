@@ -48,7 +48,7 @@ export class GuidesShellComponent {
       )
       .subscribe(() => {
         const url = this.router.url;
-        const slug = url.split('/').pop() ?? 'first-step';
+        const slug = url.split('/').pop() ?? 'introduction';
         this.activeSlug.set(slug);
         // Usamos setTimeout para asegurar que el DOM se haya actualizado tras la navegación
         setTimeout(() => this.scanHeadings(), 0);
