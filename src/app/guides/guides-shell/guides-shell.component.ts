@@ -98,7 +98,8 @@ export class GuidesShellComponent {
           .filter(entry => entry.isIntersecting)
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
         if (visible.length > 0) {
-          this.activeHeadingId.set(visible[0].target.id);
+          const lastVisible = visible[visible.length - 1];
+          this.activeHeadingId.set(lastVisible.target.id);
         }
       },
       {
