@@ -28,39 +28,24 @@ export class AboutComponent {
     },
     {
       name: 'Twitter/X',
-      url: 'https://twitter.com',
+      url: 'https://x.com/RosalesHector27',
       icon: 'twitter',
-      username: '@hector_dev'
+      username: '@RosalesHector27'
     },
-    {
-      name: 'LinkedIn',
-      url: 'https://linkedin.com',
-      icon: 'linkedin',
-      username: 'Hector Developer'
-    },
+    
     {
       name: 'Email',
-      url: 'mailto:hector@example.com',
+      url: 'mailto:h.rosales01@ufromail.cl',
       icon: 'email',
-      username: 'hector@example.com'
+      username: 'h.rosales01@ufromail.cl'
     }
   ];
 
   ideas = [
     {
       title: 'Contribute',
-      description: 'Found a bug? Have ideas to improve? Your contribution is welcome!',
+      description: 'Found a bug? Have ideas to improve? Your contribution is welcome, How to contribute? Check the CONTRIBUTING.md file in the repository.',
       icon: 'code',
-    },
-    {
-      title: 'Donations',
-      description: 'If you like this project, consider supporting me to keep it alive.',
-      icon: 'heart',
-    },
-    {
-      title: 'Newsletter',
-      description: 'Subscribe to receive updates on new guides and features.',
-      icon: 'mail',
     },
   ];
 }
