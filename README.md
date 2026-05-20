@@ -79,7 +79,7 @@
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/guideuv.git
+git clone https://github.com/Hector-2710/guideuv.git
 cd guideuv
 
 # Install dependencies
