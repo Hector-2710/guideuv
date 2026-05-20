@@ -39,7 +39,7 @@ describe('Footer', () => {
 
   it('should have a mailto link with correct email', () => {
     const emailLink = fixture.nativeElement.querySelector('.footer__email');
-    expect(emailLink.getAttribute('href')).toBe('mailto:hector@guideuv.com');
+    expect(emailLink.getAttribute('href')).toBe('mailto:h.rosales01@ufromail.cl');
   });
 
   it('should display the current year in copyright', () => {
