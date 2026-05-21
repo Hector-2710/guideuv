@@ -15,7 +15,7 @@
         (click)="toggleNav()"
         [attr.aria-label]="navStateLabel()"
       >
-        Navegación
+        {{ 'guides.shell.mobileNav' | translate }}
       </button>
       <router-outlet (activate)="scanHeadings()"></router-outlet>
     </div>

@@ -2,25 +2,20 @@
   <header class="guide-page__header">
     <div class="guide-page__badge">
       <span class="guide-page__badge-icon">&#x1F4C4;</span>
-      <span>Guide</span>
+      <span>{{ 'guides.badge' | translate }}</span>
     </div>
-    <h2 class="guide-page__title">Projects</h2>
-    <p class="guide-page__lead">
-      uv simplifies Python project management by centralizing everything in the standard <code class="code-inline">pyproject.toml</code> file. Forget about manually setting up virtual environments or dealing with outdated requirements files; uv 
-      automatically keeps everything synchronized.
-    </p>
+    <h2 class="guide-page__title">{{ page().title }}</h2>
+    <p class="guide-page__lead" [innerHTML]="page().lead"></p>
   </header>
 
   <div class="guide-page__content">
     <!-- Step 1: uv init -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Initialize a new project</h2>
-      <p class="guide-section__text">
-        Creates the basic structure of a Python project with <code class="code-inline">uv init</code>. Automatically generates essential files: <code class="code-inline">pyproject.toml</code>, <code class="code-inline">main.py</code>, and Git configuration.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[0].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[0].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[0].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv init my-project</span>
@@ -33,13 +28,11 @@
 
     <!-- Step 2: uv add -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Add dependencies</h2>
-      <p class="guide-section__text">
-        Installs and registers packages in your project with <code class="code-inline">uv add</code>. Automatically adds dependencies to <code class="code-inline">pyproject.toml</code> and installs them in the virtual environment.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[1].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[1].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[1].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv add requests flask</span>
@@ -51,13 +44,11 @@
 
     <!-- Step 3: uv remove -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Remove dependencies</h2>
-      <p class="guide-section__text">
-        Uninstalls and removes packages from your project with <code class="code-inline">uv remove</code>. Cleans both the virtual environment and the references in <code class="code-inline">pyproject.toml</code>.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[2].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[2].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[2].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv remove requests</span>
@@ -69,13 +60,11 @@
 
     <!-- Step 4: uv sync -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Sync environment</h2>
-      <p class="guide-section__text">
-        Synchronizes project dependencies with the virtual environment using <code class="code-inline">uv sync</code>. Ensures the environment exactly matches what's defined in <code class="code-inline">pyproject.toml</code>.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[3].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[3].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[3].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv sync</span>
@@ -88,13 +77,11 @@ Installed 12 packages in 1.5s</span>
 
     <!-- Step 5: uv run -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Run commands</h2>
-      <p class="guide-section__text"> 
-        Executes scripts or commands within the project virtual environment with <code class="code-inline">uv run</code>. Automatically activates the environment and runs the command without manual activation.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[4].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[4].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[4].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv run python main.py</span>
@@ -106,13 +93,11 @@ Installed 12 packages in 1.5s</span>
 
     <!-- Step 6: uv tree -->
     <section class="guide-section">
-      <h2 class="guide-section__title">View dependency tree</h2>
-      <p class="guide-section__text">
-        Shows the complete dependency tree with <code class="code-inline">uv tree</code>. Displays all direct and indirect dependencies, useful for resolving version conflicts.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[5].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[5].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[5].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tree</span>
@@ -139,35 +124,29 @@ Installed 12 packages in 1.5s</span>
 
     <!-- Summary -->
     <section class="guide-section guide-section--summary">
-      <h2 class="guide-section__title">Summary</h2>
+      <h2 class="guide-section__title">{{ page().summary.title }}</h2>
       <div class="summary-content">
-        <p class="summary-text">
-          This guide covers the essential commands for managing Python projects with <strong>uv</strong>. With these tools, you can initialize projects, install and remove dependencies, synchronize environments, run scripts, and visualize dependency trees.
-        </p>
-        <h3 class="summary-subtitle">What this guide helps you with</h3>
+        <p class="summary-text" [innerHTML]="page().summary.text"></p>
+        <h3 class="summary-subtitle">{{ page().summary.whatTitle }}</h3>
         <ul class="summary-list">
-          <li>Create and configure new Python projects from scratch</li>
-          <li>Add and remove packages while keeping <code class="code-inline">pyproject.toml</code> in sync</li>
-          <li>Ensure your development environment matches production dependencies</li>
-          <li>Run Python scripts without manually activating virtual environments</li>
-          <li>Debug dependency conflicts by inspecting the complete dependency tree</li>
+          @for (item of page().summary.whatItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">How to use these commands</h3>
+        <h3 class="summary-subtitle">{{ page().summary.howTitle }}</h3>
         <ul class="summary-list">
-          <li>Start every new project with <code class="code-inline">uv init</code> to set up the proper structure</li>
-          <li>Use <code class="code-inline">uv add</code> whenever you need a new package — it handles both installation and registration</li>
-          <li>Run <code class="code-inline">uv sync</code> after pulling changes from git to ensure your environment is up to date</li>
-          <li>Prefer <code class="code-inline">uv run</code> over activating the environment manually — it's faster and safer</li>
-          <li>Use <code class="code-inline">uv tree</code> when you encounter version conflicts or want to audit your dependencies</li>
+          @for (item of page().summary.howItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">Learn more</h3>
-        <p class="summary-text">
-          To explore more commands and advanced options, check out the official uv documentation:
-        </p>
-        <ul class="summary-list">
-          <li><code class="code-inline">uv --help</code> — Shows all available commands</li>
-          <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener noreferrer" class="summary-link">Official Documentation</a> — Complete reference and guides</li>
-        </ul>
+        <h3 class="summary-subtitle">{{ page().summary.learnTitle }}</h3>
+        @if (page().summary.learnItems && page().summary.learnItems.length) {
+          <ul class="summary-list">
+            @for (item of page().summary.learnItems; track item) {
+              <li [innerHTML]="item"></li>
+            }
+          </ul>
+        }
       </div>
     </section>
 

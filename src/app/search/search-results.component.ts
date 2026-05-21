@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, input, output, signal, computed, HostListener, ElementRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchResult } from './search.service';
+import { TranslatePipe } from '../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-search-results',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './search-results.component.html',
   styleUrl: './search-results.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

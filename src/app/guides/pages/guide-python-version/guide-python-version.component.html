@@ -2,27 +2,20 @@
   <header class="guide-page__header">
     <div class="guide-page__badge">
       <span class="guide-page__badge-icon">&#x1F4C4;</span>
-      <span>Guide</span>
+      <span>{{ 'guides.badge' | translate }}</span>
     </div>
-    <h2 class="guide-page__title">Python version</h2>
-    <p class="guide-page__lead">
-      If Python is already installed on your system, uv will detect and use it without
-      configuration. However, uv can also install and manage Python versions. uv
-      automatically installs missing Python versions as needed — you don't need to install
-      Python to get started.
-    </p>
+    <h2 class="guide-page__title">{{ page().title }}</h2>
+    <p class="guide-page__lead" [innerHTML]="page().lead"></p>
   </header>
 
   <div class="guide-page__content">
     <!-- uv python install -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Install Python</h2>
-      <p class="guide-section__text">
-        Install Python versions managed by uv. You don't need Python installed beforehand — uv handles everything.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[0].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[0].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[0].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python install</span>
@@ -35,13 +28,11 @@
 
     <!-- uv python list -->
     <section class="guide-section">
-      <h2 class="guide-section__title">List Python versions</h2>
-      <p class="guide-section__text">
-        View available Python versions installed by uv and those available for installation.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[1].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[1].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[1].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python list</span>
@@ -63,13 +54,11 @@ Available Python versions:
 
     <!-- uv python find -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Find Python version</h2>
-      <p class="guide-section__text">
-        Find an installed Python version matching a specific requirement.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[2].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[2].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[2].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python find 3.12</span>
@@ -82,13 +71,11 @@ Available Python versions:
 
     <!-- uv python uninstall -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Uninstall Python version</h2>
-      <p class="guide-section__text">
-        Uninstall a Python version that was installed by uv.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[3].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[3].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[3].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python uninstall 3.11.9</span>
@@ -103,33 +90,29 @@ Available Python versions:
 
     <!-- Summary -->
     <section class="guide-section guide-section--summary">
-      <h2 class="guide-section__title">Summary</h2>
+      <h2 class="guide-section__title">{{ page().summary.title }}</h2>
       <div class="summary-content">
-        <p class="summary-text">
-          This guide covers the commands for managing Python versions with <strong>uv</strong>. You can install multiple Python versions, switch between them, and clean up versions you no longer need.
-        </p>
-        <h3 class="summary-subtitle">What this guide helps you with</h3>
+        <p class="summary-text" [innerHTML]="page().summary.text"></p>
+        <h3 class="summary-subtitle">{{ page().summary.whatTitle }}</h3>
         <ul class="summary-list">
-          <li>Install Python versions without needing Python pre-installed</li>
-          <li>List all installed and available Python versions</li>
-          <li>Find the path to a specific Python version</li>
-          <li>Uninstall Python versions that are no longer needed</li>
+          @for (item of page().summary.whatItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">How to use these commands</h3>
+        <h3 class="summary-subtitle">{{ page().summary.howTitle }}</h3>
         <ul class="summary-list">
-          <li>Run <code class="code-inline">uv python install</code> without arguments to install the latest version</li>
-          <li>Specify a version like <code class="code-inline">uv python install 3.12</code> for a specific release</li>
-          <li>Use <code class="code-inline">uv python find</code> to locate a specific version for your projects</li>
-          <li>Check <code class="code-inline">uv python list</code> regularly to see what versions you have available</li>
+          @for (item of page().summary.howItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">Learn more</h3>
-        <p class="summary-text">
-          To explore more options, check out the official uv documentation:
-        </p>
-        <ul class="summary-list">
-          <li><code class="code-inline">uv python --help</code> — Shows all Python-related commands</li>
-          <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener noreferrer" class="summary-link">Official Documentation</a> — Complete reference and guides</li>
-        </ul>
+        <h3 class="summary-subtitle">{{ page().summary.learnTitle }}</h3>
+        @if (page().summary.learnItems && page().summary.learnItems.length) {
+          <ul class="summary-list">
+            @for (item of page().summary.learnItems; track item) {
+              <li [innerHTML]="item"></li>
+            }
+          </ul>
+        }
       </div>
     </section>
   </div>
