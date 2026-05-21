@@ -39,7 +39,7 @@
        DESCRIPTION SECTION
        ================================================================ -->
   <section class="home__description">
-    <h2 class="home__section-title">Description</h2>
+    <h2 class="home__section-title">{{ 'home.descriptionSection' | translate }}</h2>
     <p class="home__description-text">{{ data().description }}</p>
   </section>
 
@@ -47,7 +47,7 @@
        FEATURES SECTION — Zed-style bordered cards
        ================================================================ -->
   <section class="home__features">
-    <h2 class="home__section-title">Key Features</h2>
+    <h2 class="home__section-title">{{ 'home.featuresTitle' | translate }}</h2>
     <ul class="home__features-grid">
       @for (feature of data().features; track feature.title) {
         <li class="home__feature-card">
@@ -63,7 +63,7 @@
        INSTALLATION SECTION — Platform tabs + terminal-style code
        ================================================================ -->
   <section class="home__installation">
-    <h2 class="home__section-title">Installation</h2>
+    <h2 class="home__section-title">{{ 'home.installationTitle' | translate }}</h2>
 
     <!-- Platform Tabs -->
     <nav class="home__install-tabs" role="tablist" aria-label="Installation platform">
@@ -90,11 +90,11 @@
     <!-- Code Block -->
     <div class="home__install-code-block" role="tabpanel">
       <div class="home__install-code-header">
-        <span class="home__install-code-label">Terminal</span>
+        <span class="home__install-code-label">{{ 'home.terminalLabel' | translate }}</span>
         <button
           class="home__copy-btn"
           (click)="copyInstall(getActiveCommand())"
-          [attr.aria-label]="copyInstallFeedback() || 'Copy command to clipboard'"
+          [attr.aria-label]="copyInstallFeedback() || ('home.copyAria' | translate)"
         >
           @if (copyInstallFeedback()) {
             {{ copyInstallFeedback() }}
@@ -114,15 +114,15 @@
        START SECTION — Code block + project files
        ================================================================ -->
   <section class="home__start">
-    <h2 class="home__section-title">Start</h2>
+    <h2 class="home__section-title">{{ 'home.startTitle' | translate }}</h2>
 
     <div class="home__start-code-block">
       <div class="home__install-code-header">
-        <span class="home__install-code-label">Terminal</span>
+        <span class="home__install-code-label">{{ 'home.terminalLabel' | translate }}</span>
         <button
           class="home__copy-btn"
           (click)="copyStart(data().startCode)"
-          [attr.aria-label]="copyStartFeedback() || 'Copy \'' + data().startCode + '\' to clipboard'"
+          [attr.aria-label]="copyStartFeedback() || ('home.copyAria' | translate)"
         >
           @if (copyStartFeedback()) {
             {{ copyStartFeedback() }}
@@ -140,12 +140,12 @@
     <p class="home__start-description">{{ data().startDescription }}</p>
 
     <!-- Project Files Block -->
-    <div class="home__project-files-block" role="region" aria-label="Project files">
+    <div class="home__project-files-block" role="region" [attr.aria-label]="'home.projectFilesLabel' | translate">
       <div class="home__project-files-header">
         <svg class="home__project-files-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M4 17l6-6-6-6M12 19h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="home__project-files-label">Project Files</span>
+        <span class="home__project-files-label">{{ 'home.projectFilesLabel' | translate }}</span>
       </div>
       <div class="home__project-files-content">
         <!-- Tree Structure -->
