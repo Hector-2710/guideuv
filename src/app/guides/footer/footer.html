@@ -2,18 +2,18 @@
   <div class="footer__container">
     <!-- Brand Section -->
     <div class="footer__brand">
-      <a routerLink="/" class="footer__logo" aria-label="GuideUV — Home">
+      <a routerLink="/" class="footer__logo" [attr.aria-label]="'footer.logoAria' | translate">
         <img src="uvlogo.png" alt="" width="40" height="40" aria-hidden="true">
         <span>GuideUV</span>
       </a>
       <p class="footer__description">
-        GuideUV — The modern guide for uv, the fast Python package manager.
+        {{ 'footer.description' | translate }}
       </p>
     </div>
 
     <!-- Quick Navigation -->
-    <nav class="footer__nav" aria-label="Footer navigation">
-      <h3 class="footer__heading">Quick Links</h3>
+    <nav class="footer__nav" [attr.aria-label]="'footer.navAria' | translate">
+      <h3 class="footer__heading">{{ 'footer.quickLinks' | translate }}</h3>
       <ul class="footer__nav-list">
         @for (link of navLinks; track link.route) {
           <li>
@@ -23,7 +23,7 @@
               [routerLinkActiveOptions]="{ exact: link.route === '/' }"
               class="footer__link"
             >
-              {{ link.label }}
+              {{ 'footer.' + link.labelKey | translate }}
             </a>
           </li>
         }
@@ -32,7 +32,7 @@
 
     <!-- Social + Contact -->
     <div class="footer__social-contact">
-      <h3 class="footer__heading">Connect</h3>
+      <h3 class="footer__heading">{{ 'footer.connect' | translate }}</h3>
       <div class="footer__social-icons">
         @for (social of socialLinks; track social.url) {
           <a
@@ -40,7 +40,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="footer__social-link"
-            [attr.aria-label]="social.label"
+            [attr.aria-label]="'footer.' + social.labelKey | translate"
           >
             <svg
               [attr.viewBox]="social.viewBox"
@@ -63,7 +63,7 @@
   <!-- Bottom Bar -->
   <div class="footer__bottom">
     <p class="footer__copyright">
-      &copy; {{ currentYear() }} GuideUV. All rights reserved.
+      &copy; {{ currentYear() }} GuideUV. {{ 'footer.copyright' | translate }}
     </p>
   </div>
 </footer>

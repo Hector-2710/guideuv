@@ -2,25 +2,20 @@
   <header class="guide-page__header">
     <div class="guide-page__badge">
       <span class="guide-page__badge-icon">&#x1F4C4;</span>
-      <span>Guide</span>
+      <span>{{ 'guides.badge' | translate }}</span>
     </div>
-    <h2 class="guide-page__title">Package</h2>
-    <p class="guide-page__lead">
-      uv supports building Python packages into source and binary distributions via <code class="code-inline">uv build</code>
-      and uploading them to a registry with <code class="code-inline">uv publish</code>.
-    </p>
+    <h2 class="guide-page__title">{{ page().title }}</h2>
+    <p class="guide-page__lead" [innerHTML]="page().lead"></p>
   </header>
 
   <div class="guide-page__content">
     <!-- uv build -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Build package</h2>
-      <p class="guide-section__text">
-        Build your Python project and create distribution artifacts in the <code class="code-inline">dist/</code> directory.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[0].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[0].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[0].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv build</span>
@@ -42,13 +37,11 @@ my_package-1.0.0.tar.gz</span></code></pre>
 
     <!-- uv publish -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Publish package</h2>
-      <p class="guide-section__text">
-        Upload your built packages to a registry (PyPI by default or a custom index).
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[1].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[1].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[1].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv publish</span>
@@ -65,13 +58,11 @@ Successfully published my-package 1.0.0</span></code></pre>
 
     <!-- uv version -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Update version</h2>
-      <p class="guide-section__text">
-        Update the version of your project in <code class="code-inline">pyproject.toml</code>.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[2].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[2].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[2].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv version 1.0.0</span>
@@ -86,35 +77,29 @@ Successfully published my-package 1.0.0</span></code></pre>
 
     <!-- Summary -->
     <section class="guide-section guide-section--summary">
-      <h2 class="guide-section__title">Summary</h2>
+      <h2 class="guide-section__title">{{ page().summary.title }}</h2>
       <div class="summary-content">
-        <p class="summary-text">
-          This guide covers the package building and publishing commands for <strong>uv</strong>. You can build your Python project into distribution artifacts and publish them to PyPI or a custom registry.
-        </p>
-        <h3 class="summary-subtitle">What this guide helps you with</h3>
+        <p class="summary-text" [innerHTML]="page().summary.text"></p>
+        <h3 class="summary-subtitle">{{ page().summary.whatTitle }}</h3>
         <ul class="summary-list">
-          <li>Build Python packages into wheel and source distributions</li>
-          <li>Publish packages to PyPI or a custom registry</li>
-          <li>Manage project versions directly from the command line</li>
-          <li>Bump versions using semantic versioning (major, minor, patch)</li>
+          @for (item of page().summary.whatItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">How to use these commands</h3>
+        <h3 class="summary-subtitle">{{ page().summary.howTitle }}</h3>
         <ul class="summary-list">
-          <li>Run <code class="code-inline">uv build</code> to create distribution artifacts in the <code class="code-inline">dist/</code> directory</li>
-          <li>Run <code class="code-inline">uv publish</code> to upload your packages to PyPI</li>
-          <li>Use <code class="code-inline">uv version 1.0.0</code> to set a specific version</li>
-          <li>Use <code class="code-inline">uv version --bump patch</code> to increment the patch version</li>
-          <li>Use <code class="code-inline">uv version --bump minor</code> or <code class="code-inline">--bump major</code> for larger bumps</li>
+          @for (item of page().summary.howItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">Learn more</h3>
-        <p class="summary-text">
-          To explore more options, check out the official uv documentation:
-        </p>
-        <ul class="summary-list">
-          <li><code class="code-inline">uv build --help</code> — Shows all build options</li>
-          <li><code class="code-inline">uv publish --help</code> — Shows all publish options</li>
-          <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener noreferrer" class="summary-link">Official Documentation</a> — Complete reference and guides</li>
-        </ul>
+        <h3 class="summary-subtitle">{{ page().summary.learnTitle }}</h3>
+        @if (page().summary.learnItems && page().summary.learnItems.length) {
+          <ul class="summary-list">
+            @for (item of page().summary.learnItems; track item) {
+              <li [innerHTML]="item"></li>
+            }
+          </ul>
+        }
       </div>
     </section>
   </div>

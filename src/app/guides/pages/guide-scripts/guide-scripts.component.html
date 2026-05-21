@@ -2,26 +2,20 @@
   <header class="guide-page__header">
     <div class="guide-page__badge">
       <span class="guide-page__badge-icon">&#x1F4C4;</span>
-      <span>Guide</span>
+      <span>{{ 'guides.badge' | translate }}</span>
     </div>
-    <h2 class="guide-page__title">Scripts</h2>
-    <p class="guide-page__lead">
-      A Python script is a file intended for standalone execution, e.g., with <code class="code-inline">python script.py</code>.
-      Using uv to execute scripts ensures that script dependencies are managed without manually
-      managing environments.
-    </p>
+    <h2 class="guide-page__title">{{ page().title }}</h2>
+    <p class="guide-page__lead" [innerHTML]="page().lead"></p>
   </header>
 
   <div class="guide-page__content">
     <!-- uv run -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Run a script</h2>
-      <p class="guide-section__text">
-        Execute a Python script with uv. Dependencies are automatically managed in a temporary environment.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[0].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[0].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[0].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv run script.py</span>
@@ -35,13 +29,11 @@ INFO: Uvicorn running on http://127.0.0.1:8000</span></code></pre>
 
     <!-- uv run --with -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Run with dependencies</h2>
-      <p class="guide-section__text">
-        Run a script with additional packages installed in a temporary environment.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[1].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[1].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[1].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv run --with requests script.py</span>
@@ -56,13 +48,11 @@ Chart saved to output.png</span></code></pre>
 
     <!-- uv add --script -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Add script dependency</h2>
-      <p class="guide-section__text">
-        Add a dependency to a script that uses inline metadata. Updates the script's dependency declarations.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[2].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[2].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[2].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv add --script requests script.py</span>
@@ -75,13 +65,11 @@ Chart saved to output.png</span></code></pre>
 
     <!-- uv remove --script -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Remove script dependency</h2>
-      <p class="guide-section__text">
-        Remove a dependency from a script that uses inline metadata.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[3].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[3].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[3].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv remove --script requests script.py</span>
@@ -94,33 +82,29 @@ Chart saved to output.png</span></code></pre>
 
     <!-- Summary -->
     <section class="guide-section guide-section--summary">
-      <h2 class="guide-section__title">Summary</h2>
+      <h2 class="guide-section__title">{{ page().summary.title }}</h2>
       <div class="summary-content">
-        <p class="summary-text">
-          This guide covers the scripts interface for <strong>uv</strong>. Scripts are Python files intended for standalone execution, and uv manages their dependencies automatically without requiring a full project setup.
-        </p>
-        <h3 class="summary-subtitle">What this guide helps you with</h3>
+        <p class="summary-text" [innerHTML]="page().summary.text"></p>
+        <h3 class="summary-subtitle">{{ page().summary.whatTitle }}</h3>
         <ul class="summary-list">
-          <li>Run Python scripts with automatic dependency management</li>
-          <li>Run scripts with temporary dependencies without modifying the script</li>
-          <li>Add and remove dependencies directly in the script using inline metadata</li>
-          <li>Keep scripts self-contained and portable</li>
+          @for (item of page().summary.whatItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">How to use these commands</h3>
+        <h3 class="summary-subtitle">{{ page().summary.howTitle }}</h3>
         <ul class="summary-list">
-          <li>Use <code class="code-inline">uv run script.py</code> to execute a script</li>
-          <li>Use <code class="code-inline">uv run --with package script.py</code> for temporary dependencies</li>
-          <li>Add <code class="code-inline"># /// script</code> metadata to your script for persistent dependencies</li>
-          <li>Use <code class="code-inline">uv add --script package script.py</code> to add dependencies to the script</li>
+          @for (item of page().summary.howItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">Learn more</h3>
-        <p class="summary-text">
-          To explore more options, check out the official uv documentation:
-        </p>
-        <ul class="summary-list">
-          <li><code class="code-inline">uv run --help</code> — Shows all run options</li>
-          <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener noreferrer" class="summary-link">Official Documentation</a> — Complete reference and guides</li>
-        </ul>
+        <h3 class="summary-subtitle">{{ page().summary.learnTitle }}</h3>
+        @if (page().summary.learnItems && page().summary.learnItems.length) {
+          <ul class="summary-list">
+            @for (item of page().summary.learnItems; track item) {
+              <li [innerHTML]="item"></li>
+            }
+          </ul>
+        }
       </div>
     </section>
   </div>

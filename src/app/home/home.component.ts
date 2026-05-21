@@ -2,11 +2,12 @@ import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { HomeDataService } from './home-data.service';
 import { TerminalMockupComponent } from './components/terminal-mockup/terminal-mockup.component';
+import { TranslatePipe } from '../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, TerminalMockupComponent],
+  imports: [CommonModule, TerminalMockupComponent, TranslatePipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

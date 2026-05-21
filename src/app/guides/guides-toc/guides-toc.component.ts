@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 export interface TocItem {
   id: string;
@@ -10,7 +11,7 @@ export interface TocItem {
 @Component({
   selector: 'app-guides-toc',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './guides-toc.component.html',
   styleUrl: './guides-toc.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

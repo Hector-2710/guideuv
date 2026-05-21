@@ -2,25 +2,20 @@
   <header class="guide-page__header">
     <div class="guide-page__badge">
       <span class="guide-page__badge-icon">&#x1F4C4;</span>
-      <span>Guide</span>
+      <span>{{ 'guides.badge' | translate }}</span>
     </div>
-    <h2 class="guide-page__title">Utility</h2>
-    <p class="guide-page__lead">
-      Managing and inspecting uv's state, such as the cache, storage directories,
-      or performing a self-update.
-    </p>
+    <h2 class="guide-page__title">{{ page().title }}</h2>
+    <p class="guide-page__lead" [innerHTML]="page().lead"></p>
   </header>
 
   <div class="guide-page__content">
     <!-- uv cache clean -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Clean cache</h2>
-      <p class="guide-section__text">
-        Remove cache entries to free up disk space.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[0].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[0].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[0].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv cache clean</span>
@@ -33,13 +28,11 @@
 
     <!-- uv cache prune -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Prune cache</h2>
-      <p class="guide-section__text">
-        Remove outdated cache entries that are no longer needed.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[1].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[1].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[1].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv cache prune</span>
@@ -52,13 +45,11 @@
 
     <!-- uv cache dir -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Cache directory</h2>
-      <p class="guide-section__text">
-        Show the path to uv's cache directory.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[2].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[2].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[2].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv cache dir</span>
@@ -71,13 +62,11 @@
 
     <!-- uv tool dir -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Tool directory</h2>
-      <p class="guide-section__text">
-        Show the path to uv's tool directory where installed tools are stored.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[3].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[3].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[3].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tool dir</span>
@@ -90,13 +79,11 @@
 
     <!-- uv python dir -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Python directory</h2>
-      <p class="guide-section__text">
-        Show the path to uv's Python versions directory.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[4].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[4].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[4].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv python dir</span>
@@ -109,13 +96,11 @@
 
     <!-- uv self update -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Self-update</h2>
-      <p class="guide-section__text">
-        Update uv to the latest version to get new features and bug fixes.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[5].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[5].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[5].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv self update</span>
@@ -130,35 +115,29 @@ Installed uv 0.4.1</span>
 
     <!-- Summary -->
     <section class="guide-section guide-section--summary">
-      <h2 class="guide-section__title">Summary</h2>
+      <h2 class="guide-section__title">{{ page().summary.title }}</h2>
       <div class="summary-content">
-        <p class="summary-text">
-          This guide covers the utility commands for <strong>uv</strong>. These commands help you manage uv's internal state, clean up disk space, and keep uv itself up to date.
-        </p>
-        <h3 class="summary-subtitle">What this guide helps you with</h3>
+        <p class="summary-text" [innerHTML]="page().summary.text"></p>
+        <h3 class="summary-subtitle">{{ page().summary.whatTitle }}</h3>
         <ul class="summary-list">
-          <li>Clean up cache to free up disk space</li>
-          <li>Prune outdated cache entries automatically</li>
-          <li>Find the paths to uv's storage directories</li>
-          <li>Update uv to the latest version</li>
+          @for (item of page().summary.whatItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">How to use these commands</h3>
+        <h3 class="summary-subtitle">{{ page().summary.howTitle }}</h3>
         <ul class="summary-list">
-          <li>Use <code class="code-inline">uv cache clean</code> to remove all cache entries</li>
-          <li>Use <code class="code-inline">uv cache clean --older 30d</code> to remove old entries</li>
-          <li>Use <code class="code-inline">uv cache prune</code> to remove outdated entries automatically</li>
-          <li>Use <code class="code-inline">uv self update</code> to get the latest uv version</li>
-          <li>Use <code class="code-inline">uv cache dir</code>, <code class="code-inline">uv tool dir</code>, and <code class="code-inline">uv python dir</code> to find storage locations</li>
+          @for (item of page().summary.howItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">Learn more</h3>
-        <p class="summary-text">
-          To explore more options, check out the official uv documentation:
-        </p>
-        <ul class="summary-list">
-          <li><code class="code-inline">uv cache --help</code> — Shows all cache commands</li>
-          <li><code class="code-inline">uv self --help</code> — Shows self-update options</li>
-          <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener noreferrer" class="summary-link">Official Documentation</a> — Complete reference and guides</li>
-        </ul>
+        <h3 class="summary-subtitle">{{ page().summary.learnTitle }}</h3>
+        @if (page().summary.learnItems && page().summary.learnItems.length) {
+          <ul class="summary-list">
+            @for (item of page().summary.learnItems; track item) {
+              <li [innerHTML]="item"></li>
+            }
+          </ul>
+        }
       </div>
     </section>
   </div>

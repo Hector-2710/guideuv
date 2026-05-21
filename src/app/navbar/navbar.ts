@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SearchService, SearchResult } from '../search/search.service';
 import { SearchResultsComponent } from '../search/search-results.component';
+import { LanguageService } from '../core/i18n/language.service';
+import { TranslatePipe } from '../core/i18n/translate.pipe';
 
 export interface NavbarLink {
   label: string;
@@ -22,7 +24,7 @@ export const REPO_LINKS: NavbarExternalLink[] = [
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, SearchResultsComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive, SearchResultsComponent, TranslatePipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
@@ -30,6 +32,8 @@ export const REPO_LINKS: NavbarExternalLink[] = [
 export class Navbar {
   private router = inject(Router);
   private searchService = inject(SearchService);
+  readonly languageService = inject(LanguageService);
+  readonly currentLang = this.languageService.currentLang;
 
   private searchDebounceTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -118,5 +122,9 @@ export class Navbar {
     this.isSearchDropdownOpen.set(false);
     this.searchQuery.set('');
     this.searchResults.set([]);
+  }
+
+  toggleLanguage(): void {
+    this.languageService.toggleLanguage();
   }
 }

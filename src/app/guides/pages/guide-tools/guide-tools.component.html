@@ -2,24 +2,20 @@
   <header class="guide-page__header">
     <div class="guide-page__badge">
       <span class="guide-page__badge-icon">&#x1F4C4;</span>
-      <span>Guide</span>
+      <span>{{ 'guides.badge' | translate }}</span>
     </div>
-    <h2 class="guide-page__title">Tools</h2>
-    <p class="guide-page__lead">
-      Running and installing tools published to Python package indexes, e.g., <code class="code-inline">ruff</code> or <code class="code-inline">black</code>.
-    </p>
+    <h2 class="guide-page__title">{{ page().title }}</h2>
+    <p class="guide-page__lead" [innerHTML]="page().lead"></p>
   </header>
 
   <div class="guide-page__content">
     <!-- uvx -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Run tool on demand</h2>
-      <p class="guide-section__text">
-        Use <code class="code-inline">uvx</code> to run a tool in a temporary environment without installing it. Perfect for one-off commands.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[0].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[0].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[0].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uvx ruff check .</span>
@@ -34,13 +30,11 @@ Content-Type: text/html...</span></code></pre>
 
     <!-- uv tool run -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Run installed tool</h2>
-      <p class="guide-section__text">
-        Run a tool that has been installed with <code class="code-inline">uv tool install</code>.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[1].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[1].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[1].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tool run ruff check .</span>
@@ -54,13 +48,11 @@ All files passed</span>
 
     <!-- uv tool install -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Install tool</h2>
-      <p class="guide-section__text">
-        Install a tool user-wide for persistent access across your system.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[2].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[2].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[2].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tool install ruff</span>
@@ -73,13 +65,11 @@ All files passed</span>
 
     <!-- uv tool uninstall -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Uninstall tool</h2>
-      <p class="guide-section__text">
-        Uninstall a tool that was installed with <code class="code-inline">uv tool install</code>.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[3].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[3].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[3].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tool uninstall ruff</span>
@@ -93,13 +83,11 @@ All files passed</span>
 
     <!-- uv tool list -->
     <section class="guide-section">
-      <h2 class="guide-section__title">List tools</h2>
-      <p class="guide-section__text">
-        List all tools installed user-wide.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[4].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[4].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[4].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tool list</span>
@@ -115,13 +103,11 @@ All files passed</span>
 
     <!-- uv tool update-shell -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Update shell</h2>
-      <p class="guide-section__text">
-        Update the shell to include tool executables in your PATH. Run this after installing tools.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[5].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[5].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[5].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv tool update-shell</span>
@@ -135,35 +121,29 @@ Restart your shell or run: source /home/user/.bashrc</span>
 
     <!-- Summary -->
     <section class="guide-section guide-section--summary">
-      <h2 class="guide-section__title">Summary</h2>
+      <h2 class="guide-section__title">{{ page().summary.title }}</h2>
       <div class="summary-content">
-        <p class="summary-text">
-          This guide covers the tools interface for <strong>uv</strong>. You can run tools on-demand without installation or install them globally for persistent access across your system.
-        </p>
-        <h3 class="summary-subtitle">What this guide helps you with</h3>
+        <p class="summary-text" [innerHTML]="page().summary.text"></p>
+        <h3 class="summary-subtitle">{{ page().summary.whatTitle }}</h3>
         <ul class="summary-list">
-          <li>Run tools like ruff, black, or httpie without installing them</li>
-          <li>Install tools globally for persistent command-line access</li>
-          <li>List and manage installed tools</li>
-          <li>Update your shell PATH to use installed tools directly</li>
+          @for (item of page().summary.whatItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">How to use these commands</h3>
+        <h3 class="summary-subtitle">{{ page().summary.howTitle }}</h3>
         <ul class="summary-list">
-          <li>Use <code class="code-inline">uvx</code> for one-off commands — no installation needed</li>
-          <li>Use <code class="code-inline">uv tool install</code> for tools you use frequently</li>
-          <li>Run <code class="code-inline">uv tool update-shell</code> after installing tools to update your PATH</li>
-          <li>Use <code class="code-inline">uv tool list</code> to see what tools are installed</li>
-          <li>Use <code class="code-inline">uv tool run</code> to execute installed tools</li>
+          @for (item of page().summary.howItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">Learn more</h3>
-        <p class="summary-text">
-          To explore more options, check out the official uv documentation:
-        </p>
-        <ul class="summary-list">
-          <li><code class="code-inline">uvx --help</code> — Shows all uvx options</li>
-          <li><code class="code-inline">uv tool --help</code> — Shows all tool commands</li>
-          <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener noreferrer" class="summary-link">Official Documentation</a> — Complete reference and guides</li>
-        </ul>
+        <h3 class="summary-subtitle">{{ page().summary.learnTitle }}</h3>
+        @if (page().summary.learnItems && page().summary.learnItems.length) {
+          <ul class="summary-list">
+            @for (item of page().summary.learnItems; track item) {
+              <li [innerHTML]="item"></li>
+            }
+          </ul>
+        }
       </div>
     </section>
   </div>

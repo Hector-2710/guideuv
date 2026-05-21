@@ -5,17 +5,17 @@
   tabindex="0"
   role="dialog"
   aria-modal="true"
-  aria-label="Resultados de búsqueda"
+  [attr.aria-label]="'search.modalAria' | translate"
 >
   <div class="search-modal">
     <div class="search-modal__header">
       <h2 class="search-modal__title">
-        Resultados para: <span class="search-modal__query">"{{ query() }}"</span>
+        {{ 'search.title' | translate }}: <span class="search-modal__query">"{{ query() }}"</span>
       </h2>
       <button
         class="search-modal__close"
         (click)="onClose()"
-        aria-label="Cerrar"
+        [attr.aria-label]="'search.closeAria' | translate"
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" focusable="false">
           <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -26,8 +26,8 @@
     <div class="search-modal__body">
       @if (results().length === 0) {
         <div class="search-modal__empty">
-          <p>No se encontraron resultados para tu búsqueda.</p>
-          <p class="search-modal__hint">Intenta con otras palabras clave.</p>
+          <p>{{ 'search.emptyText' | translate }}</p>
+          <p class="search-modal__hint">{{ 'search.emptyHint' | translate }}</p>
         </div>
       } @else {
         <ul class="search-modal__results">
@@ -50,8 +50,8 @@
     @if (totalPages() > 1) {
       <div class="search-modal__footer">
         <span class="search-modal__info">
-          Página {{ currentPage() }} de {{ totalPages() }}
-          ({{ results().length }} resultados)
+          {{ 'search.page' | translate }} {{ currentPage() }} {{ 'search.of' | translate }} {{ totalPages() }}
+          ({{ results().length }} {{ 'search.results' | translate }})
         </span>
         <div class="search-modal__pagination">
           <button
@@ -59,14 +59,14 @@
             [disabled]="!hasPrevPage()"
             (click)="prevPage()"
           >
-            Anterior
+            {{ 'search.previous' | translate }}
           </button>
           <button
             class="search-modal__page-btn"
             [disabled]="!hasNextPage()"
             (click)="nextPage()"
           >
-            Siguiente
+            {{ 'search.next' | translate }}
           </button>
         </div>
       </div>

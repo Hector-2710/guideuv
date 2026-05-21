@@ -7,7 +7,7 @@
 
 **GuideUV** is an interactive, educational landing page that teaches developers how to use [**uv**](https://docs.astral.sh/uv/) — the blazing-fast Python package and project manager written in Rust. Through a clean, visual interface with terminal mockups, copy-pasteable code snippets, and structured guides, GuideUV makes learning `uv` intuitive and enjoyable.
 
-**Live demo:** [guideuv.dev](https://guideuv.vercel.app/)
+**Live demo:** [guideuv.vercel.app](https://guideuv.vercel.app/)
 
 ---
 
@@ -28,7 +28,6 @@
 ### Landing Page
 - Platform toggle (Linux / Windows) for install commands
 - One-click copy for every command block
-- Interactive terminal window with macOS-style chrome
 - Feature cards highlighting `uv` capabilities
 
 ### Guides Section (8 pages, lazy-loaded)
@@ -57,7 +56,6 @@
 |------------|---------|
 | [**Angular 21**](https://angular.dev) | Framework — standalone components, signals |
 | [**TypeScript 5.9**](https://www.typescriptlang.org) | Strict mode, no `any` |
-| [**Vitest**](https://vitest.dev) | Unit testing (no Karma/Jasmine) |
 | **SCSS with BEM** | Scalable, maintainable styles |
 | **CSS Custom Properties** | Design token system for theming |
 
@@ -133,7 +131,6 @@ src/
 
 ## Design System
 
-GuideUV uses a **Zed-inspired dark theme** with a bold yellow accent. All design tokens are defined as CSS custom properties in `src/styles.css`.
 
 | Role | Color |
 |------|-------|
@@ -156,7 +153,3 @@ Contributions are welcome! Whether you want to fix a typo, add a new guide page,
 This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for details. You are free to use, modify, and distribute this project for any purpose.
 
 ---
-
-<p align="center">
-  <sub>Built with ❤️ using Angular 21 • <code>npm@11.12.1</code></sub>
-</p>

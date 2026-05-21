@@ -9,6 +9,8 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, NavigationEnd, Router } from '@angular/router';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { LanguageService } from '../../core/i18n/language.service';
 import { filter } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { GuidesLeftNavComponent } from '../guides-left-nav/guides-left-nav.component';
@@ -18,7 +20,7 @@ import { GuidesStateService } from '../guides-state.service';
 @Component({
   selector: 'app-guides-shell',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, GuidesLeftNavComponent, GuidesTocComponent],
+  imports: [CommonModule, RouterOutlet, GuidesLeftNavComponent, GuidesTocComponent, TranslatePipe],
   templateUrl: './guides-shell.component.html',
   styleUrl: './guides-shell.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -28,6 +30,7 @@ export class GuidesShellComponent {
   private readonly guidesState = inject(GuidesStateService);
   private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly langService = inject(LanguageService);
   private observer: IntersectionObserver | null = null;
 
   readonly sections = this.guidesState.sections;
@@ -37,7 +40,9 @@ export class GuidesShellComponent {
   readonly isNavOpen = this.guidesState.isNavOpen;
 
   readonly navStateLabel = computed(() =>
-    this.isNavOpen() ? 'Cerrar navegación' : 'Abrir navegación'
+    this.isNavOpen()
+      ? this.langService.t('guides.shell.navStateClose')
+      : this.langService.t('guides.shell.navStateOpen')
   );
 
   constructor() {

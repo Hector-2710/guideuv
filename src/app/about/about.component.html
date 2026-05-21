@@ -6,29 +6,23 @@
         <span>{{ developerName.charAt(0) }}</span>
       </div>
     </div>
-    <h1 class="about__title">About {{ developerName }}</h1>
-    <p class="about__tagline">{{ tagline }}</p>
+    <h1 class="about__title">{{ 'about.title' | translate }}</h1>
+    <p class="about__tagline">{{ tagline() }}</p>
   </section>
 
   <!-- About GuideUV -->
   <section class="about__section">
-    <h2 class="about__section-title">What is GuideUV?</h2>
+    <h2 class="about__section-title">{{ 'about.whatIsTitle' | translate }}</h2>
     <div class="about__card">
-      <p class="about__text">
-        <strong>GuideUV</strong> is a website designed to help people understand and learn <strong>UV</strong>, the next-generation Python package manager.
-      </p>
-      <p class="about__text">
-        My goal is to simplify the UV learning curve by translating technical documentation into clear, accessible content. Here you'll find step-by-step guides, practical examples, and tips to help you migrate from pip to UV without headaches.
-      </p>
-      <p class="about__text">
-        This website is <strong>open source</strong> and built with Angular. Want to see the code or contribute? The link is in the navbar!
-      </p>
+      <p class="about__text" [innerHTML]="'about.whatIsText1' | translate"></p>
+      <p class="about__text">{{ 'about.whatIsText2' | translate }}</p>
+      <p class="about__text" [innerHTML]="'about.whatIsText3' | translate"></p>
     </div>
   </section>
 
   <!-- Social Links -->
   <section class="about__section">
-    <h2 class="about__section-title">Connect with me</h2>
+    <h2 class="about__section-title">{{ 'about.connectTitle' | translate }}</h2>
     <div class="about__social-grid">
       @for (link of socialLinks; track link.name) {
         <a
@@ -76,9 +70,9 @@
 
   <!-- Ideas / Get Involved -->
   <section class="about__section">
-    <h2 class="about__section-title">More ideas</h2>
+    <h2 class="about__section-title">{{ 'about.ideasTitle' | translate }}</h2>
     <div class="about__ideas-grid">
-      @for (idea of ideas; track idea.title) {
+      @for (idea of ideas(); track idea.title) {
         <div class="about__idea-card">
           <div class="about__idea-icon">
             @switch (idea.icon) {
@@ -110,7 +104,7 @@
 
   <!-- Footer Message -->
   <footer class="about__footer">
-    <p>Thanks for visiting GuideUV 🚀</p>
-    <p class="about__footer-sub">Made with ❤️ and ☕</p>
+    <p>{{ 'about.footer' | translate }}</p>
+    <p class="about__footer-sub">{{ 'about.footerSub' | translate }}</p>
   </footer>
 </main>

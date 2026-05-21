@@ -1,5 +1,5 @@
-<aside class="guides-toc" aria-label="Tabla de contenidos">
-  <span class="guides-toc__title">On this page</span>
+<aside class="guides-toc" [attr.aria-label]="'guides.toc.aria' | translate">
+  <span class="guides-toc__title">{{ 'guides.toc.onThisPage' | translate }}</span>
   @if (items().length > 0) {
     <ul class="guides-toc__list">
       @for (item of items(); track item.id) {
@@ -15,6 +15,6 @@
       }
     </ul>
   } @else {
-    <p class="guides-toc__empty">without subtitles.</p>
+    <p class="guides-toc__empty">{{ 'guides.toc.withoutSubtitles' | translate }}</p>
   }
 </aside>

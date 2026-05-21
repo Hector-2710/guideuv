@@ -2,25 +2,20 @@
   <header class="guide-page__header">
     <div class="guide-page__badge">
       <span class="guide-page__badge-icon">&#x1F4C4;</span>
-      <span>Guide</span>
+      <span>{{ 'guides.badge' | translate }}</span>
     </div>
-    <h2 class="guide-page__title">The pip interface</h2>
-    <p class="guide-page__lead">
-      Manually managing environments and packages — intended to be used in legacy workflows
-      or cases where the high-level commands do not provide enough control.
-    </p>
+    <h2 class="guide-page__title">{{ page().title }}</h2>
+    <p class="guide-page__lead" [innerHTML]="page().lead"></p>
   </header>
 
   <div class="guide-page__content">
     <!-- uv venv -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Create virtual environment</h2>
-      <p class="guide-section__text">
-        Create a new virtual environment. Replaces <code class="code-inline">venv</code> and <code class="code-inline">virtualenv</code>.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[0].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[0].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[0].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv venv</span>
@@ -33,13 +28,11 @@
 
     <!-- uv pip install -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Install packages</h2>
-      <p class="guide-section__text">
-        Install packages into the current environment. Replaces <code class="code-inline">pip install</code>.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[1].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[1].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[1].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv pip install requests flask</span>
@@ -54,13 +47,11 @@ Installed 15 packages</span></code></pre>
 
     <!-- uv pip show -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Show package info</h2>
-      <p class="guide-section__text">
-        Show details about an installed package. Replaces <code class="code-inline">pip show</code>.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[2].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[2].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[2].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv pip show requests</span>
@@ -77,13 +68,11 @@ Requires: certifi, charset-normalizer, idna, urllib3</span></code></pre>
 
     <!-- uv pip list -->
     <section class="guide-section">
-      <h2 class="guide-section__title">List packages</h2>
-      <p class="guide-section__text">
-        List all installed packages in the current environment. Replaces <code class="code-inline">pip list</code>.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[3].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[3].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[3].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv pip list</span>
@@ -102,13 +91,11 @@ werkzeug   3.0.1</span></code></pre>
 
     <!-- uv pip freeze -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Freeze packages</h2>
-      <p class="guide-section__text">
-        List installed packages and their versions in a format suitable for requirements files.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[4].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[4].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[4].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv pip freeze</span>
@@ -127,13 +114,11 @@ werkzeug==3.0.1</span>
 
     <!-- uv pip check -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Check packages</h2>
-      <p class="guide-section__text">
-        Check that the current environment has compatible packages and no conflicts.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[5].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[5].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[5].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv pip check</span>
@@ -146,13 +131,11 @@ werkzeug==3.0.1</span>
 
     <!-- uv pip uninstall -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Uninstall packages</h2>
-      <p class="guide-section__text">
-        Uninstall packages from the current environment. Replaces <code class="code-inline">pip uninstall</code>.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[6].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[6].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[6].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv pip uninstall requests</span>
@@ -165,13 +148,11 @@ werkzeug==3.0.1</span>
 
     <!-- uv pip tree -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Dependency tree</h2>
-      <p class="guide-section__text">
-        View the dependency tree for the current environment. Replaces <code class="code-inline">pipdeptree</code>.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[7].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[7].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[7].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv pip tree</span>
@@ -193,13 +174,11 @@ requests [2.31.0]
 
     <!-- uv pip compile -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Compile requirements</h2>
-      <p class="guide-section__text">
-        Compile requirements into a lockfile. Replaces <code class="code-inline">pip-compile</code>.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[8].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[8].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[8].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv pip compile requirements.in -o requirements.txt</span>
@@ -214,13 +193,11 @@ Compiled 18 packages to lock.txt</span></code></pre>
 
     <!-- uv pip sync -->
     <section class="guide-section">
-      <h2 class="guide-section__title">Sync environment</h2>
-      <p class="guide-section__text">
-        Sync an environment with a lockfile. Replaces <code class="code-inline">pip-sync</code>.
-      </p>
+      <h2 class="guide-section__title">{{ page().sections[9].title }}</h2>
+      <p class="guide-section__text" [innerHTML]="page().sections[9].text"></p>
       <div class="terminal-example">
         <div class="terminal-example__header">
-          <span class="terminal-example__title">Example</span>
+          <span class="terminal-example__title">{{ page().sections[9].exampleTitle }}</span>
         </div>
         <div class="terminal-example__content">
           <pre><code><span class="terminal-prompt">$</span> <span class="terminal-command">uv pip sync requirements.txt</span>
@@ -235,35 +212,29 @@ Installed 18 packages</span></code></pre>
 
     <!-- Summary -->
     <section class="guide-section guide-section--summary">
-      <h2 class="guide-section__title">Summary</h2>
+      <h2 class="guide-section__title">{{ page().summary.title }}</h2>
       <div class="summary-content">
-        <p class="summary-text">
-          This guide covers the low-level pip-like interface for <strong>uv</strong>. These commands give you fine-grained control over virtual environments and package management, useful for legacy workflows or when you need more control than the high-level commands provide.
-        </p>
-        <h3 class="summary-subtitle">What this guide helps you with</h3>
+        <p class="summary-text" [innerHTML]="page().summary.text"></p>
+        <h3 class="summary-subtitle">{{ page().summary.whatTitle }}</h3>
         <ul class="summary-list">
-          <li>Create and manage virtual environments manually</li>
-          <li>Install, list, and uninstall packages in a specific environment</li>
-          <li>View package details and dependency trees</li>
-          <li>Generate lockfiles and sync environments from them</li>
-          <li>Check for package conflicts and compatibility issues</li>
+          @for (item of page().summary.whatItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">How to use these commands</h3>
+        <h3 class="summary-subtitle">{{ page().summary.howTitle }}</h3>
         <ul class="summary-list">
-          <li>Start with <code class="code-inline">uv venv</code> to create a virtual environment</li>
-          <li>Use <code class="code-inline">uv pip install</code> to add packages to that environment</li>
-          <li>Use <code class="code-inline">uv pip compile</code> to generate a lockfile from requirements</li>
-          <li>Use <code class="code-inline">uv pip sync</code> to ensure your environment matches the lockfile</li>
-          <li>Use <code class="code-inline">uv pip check</code> to verify there are no conflicts</li>
+          @for (item of page().summary.howItems; track item) {
+            <li [innerHTML]="item"></li>
+          }
         </ul>
-        <h3 class="summary-subtitle">Learn more</h3>
-        <p class="summary-text">
-          To explore more options, check out the official uv documentation:
-        </p>
-        <ul class="summary-list">
-          <li><code class="code-inline">uv pip --help</code> — Shows all pip-related commands</li>
-          <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener noreferrer" class="summary-link">Official Documentation</a> — Complete reference and guides</li>
-        </ul>
+        <h3 class="summary-subtitle">{{ page().summary.learnTitle }}</h3>
+        @if (page().summary.learnItems && page().summary.learnItems.length) {
+          <ul class="summary-list">
+            @for (item of page().summary.learnItems; track item) {
+              <li [innerHTML]="item"></li>
+            }
+          </ul>
+        }
       </div>
     </section>
   </div>
