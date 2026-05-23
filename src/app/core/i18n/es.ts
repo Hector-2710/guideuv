@@ -24,7 +24,7 @@ export const ES_TRANSLATIONS: Translations = {
     subtitle:
       'Un gestor de paquetes y proyectos Python extremadamente rápido, escrito en Rust',
     description:
-      'En el ecosistema Python, uv es el "nuevo en el bloque" que está cambiando rápidamente la forma en que los desarrolladores gestionan proyectos. Creado por Astral (el mismo equipo detrás del linter Ruff), es un instalador y resolvedor de paquetes Python extremadamente rápido escrito en Rust.',
+      'En el ecosistema Python, uv es el "El chico nuevo del barrio" que está cambiando rápidamente la forma en que los desarrolladores gestionan proyectos. Creado por Astral (el mismo equipo detrás del linter Ruff), es un instalador y resolvedor de paquetes Python extremadamente rápido escrito en Rust.',
     descriptionSection: 'Descripción',
     featuresTitle: 'Características principales',
     features: [
