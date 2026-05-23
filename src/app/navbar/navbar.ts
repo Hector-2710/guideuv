@@ -38,9 +38,9 @@ export class Navbar {
   private searchDebounceTimer: ReturnType<typeof setTimeout> | null = null;
 
   defaultLinks: NavbarLink[] = [
-    { label: 'Home', route: '/' },
-    { label: 'Guides', route: '/guides' },
-    { label: 'About Us', route: '/about' },
+    { label: 'navbar.home', route: '/' },
+    { label: 'navbar.guides', route: '/guides' },
+    { label: 'navbar.about', route: '/about' },
   ];
 
   links = input<NavbarLink[]>(this.defaultLinks);

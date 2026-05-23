@@ -16,7 +16,7 @@
             class="navbar__link"
             role="menuitem"
           >
-            {{ link.label }}
+            {{ link.label | translate }}
           </a>
         </li>
       }
@@ -128,7 +128,7 @@
         (click)="onLinkClick()"
         role="menuitem"
       >
-        {{ link.label }}
+        {{ link.label | translate }}
       </a>
     }
     @for (link of externalLinks(); track link.url) {
