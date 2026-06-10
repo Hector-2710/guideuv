@@ -55,13 +55,20 @@ export class GuidesShellComponent {
         const url = this.router.url;
         const slug = url.split('/').pop() ?? 'introduction';
         this.activeSlug.set(slug);
-        // Usamos setTimeout para asegurar que el DOM se haya actualizado tras la navegación
-        setTimeout(() => this.scanHeadings(), 0);
       });
 
-    // Manejar la carga inicial
+    // Manejar la carga inicial y re-escanear tras navegación (solo navegador)
     afterNextRender(() => {
       this.scanHeadings();
+
+      this.router.events
+        .pipe(
+          filter(event => event instanceof NavigationEnd),
+          takeUntilDestroyed(this.destroyRef)
+        )
+        .subscribe(() => {
+          setTimeout(() => this.scanHeadings(), 0);
+        });
     });
   }
 
@@ -74,6 +81,7 @@ export class GuidesShellComponent {
   }
 
   scanHeadings(): void {
+    if (typeof document === 'undefined') return;
     const headings = Array.from(
       document.querySelectorAll('.guides-shell__content h2, .guides-shell__content h3')
     );

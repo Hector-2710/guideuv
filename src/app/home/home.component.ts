@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeDataService } from './home-data.service';
 import { TerminalMockupComponent } from './components/terminal-mockup/terminal-mockup.component';
 import { TranslatePipe } from '../core/i18n/translate.pipe';
+import { SeoService } from '../core/seo/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,17 @@ import { TranslatePipe } from '../core/i18n/translate.pipe';
 })
 export class HomeComponent {
   private homeDataService = inject(HomeDataService);
+  private seo = inject(SeoService);
+
+  constructor() {
+    this.seo.setPageMeta({
+      title: 'GuideUV — Learn uv Python Package Manager',
+      description:
+        'Interactive guide for uv, the ultra-fast Python package manager by Astral. Learn uv with visual terminal mockups, step-by-step guides, and copy-pasteable commands.',
+      slug: '/',
+      fullTitle: 'GuideUV — Learn uv Python Package Manager',
+    });
+  }
 
   readonly data = this.homeDataService.data;
 
