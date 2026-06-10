@@ -1,0 +1,16 @@
+GOOGLE SEARCH CONSOLE - INSTRUCCIONES
+=======================================
+
+1. Ve a https://search.google.com/search-console
+2. Inicia sesión con tu cuenta de Google
+3. Agrega una propiedad: escribe "https://guideuv.dev" y presiona "Continuar"
+4. Elige el método de verificación "Archivo HTML"
+5. Google te dará un archivo para descargar, algo como: google123456789abcdef.html
+6. Coloca ESE archivo en la carpeta public/ de este proyecto
+7. Haz clic en "Verificar" en Google Search Console
+8. Una vez verificado, ve a la sección "Sitemaps" y agrega: https://guideuv.dev/sitemap.xml
+
+Método alternativo (DNS):
+- También puedes verificar agregando un registro TXT en tu DNS
+- En Search Console elige "Registro DNS" en lugar de "Archivo HTML"
+- Agrega el registro TXT que Google te proporciona en tu proveedor de DNS

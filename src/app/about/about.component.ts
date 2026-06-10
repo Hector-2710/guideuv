@@ -2,6 +2,7 @@ import { Component, inject, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../core/i18n/translate.pipe';
 import { LanguageService } from '../core/i18n/language.service';
+import { SeoService } from '../core/seo/seo.service';
 
 interface SocialLink {
   name: string;
@@ -19,6 +20,16 @@ interface SocialLink {
 })
 export class AboutComponent {
   private langService = inject(LanguageService);
+  private seo = inject(SeoService);
+
+  constructor() {
+    this.seo.setPageMeta({
+      title: 'About — GuideUV',
+      description:
+        'About GuideUV, the interactive guide for uv Python package manager. Open source project built with Angular to help developers learn uv.',
+      slug: '/about',
+    });
+  }
 
   developerName = 'Hector';
 
